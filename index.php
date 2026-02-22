@@ -14,100 +14,121 @@
 
     <style>
     body {
-        background-color: #f4f8ff;
-    }
+    background: linear-gradient(135deg, #e6f0ff, #f4f8ff);
+    font-family: 'Poppins', sans-serif;
+}
 
-    .hero {
+/* Hero Section */
+.hero {
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    background:
+        linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+        url('Photo/Pathein1.png') center/cover no-repeat;
+    color: #fff;
+}
 
-        /* linear-gradient(rgba(13, 110, 253, 0.7), rgba(13, 110, 253, 0.7)), */
-        /* url('') cover no-repeat; */
-        min-height: 85vh;
-        /* screen height 75% */
-        display: flex;
-        align-items: center;
+/* Service Section */
+.service-section {
+    padding: 5rem 0;
+    text-align: center;
+}
 
-        background:
-            linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
-            url('Photo/Pathein1.png') center/ cover no-repeat;
+/* Section Title */
+.service-section h2 {
+    font-weight: 700;
+    font-size: 2.5rem;
+    color: #0d6efd;
+    margin-bottom: 0.5rem;
+}
 
-        color: #fff;
-    }
+.service-section p {
+    color: #6c757d;
+    margin-bottom: 3rem;
+    font-size: 1rem;
+}
 
-    .hero-slide {
-        min-height: 75vh;
-        background-size: cover;
-        background-position: center;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: relative;
-    }
+/* Glassmorphism Cards */
+.service-card {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 2rem 1rem;
+    transition: all 0.4s ease;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.2);
+}
 
-    .hero-slide::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.45);
-    }
+.service-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 20px 40px rgba(13,110,253,0.2);
+}
 
-    .hero-slide .container {
-        position: relative;
-        z-index: 2;
-    }
+/* Top gradient line on hover */
+.service-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, #0d6efd, #20c997);
+    transition: 0.3s;
+    opacity: 0;
+}
 
-    .category-card {
-        transition: 0.3s;
-        border-radius: 15px;
-    }
+.service-card:hover::before {
+    opacity: 1;
+}
 
-    .category-card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-    }
+/* Icon Circle */
+.icon-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem auto;
+    font-size: 32px;
+    color: #fff;
+    background: linear-gradient(135deg, #0d6efd, #20c997);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    transition: transform 0.4s ease;
+}
 
-    .icon-box {
-        font-size: 40px;
-        color: #0d6efd;
-    }
+.service-card:hover .icon-circle {
+    transform: scale(1.2) rotate(10deg);
+}
 
-    .navbar-brand span {
-        font-size: 1.2rem;
-        letter-spacing: 1px;
-    }
+/* Card Title */
+.service-card h5 {
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: #ffffff;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: color 0.3s ease;
+}
 
+.service-card:hover h5 {
+    color: #0d6efd;
+}
+
+/* Card Description */
+.service-card p {
+    color: rgba(255,255,255,0.8);
+    font-size: 0.95rem;
+}
+
+/* Responsive */
+@media(max-width: 768px){
     .service-card {
-        border: none;
-        border-radius: 18px;
-        transition: all 0.35s ease;
-        background: #ffffff;
-        box-shadow: 0 8px 20px rgba(13, 110, 253, 0.08);
+        margin-bottom: 1.5rem;
     }
-
-    .service-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 15px 35px rgba(13, 110, 253, 0.2);
-    }
-
-    .icon-circle {
-        width: 80px;
-        height: 80px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: auto;
-        color: #fff;
-        font-size: 36px;
-        transition: 0.3s;
-    }
-
-    .service-card:hover .icon-circle {
-        transform: scale(1.1);
-    }
-
-    a.text-decoration-none:hover h5 {
-        color: #0d6efd;
-    }
+}
     </style>
 </head>
 
@@ -168,7 +189,7 @@
 
     <!-- ================= CATEGORY SECTION ================= -->
 
-    <section class="py-5 bg-light">
+    <section class="service-section py-5 bg-light">
         <div class="container">
 
             <div class="text-center mb-5">
@@ -224,7 +245,7 @@
                 </div>
 
                 <!-- Hotel -->
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <a href="#" class="text-decoration-none">
                         <div class="card service-card h-100 text-center p-4">
                             <div class="icon-circle bg-warning text-dark">
@@ -239,7 +260,7 @@
                 </div>
 
                 <!-- Travel -->
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <a href="#" class="text-decoration-none">
                         <div class="card service-card h-100 text-center p-4">
                             <div class="icon-circle bg-info">
@@ -253,9 +274,27 @@
                     </a>
                 </div>
 
+                <!-- Local Products -->
+                 <div class="col-md-4">
+                    <a href="#" class="text-decoration-none">
+                        <div class="card service-card h-100 text-center p-4">
+                            <div class="icon-circle bg-secondary">
+                                <i class="bi bi-bus-front"></i>
+                            </div>
+                            <h5 class="fw-bold mt-4 text-dark">ဒေသထွက်ကုန်များ</h5>
+                            <p class="text-muted">
+                                ခရိုင်အလိုက် ဒေသထွက်ကုန်များ
+                            </p>
+                        </div>
+                    </a>
+                </div>
+
             </div>
         </div>
     </section>
+
+    <!-- ================= Location Section ================= -->
+     <iframe height="500" width="100%" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d122233.53243081593!2d94.66536439288318!3d16.786728123085606!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30bfea063fe53f85%3A0xd07f864b399e7c13!2sPathein!5e0!3m2!1sen!2smm!4v1771767312787!5m2!1sen!2smm" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
 
     <!-- ================= FOOTER ================= -->

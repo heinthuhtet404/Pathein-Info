@@ -7,78 +7,48 @@ if (session_status() === PHP_SESSION_NONE) {
 <div class="d-flex">
 
     <!-- Sidebar -->
-    <div id="sidebar" class="sidebar text-white p-3">
-
-        <h4 class="mb-4">Super Admin</h4>
+    <div id="sidebar" class="bg-gradient-primary text-white p-3 vh-100" style="min-width: 250px;">
+        <h4 class="mb-4 text-center fw-bold">Super Admin</h4>
 
         <ul class="nav nav-pills flex-column mb-auto">
 
-            <li class="nav-item">
-                <a href="AdminDashboardUp.php" class="nav-link active">
+            <li class="nav-item mb-2">
+                <a href="SuperAdminDashboard.php" class="nav-link active text-white rounded-3 shadow-sm d-flex align-items-center">
                     <i class="fa-solid fa-list me-2"></i> Dashboard
                 </a>
             </li>
 
-            <!-- Dropdown -->
-            <li>
-
-
-                <!-- <div class="collapse ps-4" id="schoolMenu">
-                        <ul class="nav flex-column">
-                            <li>
-                                <a href="#" class="nav-link text-white">
-                                    <i class="fa-sharp-duotone fa-solid fa-house"></i>အခြေခံပညာကျောင်းများ
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="nav-link text-white">
-                                    <i class="fa-sharp fa-solid fa-landmark"></i>တက္ကသိုလ်များ
-                                </a>
-                            </li>
-                        </ul>
-                    </div> -->
-            </li>
-
-            <li>
-                <a href="selectSchool.php" class="nav-link">
-                    <!-- <i class="fa-solid fa-truck-medical me-2"></i> ကျန်းမာရေး -->
-                    <i class="fa-solid fa-truck-medical me-2"></i> School Lists
+            <li class="nav-item mb-2">
+                <a href="selectSchool.php" class="nav-link text-white rounded-3 shadow-sm d-flex align-items-center">
+                    <i class="fa-solid fa-school me-2"></i> School Lists
                 </a>
             </li>
 
-            <li>
-                <a href="select_curriculum.php" class="nav-link">
-                    <!-- <i class="fas fa-bus me-2"></i> သယ်ယူပို့ဆောင်ရေး -->
-                    <i class="fas fa-bus me-2"></i> Hotel Lists
+            <li class="nav-item mb-2">
+                <a href="select_curriculum.php" class="nav-link text-white rounded-3 shadow-sm d-flex align-items-center">
+                    <i class="fas fa-hotel me-2"></i> Hotel Lists
                 </a>
             </li>
 
-            <li>
-                <a href="#" class="nav-link">
-                    <!-- <i class="fas fa-building me-2"></i> ဟိုတည်များ -->
-                    <i class="fas fa-building me-2"></i> Hospital Lists
+            <li class="nav-item mb-2">
+                <a href="#" class="nav-link text-white rounded-3 shadow-sm d-flex align-items-center">
+                    <i class="fas fa-hospital me-2"></i> Hospital Lists
                 </a>
             </li>
 
-            <li>
-                <a href="edit_school.php" class="nav-link">
-                    <!-- <i class="fa-solid fa-truck-medical me-2"></i> ကျန်းမာရေး -->
-                    <i class="fa-solid fa-truck-medical me-2"></i>Transport Lists
+            <li class="nav-item mb-2">
+                <a href="edit_school.php" class="nav-link text-white rounded-3 shadow-sm d-flex align-items-center">
+                    <i class="fas fa-truck me-2"></i> Transport Lists
                 </a>
             </li>
-            <li>
-                <a href="superAdminUserLists.php" class="nav-link">
-                    <!-- <i class="fa-solid fa-truck-medical me-2"></i> ကျန်းမာရေး -->
-                    <i class="fa-solid fa-truck-medical me-2"></i>User Lists
+
+            <li class="nav-item mb-2">
+                <a href="superAdminUserLists.php" class="nav-link text-white rounded-3 shadow-sm d-flex align-items-center">
+                    <i class="fas fa-users me-2"></i> User Lists
+                </a>
             </li>
+
         </ul>
-
-        <hr>
-
-        <a href="#" class="nav-link text-white">
-            <i class="fas fa-right-from-bracket me-2"></i> Logout
-        </a>
-
     </div>
 
     <!-- Main Content -->
@@ -87,47 +57,36 @@ if (session_status() === PHP_SESSION_NONE) {
         <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm px-3">
 
             <!-- Sidebar Toggle Button -->
-            <button class="btn btn-dark mb-3" onclick="toggleSidebar()">
+            <button class="btn btn-primary me-3" onclick="toggleSidebar()">
                 <i class="fas fa-bars"></i>
             </button>
-
 
             <!-- Right Side -->
             <div class="ms-auto d-flex align-items-center">
 
                 <!-- Notification Icon -->
-                <div class="me-3">
-                    <i class="fas fa-bell fs-5"></i>
+                <div class="me-3 position-relative">
+                    <i class="fas fa-bell fs-5 text-secondary"></i>
+                    <span class="position-absolute top-0 start-100 translate-middle p-1 bg-danger border border-light rounded-circle"></span>
                 </div>
 
                 <!-- User Dropdown -->
                 <div class="dropdown">
-
-
                     <a class="text-dark d-flex align-items-center text-decoration-none dropdown-toggle" href="#"
                         id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-
-
-
-                        <strong>
-
-                            <?php echo $_SESSION['email']; ?>
-
-                        </strong>
+                        <strong><?php echo htmlspecialchars($_SESSION['email']); ?></strong>
+                        <img src="https://via.placeholder.com/35" alt="avatar" class="rounded-circle ms-2">
                     </a>
-
 
                     <ul class="dropdown-menu dropdown-menu-end shadow">
                         <li>
-                            <a class="dropdown-item" href="profile.php">
-                                <i class="fas fa-user me-2"></i>Profile
+                            <a class="dropdown-item d-flex align-items-center" href="profile.php">
+                                <i class="fas fa-user me-2"></i> Profile
                             </a>
                         </li>
+                        <li><hr class="dropdown-divider"></li>
                         <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li>
-                            <a class="dropdown-item text-danger" href="logout.php">
+                            <a class="dropdown-item d-flex align-items-center text-danger" href="login.php">
                                 <i class="fas fa-sign-out-alt me-2"></i> Logout
                             </a>
                         </li>
@@ -135,3 +94,46 @@ if (session_status() === PHP_SESSION_NONE) {
                 </div>
             </div>
         </nav>
+
+<style>
+/* Sidebar gradient & hover */
+.bg-gradient-primary {
+    background: linear-gradient(180deg, #4e73df 0%, #224abe 100%);
+}
+
+#sidebar .nav-link {
+    transition: all 0.3s ease;
+}
+
+#sidebar .nav-link:hover {
+    background-color: rgba(255,255,255,0.15);
+    transform: translateX(5px);
+}
+
+/* Main content */
+.content {
+    background-color: #f8f9fa;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Notification badge */
+.position-relative span {
+    width: 10px;
+    height: 10px;
+}
+
+/* Rounded avatar */
+img.rounded-circle {
+    width: 35px;
+    height: 35px;
+    object-fit: cover;
+}
+</style>
+
+<script>
+function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    sidebar.classList.toggle('d-none');
+}
+</script>

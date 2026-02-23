@@ -23,17 +23,21 @@ $total_pages = ceil($total_row['total'] / $limit);
 <body>
     <?php include('SuperAdminSideBar.php'); ?>
 
-    <div class="container-fluid py-4">
+    
         <!-- Header -->
-        <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap">
-            <div>
-                <h3 class="fw-bold">👤 User Lists</h3>
-                <p class="text-muted mb-0">Manage all registered users</p>
-            </div>
-            <a href="SuperAdminDashboard.php" class="btn btn-primary shadow-sm">
-                <i class="bi bi-arrow-left-circle me-1"></i> Back to Dashboard
-            </a>
+        <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap" style="margin-top: 20px;">
+        <div class="d-flex align-items-center">
+            <!-- <button id="toggleBtn" class="btn btn-dark me-3">☰</button> -->
+        <div>
+            <h3 class="fw-bold mb-0">👤 User Lists</h3>
+            <p class="text-muted mb-0">Manage all registered users</p>
         </div>
+    </div>
+
+    <a href="SuperAdminDashboard.php" class="btn btn-primary shadow-sm">
+        <i class="bi bi-arrow-left-circle me-1"></i> Back to Dashboard
+    </a>
+</div>
 
         <!-- Card/Table -->
         <div class="card shadow-sm rounded-4">
@@ -107,9 +111,41 @@ $total_pages = ceil($total_row['total'] / $limit);
             </div>
         </div>
 
-    </div>
+    
+    <style>
+/* Sidebar smooth animation */
+.sidebar {
+    width: 250px;
+    min-height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background: #212529;
+    transition: transform 0.3s ease-in-out;
+}
+
+.sidebar.hide {
+    transform: translateX(-100%);
+}
+
+/* Main content shift */
+.main-content {
+    margin-left: 250px;
+    transition: margin-left 0.3s ease-in-out;
+}
+
+.main-content.full {
+    margin-left: 0;
+}
+</style>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+document.getElementById("toggleBtn").addEventListener("click", function(){
+    document.querySelector(".sidebar").classList.toggle("hide");
+    document.querySelector(".main-content").classList.toggle("full");
+});
+</script>
 </body>
 </html>

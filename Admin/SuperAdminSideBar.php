@@ -7,7 +7,7 @@ if (session_status() === PHP_SESSION_NONE) {
 <div class="d-flex">
 
     <!-- Sidebar -->
-    <div id="sidebar" class="bg-gradient-primary text-white p-3 vh-100" style="min-width: 250px;">
+    <div id="sidebar" class="sidebar bg-gradient-primary text-white vh-100">
         <h4 class="mb-4 text-center fw-bold">Super Admin</h4>
 
         <ul class="nav nav-pills flex-column mb-auto">
@@ -101,6 +101,18 @@ if (session_status() === PHP_SESSION_NONE) {
     background: linear-gradient(180deg, #4e73df 0%, #224abe 100%);
 }
 
+/* Sidebar smooth toggle */
+#sidebar {
+    width: 250px;
+    min-height: 100vh;
+    transition: transform 0.3s ease-in-out;
+}
+
+#sidebar.hide {
+    transform: translateX(-100%);
+}
+
+/* Nav link hover */
 #sidebar .nav-link {
     transition: all 0.3s ease;
 }
@@ -110,11 +122,17 @@ if (session_status() === PHP_SESSION_NONE) {
     transform: translateX(5px);
 }
 
-/* Main content */
+/* Main content shift */
 .content {
     background-color: #f8f9fa;
     min-height: 100vh;
     padding: 20px;
+    transition: margin-left 0.3s ease-in-out;
+    margin-left: 250px;
+}
+
+.content.full {
+    margin-left: 0;
 }
 
 /* Notification badge */
@@ -129,11 +147,39 @@ img.rounded-circle {
     height: 35px;
     object-fit: cover;
 }
+
+.sidebar {
+    width: 250px;
+    padding: 20px; /* replaces p-3 */
+    box-sizing: border-box; /* ensures padding does not increase width */
+    min-height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background: #4e73df; /* your Super Admin blue gradient */
+    background: linear-gradient(180deg, #4e73df 0%, #224abe 100%);
+    transition: transform 0.3s ease-in-out;
+}
+
+.sidebar.hide {
+    transform: translateX(-100%);
+}
+
+.main-content {
+    margin-left: 250px;
+    transition: margin-left 0.3s ease-in-out;
+}
+.main-content.full {
+    margin-left: 0;
+}
 </style>
 
 <script>
 function toggleSidebar() {
     const sidebar = document.getElementById('sidebar');
-    sidebar.classList.toggle('d-none');
+    const content = document.querySelector('.content');
+
+    sidebar.classList.toggle('hide');
+    content.classList.toggle('full');
 }
 </script>

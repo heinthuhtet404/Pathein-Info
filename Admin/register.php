@@ -9,12 +9,13 @@ if (isset($_POST['submit'])) {
     $address  = trim($_POST['address']);
     $idCard   = trim($_POST['idCard']);
     $business_name = trim($_POST['business_name']);
+    $category_id = !empty($_POST['category_id']) ? $_POST['category_id'] : NULL;
 
     $role_id = 1;
     $password = "Password12345@";
-    $category_id = !empty($_POST['category_id']) ? $_POST['category_id'] : NULL;
 
-    if (empty($name) || empty($email) || empty($phone) || empty($address) || empty($idCard) || empty($business_name)) {
+    // Validation
+    if (empty($name) || empty($email) || empty($phone) || empty($idCard) || empty($business_name) || empty($category_id)) {
         echo "<script>alert('အချက်အလက်များကိုဖြည့်သွင်းပါ။');</script>";
     }
 
@@ -22,54 +23,74 @@ if (isset($_POST['submit'])) {
         echo "<script>alert('Invalid email format');</script>";
     }
 
-    else if (!preg_match('/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{8,}$/', $password)) {
-        echo "<script>alert('Password must be strong (8 chars, upper, lower, number)');</script>";
-    }
-
     else {
 
+        // Escape (Basic protection)
         $email = mysqli_real_escape_string($db, $email);
+        $phone = mysqli_real_escape_string($db, $phone);
+        $idCard = mysqli_real_escape_string($db, $idCard);
         $business_name = mysqli_real_escape_string($db, $business_name);
 
-        $check = mysqli_query($db, "SELECT user_id FROM users WHERE email='$email'");
-        if (mysqli_num_rows($check) > 0) {
-            echo "<script>alert('Email already exists');</script>";
+        // 1️⃣ Check Email / Phone / ID Card unique
+        $checkUser = mysqli_query($db, "
+            SELECT user_id FROM users
+            WHERE email='$email'
+            OR phone='$phone'
+            OR idCard='$idCard'
+        ");
+
+        if (mysqli_num_rows($checkUser) > 0) {
+            echo "<script>alert('Email, Phone or ID Card already exists');</script>";
         }
         else {
 
-            $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-            $category_value = ($category_id === NULL) ? "NULL" : $category_id;
+            // 2️⃣ Check Business Name + Category combination
+            $checkBusiness = mysqli_query($db, "
+                SELECT user_id FROM users
+                WHERE business_name='$business_name'
+                AND category_id='$category_id'
+            ");
 
-            $uploadDir = "uploads/";
-            if (!file_exists($uploadDir)) {
-                mkdir($uploadDir, 0777, true);
+            if (mysqli_num_rows($checkBusiness) > 0) {
+                echo "<script>alert('ဒီလုပ်ငန်းအမျိုးအစားထဲတွင် ဒီလုပ်ငန်းအမည်ရှိပြီးသားဖြစ်နေပါသည်။');</script>";
             }
+            else {
 
-            $photoName = "";
-            if (!empty($_FILES['photo']['name'])) {
-                $photoName = time() . "_" . $_FILES['photo']['name'];
-                move_uploaded_file($_FILES['photo']['tmp_name'], $uploadDir . $photoName);
-            }
+                $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-            $licenceName = "";
-            if (!empty($_FILES['Licence']['name'])) {
-                $licenceName = time() . "_lic_" . $_FILES['Licence']['name'];
-                move_uploaded_file($_FILES['Licence']['tmp_name'], $uploadDir . $licenceName);
-            }
+                $uploadDir = "uploads/";
+                if (!file_exists($uploadDir)) {
+                    mkdir($uploadDir, 0777, true);
+                }
 
-            $query = "INSERT INTO users 
-            (name, email, photo, phone, address, idCard, licence, business_name, password, role_id, category_id, status, is_registered, created_at)
-            VALUES 
-            ('$name', '$email', '$photoName', '$phone', '$address', '$idCard', '$licenceName', '$business_name',
-             '$hashedPassword', $role_id, $category_value, 'Pending', 0, NOW())";
+                // Photo upload
+                $photoName = "";
+                if (!empty($_FILES['photo']['name'])) {
+                    $photoName = time() . "_" . basename($_FILES['photo']['name']);
+                    move_uploaded_file($_FILES['photo']['tmp_name'], $uploadDir . $photoName);
+                }
 
-            if (mysqli_query($db, $query)) {
-                echo "<script>
-                        alert('အောင်မြင်ပါသည်။');
-                        window.location.href='login.php';
-                      </script>";
-            } else {
-                echo "<script>alert('မအောင်မြင်ပါ။');</script>";
+                // Licence upload
+                $licenceName = "";
+                if (!empty($_FILES['Licence']['name'])) {
+                    $licenceName = time() . "_lic_" . basename($_FILES['Licence']['name']);
+                    move_uploaded_file($_FILES['Licence']['tmp_name'], $uploadDir . $licenceName);
+                }
+
+                $query = "INSERT INTO users
+                (name, email, photo, phone, address, idCard, licence, business_name, password, role_id, category_id, status, is_registered, created_at)
+                VALUES
+                ('$name', '$email', '$photoName', '$phone', '$address', '$idCard', '$licenceName', '$business_name',
+                '$hashedPassword', $role_id, $category_id, 'Pending', 0, NOW())";
+
+                if (mysqli_query($db, $query)) {
+                    echo "<script>
+                            alert('အောင်မြင်ပါသည်။');
+                            window.location.href='login.php';
+                          </script>";
+                } else {
+                    echo "<script>alert('မအောင်မြင်ပါ။');</script>";
+                }
             }
         }
     }

@@ -1,0 +1,15 @@
+{
+    "name": "heinthuhtet/admin",
+    "autoload": {
+        "psr-4": {
+            "Heinthuhtet\\Admin\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "heinthuhtet404",
+            "email": "heinthuhtet404@gmail.com"
+        }
+    ],
+    "require": {}
+}

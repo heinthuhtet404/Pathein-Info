@@ -499,7 +499,7 @@ body {
         <p class="lead mb-4 fs-4">
             တစ်နေရာတည်းတွင်ရှာဖွေနိုင်ပါသည်။
         </p> -->
-        <a href="#" class="btn-frosted">
+        <a href="#services" class="btn-frosted">
     စတင်ကြည့်ရှုမည်
 </a>
     </div>
@@ -522,7 +522,7 @@ body {
 
     <!-- ================= CATEGORY SECTION ================= -->
 
-    <section class="service-section py-5 bg-light">
+    <section id="services" class="service-section py-5 bg-light">
         <div class="container">
 
             <div class="text-center mb-5">

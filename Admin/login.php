@@ -26,6 +26,27 @@ if ($result && mysqli_num_rows($result) == 1) {
 
     $row = mysqli_fetch_assoc($result);
 
+
+/* ✅ Super Admin First Check */
+if ($row['role_id'] == 3) {
+
+    if ($password === "Superadmin12345@") {
+
+        $_SESSION['user_id'] = $row['user_id'];
+        $_SESSION['email']   = $row['email'];
+        $_SESSION['role_id'] = 3;
+
+        header("Location: SuperAdminDashboard.php");
+        exit;
+
+    } else {
+        echo "<script>alert('Superadmin password incorrect');</script>";
+        exit;
+    }
+}
+
+
+// Other User
     if (password_verify($password, $row['password'])) {
 
 
@@ -43,16 +64,43 @@ if ($result && mysqli_num_rows($result) == 1) {
         $_SESSION['school_id'] = $schoolData['school_id'];
     }
 
+    // ✅ Get hotel_id
+$hotelQuery = mysqli_query($db, 
+    "SELECT hotel_id FROM hotels WHERE user_id = {$row['user_id']}");
 
-          // ✅ Super Admin
-        if ($row['role_id'] == 3) {
-            $_SESSION['role_id'] = 3;
-            header("Location: SuperAdminDashboard.php");
-            exit;
-        }
+if(mysqli_num_rows($hotelQuery) > 0){
+    $hotelData = mysqli_fetch_assoc($hotelQuery);
+    $_SESSION['hotel_id'] = $hotelData['hotel_id'];
+}
+
+
+// ✅ Get clinic_id
+$clinicQuery = mysqli_query($db, 
+    "SELECT clinics_id FROM clinics WHERE user_id = {$row['user_id']}");
+
+if(mysqli_num_rows($clinicQuery) > 0){
+    $clinicData = mysqli_fetch_assoc($clinicQuery);
+    $_SESSION['clinic_id'] = $clinicData['clinic_id'];
+}
+
+// ✅ Get Bus_line_id
+$busQuery = mysqli_query($db, 
+    "SELECT busline_id FROM bus_line WHERE user_id = {$row['user_id']}");
+
+if(mysqli_num_rows($busQuery) > 0){
+    $busData = mysqli_fetch_assoc($busQuery);
+    $_SESSION['busline_id'] = $busData['busline_id'];
+}
 
 
 
+
+
+
+
+if($row['role_id'] == 1 && $row['category_id']==5){
+    header("Location: productAdminDashboard.php");
+}
 
         // ✅ Category Admin
         if ($row['role_id'] == 1) {
@@ -71,20 +119,20 @@ if ($result && mysqli_num_rows($result) == 1) {
                         exit;
 
                     case 3:
-                        header("Location: transportAdminDashboard.php");
+                        header("Location: BusAdminDashboard.php");
                         exit;
 
                     case 4:
                         header("Location: hotelAdminDashboard.php");
                         exit;
 
-                    case 5:
-                        header("Location: productAdminDashboard.php");
-                        exit;
+                    // case 5:
+                    //     header("Location: productAdminDashboard.php");
+                    //     exit;
 
-                    case 6:
-                        header("Location: tourismAdminDashboard.php");
-                        exit;
+                    // case 6:
+                    //     header("Location: tourismAdminDashboard.php");
+                    //     exit;
                 }
 
             }
@@ -102,20 +150,19 @@ if ($result && mysqli_num_rows($result) == 1) {
                         exit;
 
                     case 3:
-                        header("Location: register_transport.php");
+                        header("Location: register_bus.php");
                         exit;
 
                     case 4:
                         header("Location: register_hotel.php");
                         exit;
+                    // case 5:
+                    //     header("Location: register_university.php");
+                    //     exit;
 
-                    case 5:
-                        header("Location: register_product.php");
-                        exit;
-
-                    case 6:
-                        header("Location: register_tourism.php");
-                        exit;
+                    // case 6:
+                    //     header("Location: register_tourism.php");
+                    //     exit;
                 }
             }
          

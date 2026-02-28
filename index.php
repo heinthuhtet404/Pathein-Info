@@ -275,6 +275,146 @@ body {
     font-size: 0.95rem;
     color: rgba(255,255,255,0.85);
 }
+
+.hero {
+            position: relative;
+            min-height: 85vh;
+            width: 100%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            background-color: #000;
+        }
+
+        .slider-wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: flex;
+            width: 100%;
+            height: 100%;
+            transition: transform 1.2s cubic-bezier(0.65, 0, 0.35, 1);
+        }
+
+        .slide {
+            min-width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+        }
+
+        .slide::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-container {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 0 15px;
+        }
+        .btn-frosted {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.btn-frosted:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.25);
+}
+.full-section {
+    width: 100%;
+    background: linear-gradient(135deg, #4facfe, #00f2fe); /* optional gradient */
+    color: #fff; /* text color */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh; /* makes it at least 60% of viewport height */
+    text-align: center;
+}
+
+.full-section .container {
+    max-width: 1000px; /* optional, keeps text readable */
+}
+.modern-hero {
+    position: relative;
+    width: 100%;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url('Photo/educationforpatheininfo.png') center/cover no-repeat;
+    color: #fff;
+    overflow: hidden;
+}
+
+.modern-hero .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5); /* dark overlay for readability */
+    z-index: 1;
+}
+
+.modern-hero .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    padding: 0 20px;
+}
+
+.hero-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+}
+
+.btn-modern {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+    border: none;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.btn-modern:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.3);
+}
     </style>
 </head>
 
@@ -318,7 +458,7 @@ body {
     </nav>
 
     <!-- ================= HERO SECTION ================= -->
-    <section class="hero-section">
+    <!-- <section class="hero-section">
     <div class="overlay"></div>
     <div class="hero-content text-center">
         <h1 class="hero-title">
@@ -332,7 +472,53 @@ body {
     စတင်ကြည့်ရှုမည်
 </a>
     </div>
+</section> -->
+<section class="hero">
+    <div class="slider-wrapper" id="sliderWrapper">
+        <?php
+        $heroImages = [
+            "Photo/Pathein1.png",
+            "Photo/educationforpatheininfo.png",
+            "Photo/healthforpatheininfo.JPG.webp",
+            "Photo/transportationforpatheininfo.jpg",
+            "Photo/hotelforpatheininfo.jpg",
+            "Photo/localproductforpatheininfo.png",
+            "Photo/travelforpatheininfo.jpg"
+        ];
+
+        foreach ($heroImages as $img):
+        ?>
+            <div class="slide" style="background-image: url('<?php echo $img; ?>');"></div>
+        <?php endforeach; ?>
+    </div>
+
+    <div class="container hero-container">
+        <!-- <h3 class="fw-bold mb-3 display-6">
+            <span class="text-warning">ပုသိမ်မြို့၏</span> ပညာရေး၊ ကျန်းမာရေး၊ သယ်ယူပို့ဆောင်ရေး၊ ဟိုတယ်နှင့် လည်ပတ်စရာနေရာများကို
+        </h3>
+        <p class="lead mb-4 fs-4">
+            တစ်နေရာတည်းတွင်ရှာဖွေနိုင်ပါသည်။
+        </p> -->
+        <a href="#" class="btn-frosted">
+    စတင်ကြည့်ရှုမည်
+</a>
+    </div>
 </section>
+<!-- <section class="modern-hero">
+    <div class="overlay"></div>
+    <div class="hero-content text-center">
+        <h3 class="hero-title">
+            <span class="text-warning">ပုသိမ်မြို့၏</span> 
+            ပညာရေး၊ ကျန်းမာရေး၊ သယ်ယူပို့ဆောင်ရေး၊ ဟိုတယ်နှင့် လည်ပတ်စရာနေရာများကို
+        </h3>
+        <p class="hero-subtitle">
+            တစ်နေရာတည်းတွင်ရှာဖွေနိုင်ပါသည်။
+        </p>
+        <a href="#services" class="btn-modern">
+            စတင်ကြည့်ရှုမည်
+        </a>
+    </div>
+</section> -->
 
     <!-- ================= CATEGORY SECTION ================= -->
 
@@ -490,6 +676,22 @@ body {
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        const wrapper = document.getElementById('sliderWrapper');
+        const slides = document.querySelectorAll('.slide');
+        let index = 0;
+
+        function startSlider() {
+            index++;
+            if (index >= slides.length) {
+                index = 0;
+            }
+            wrapper.style.transform = `translateX(-${index * 100}%)`;
+        }
+
+        setInterval(startSlider, 3000);
+    </script>
 </body>
 
 </html>

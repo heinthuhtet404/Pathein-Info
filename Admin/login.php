@@ -152,57 +152,105 @@ if (isset($_POST['login'])) {
 }
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            height: 100vh;
+            background: linear-gradient(135deg, #6c5ce7, #00b894);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .login-card {
+            border-radius: 1rem;
+            padding: 2rem;
+            background: #ffffff;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .login-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .login-header {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #2d3436;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-control:focus {
+            border-color: #6c5ce7;
+            box-shadow: 0 0 0 0.2rem rgba(108, 92, 231, 0.25);
+        }
+
+        .btn-primary {
+            background: #6c5ce7;
+            border: none;
+            font-weight: 600;
+            transition: background 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background: #5a4bcf;
+        }
+
+        .register-link {
+            color: #6c5ce7;
+            font-weight: 500;
+        }
+
+        .register-link:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 
-<body class="bg-light">
+<body>
 
-    <div class="container mt-5">
-        <div class="row justify-content-center">
-            <div class="col-md-5">
+    <div class="login-card col-md-5 col-11">
+        <div class="login-header">
+            Welcome Back
+        </div>
+        <form method="POST">
 
-                <div class="card shadow">
-                    <div class="card-header text-center fw-bold">
-                        Login
-                    </div>
-
-                    <div class="card-body">
-                        <form method="POST">
-
-                            <div class="mb-3">
-                                <label>Email</label>
-                                <input type="email" name="email" class="form-control" required>
-                            </div>
-
-                            <div class="mb-3">
-                                <label>Password</label>
-                                <input type="password" name="password" class="form-control" required>
-                            </div>
-
-                            <div class="d-grid">
-                                <button type="submit" name="login" class="btn btn-primary">
-                                    Login
-                                </button>
-                            </div>
-
-                        </form>
-                        <div class="text-center mt-3">
-                            <p>
-                                If you don't have an account,
-                                <a href="register.php" class="fw-bold text-decoration-none">
-                                    please register
-                                </a>
-                            </p>
-                        </div>
-
-                    </div>
-                </div>
-
+            <div class="mb-3">
+                <label class="form-label">Email</label>
+                <input type="email" name="email" class="form-control" placeholder="Enter your email" required>
             </div>
+
+            <div class="mb-4">
+                <label class="form-label">Password</label>
+                <input type="password" name="password" class="form-control" placeholder="Enter your password" required>
+            </div>
+
+            <div class="d-grid mb-3">
+                <button type="submit" name="login" class="btn btn-primary btn-lg">
+                    Login
+                </button>
+            </div>
+
+        </form>
+
+        <div class="text-center">
+            <p class="mb-0">
+                Don't have an account?
+                <a href="register.php" class="register-link">Register here</a>
+            </p>
         </div>
     </div>
 

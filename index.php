@@ -415,6 +415,30 @@ body {
     transform: translateY(-3px);
     box-shadow: 0 12px 25px rgba(0,0,0,0.3);
 }
+
+/* Hover text overlay (initially hidden) */
+.service-card-bg .service-hover-text {
+    position: absolute;
+    inset: 0; /* top:0; bottom:0; left:0; right:0; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 1rem 2rem;
+    color: #fff;
+    background: rgba(0,0,0,0.6); /* semi-transparent overlay */
+    opacity: 0;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    z-index: 3; /* above icon & existing overlay */
+    transform: translateY(20px);
+}
+
+/* Show overlay on hover */
+.service-card-bg:hover .service-hover-text {
+    opacity: 1;
+    transform: translateY(0);
+}
     </style>
 </head>
 
@@ -536,27 +560,24 @@ body {
 <div class="col-md-4">
     <a href="Academic.php" class="text-decoration-none">
         <div class="service-card-bg h-100"
-             style="background-image: url('Photo/educationforpatheininfo.png');">
+     style="background-image: url('Photo/educationforpatheininfo.png');">
 
-            <!-- Icon -->
-            <div class="icon-circle">
-                <i class="bi bi-mortarboard"></i>
-            </div>
+    <div class="icon-circle">
+        <i class="bi bi-mortarboard"></i>
+    </div>
 
-            <!-- Text -->
-            <div class="service-content">
-                <h5>ပညာရေး</h5>
-                <p>
-                    ကျောင်းများ၊ တက္ကသိုလ်များနှင့် သင်တန်းများ
-                </p>
-            </div>
-
-        </div>
+    <!-- NEW overlay wrapper for hover text -->
+    <div class="service-hover-text">
+        <h5>ပညာရေး</h5>
+        <p>ကျောင်းများ၊ တက္ကသိုလ်များနှင့် သင်တန်းများ</p>
+    </div>
+</div>
     </a>
 </div>
 
                 <!-- Health -->
-                <div class="col-md-4">
+                <!-- Health -->
+<div class="col-md-4">
     <a href="#" class="text-decoration-none">
         <div class="service-card-bg h-100"
              style="background-image: url('Photo/healthforpatheininfo.JPG.webp');">
@@ -565,19 +586,18 @@ body {
                 <i class="bi bi-heart-pulse"></i>
             </div>
 
-            <div class="service-content">
+            <!-- Hover Text -->
+            <div class="service-hover-text">
                 <h5>ကျန်းမာရေး</h5>
-                <p>
-                    ဆေးရုံများ၊ ဆေးခန်းများနှင့် ကျန်းမာရေးဝန်ဆောင်မှုများ
-                </p>
+                <p>ဆေးရုံများ၊ ဆေးခန်းများနှင့် ကျန်းမာရေးဝန်ဆောင်မှုများ</p>
             </div>
 
         </div>
     </a>
 </div>
 
-                <!-- Transport -->
-                <div class="col-md-4">
+<!-- Transport -->
+<div class="col-md-4">
     <a href="#" class="text-decoration-none">
         <div class="service-card-bg h-100"
              style="background-image: url('Photo/transportationforpatheininfo.jpg');">
@@ -586,19 +606,18 @@ body {
                 <i class="bi bi-bus-front"></i>
             </div>
 
-            <div class="service-content">
+            <!-- Hover Text -->
+            <div class="service-hover-text">
                 <h5>သယ်ယူပို့ဆောင်ရေး</h5>
-                <p>
-                    ကား၊ ဘတ်စ်၊ လေကြောင်းနှင့် သယ်ယူပို့ဆောင်ရေးများ
-                </p>
+                <p>ကား၊ ဘတ်စ်၊ လေကြောင်းနှင့် သယ်ယူပို့ဆောင်ရေးများ</p>
             </div>
 
         </div>
     </a>
 </div>
 
-                <!-- Hotel -->
-                <div class="col-md-4">
+<!-- Hotel -->
+<div class="col-md-4">
     <a href="#" class="text-decoration-none">
         <div class="service-card-bg h-100"
              style="background-image: url('Photo/hotelforpatheininfo.jpg');">
@@ -607,19 +626,18 @@ body {
                 <i class="bi bi-building"></i>
             </div>
 
-            <div class="service-content">
+            <!-- Hover Text -->
+            <div class="service-hover-text">
                 <h5>ဟိုတယ်</h5>
-                <p>
-                    ဟိုတယ်များ၊ တည်းခိုခန်းများနှင့် အပန်းဖြေစရာများ
-                </p>
+                <p>ဟိုတယ်များ၊ တည်းခိုခန်းများနှင့် အပန်းဖြေစရာများ</p>
             </div>
 
         </div>
     </a>
 </div>
 
-                <!-- Travel -->
-                <div class="col-md-4">
+<!-- Travel -->
+<div class="col-md-4">
     <a href="#" class="text-decoration-none">
         <div class="service-card-bg h-100"
              style="background-image: url('Photo/travelforpatheininfo.jpg');">
@@ -628,19 +646,18 @@ body {
                 <i class="bi bi-geo-alt"></i>
             </div>
 
-            <div class="service-content">
+            <!-- Hover Text -->
+            <div class="service-hover-text">
                 <h5>လည်ပတ်စရာနေရာများ</h5>
-                <p>
-                    ခရီးသွားနေရာများနှင့် အထင်ကရနေရာများ
-                </p>
+                <p>ခရီးသွားနေရာများနှင့် အထင်ကရနေရာများ</p>
             </div>
 
         </div>
     </a>
 </div>
 
-                <!-- Local Products -->
-                 <div class="col-md-4">
+<!-- Local Products -->
+<div class="col-md-4">
     <a href="#" class="text-decoration-none">
         <div class="service-card-bg h-100"
              style="background-image: url('Photo/localproductforpatheininfo.png');">
@@ -649,11 +666,10 @@ body {
                 <i class="bi bi-basket"></i>
             </div>
 
-            <div class="service-content">
+            <!-- Hover Text -->
+            <div class="service-hover-text">
                 <h5>ဒေသထွက်ကုန်များ</h5>
-                <p>
-                    ခရိုင်အလိုက် ဒေသထွက်ကုန်များ
-                </p>
+                <p>ခရိုင်အလိုက် ဒေသထွက်ကုန်များ</p>
             </div>
 
         </div>

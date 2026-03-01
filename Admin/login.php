@@ -2,178 +2,153 @@
 session_start();
 include("db.php");
 
-
-
 if (isset($_POST['login'])) {
-$email = strtolower(trim($_POST['email']));
-$password = $_POST['password'];
 
+    $email = strtolower(trim($_POST['email']));
+    $password = trim($_POST['password']);
 
-
-
-if (empty($email) || empty($password)) {
-echo "<script>
-alert('All fields are required');
-</script>";
-exit;
-}
-
-$email = mysqli_real_escape_string($db, $email);
-
-$query = "SELECT * FROM users WHERE email='$email' AND status='Accept' LIMIT 1";
-$result = mysqli_query($db, $query);
-if ($result && mysqli_num_rows($result) == 1) {
-
-    $row = mysqli_fetch_assoc($result);
-
-
-/* ✅ Super Admin First Check */
-if ($row['role_id'] == 3) {
-
-    if ($password === "Superadmin12345@") {
-
-        $_SESSION['user_id'] = $row['user_id'];
-        $_SESSION['email']   = $row['email'];
-        $_SESSION['role_id'] = 3;
-
-        header("Location: SuperAdminDashboard.php");
+    if (empty($email) || empty($password)) {
+        echo "<script>alert('All fields are required');</script>";
         exit;
+    }
+
+    $email = mysqli_real_escape_string($db, $email);
+
+    $query = "SELECT * FROM users WHERE email='$email' AND status='Accept' LIMIT 1";
+    $result = mysqli_query($db, $query);
+
+    if ($result && mysqli_num_rows($result) == 1) {
+
+        $row = mysqli_fetch_assoc($result);
+
+        // ✅ Password Verify (Superadmin + All Users)
+        if (password_verify($password, $row['password'])) {
+
+            // Store Common Session
+            $_SESSION['user_id'] = $row['user_id'];
+            $_SESSION['email']   = $row['email'];
+            $_SESSION['role_id'] = $row['role_id'];
+            $_SESSION['category_id'] = $row['category_id'];
+
+            // ==============================
+            // ✅ SUPER ADMIN
+            // ==============================
+            if ($row['role_id'] == 3) {
+                header("Location: SuperAdminDashboard.php");
+                exit;
+            }
+
+            // ==============================
+            // ✅ GET EXTRA IDS (Optional)
+            // ==============================
+
+            $user_id = (int)$row['user_id'];
+
+            // School
+            $schoolQuery = mysqli_query($db, 
+                "SELECT school_id FROM schools WHERE user_id = $user_id");
+            if($schoolQuery && mysqli_num_rows($schoolQuery) > 0){
+                $schoolData = mysqli_fetch_assoc($schoolQuery);
+                $_SESSION['school_id'] = $schoolData['school_id'];
+            }
+
+            // Hotel
+            $hotelQuery = mysqli_query($db, 
+                "SELECT hotel_id FROM hotels WHERE user_id = $user_id");
+            if($hotelQuery && mysqli_num_rows($hotelQuery) > 0){
+                $hotelData = mysqli_fetch_assoc($hotelQuery);
+                $_SESSION['hotel_id'] = $hotelData['hotel_id'];
+            }
+
+            // Clinic
+            $clinicQuery = mysqli_query($db, 
+                "SELECT clinic_id FROM clinics WHERE user_id = $user_id");
+            if($clinicQuery && mysqli_num_rows($clinicQuery) > 0){
+                $clinicData = mysqli_fetch_assoc($clinicQuery);
+                $_SESSION['clinic_id'] = $clinicData['clinic_id'];
+            }
+
+            // Bus Line
+            $busQuery = mysqli_query($db, 
+                "SELECT busline_id FROM bus_line WHERE user_id = $user_id");
+            if($busQuery && mysqli_num_rows($busQuery) > 0){
+                $busData = mysqli_fetch_assoc($busQuery);
+                $_SESSION['busline_id'] = $busData['busline_id'];
+            }
+
+            // ==============================
+            // ✅ CATEGORY ADMIN (role_id = 1)
+            // ==============================
+
+            if ($row['role_id'] == 1) {
+
+                // Product Admin Special Case
+                if ($row['category_id'] == 5) {
+                    header("Location: productAdminDashboard.php");
+                    exit;
+                }
+
+                if ($row['is_registered'] == 1) {
+
+                    switch ($row['category_id']) {
+
+                        case 1:
+                            header("Location: SchoolAdminDashboard.php");
+                            break;
+
+                        case 2:
+                            header("Location: healthAdminDashboard.php");
+                            break;
+
+                        case 3:
+                            header("Location: BusAdminDashboard.php");
+                            break;
+
+                        case 4:
+                            header("Location: hotelAdminDashboard.php");
+                            break;
+
+                        default:
+                            echo "<script>alert('Invalid category');</script>";
+                            break;
+                    }
+
+                } else {
+
+                    switch ($row['category_id']) {
+
+                        case 1:
+                            header("Location: register_school.php");
+                            break;
+
+                        case 2:
+                            header("Location: register_health.php");
+                            break;
+
+                        case 3:
+                            header("Location: register_bus.php");
+                            break;
+
+                        case 4:
+                            header("Location: register_hotel.php");
+                            break;
+
+                        default:
+                            echo "<script>alert('Invalid category');</script>";
+                            break;
+                    }
+                }
+
+                exit;
+            }
+
+        } else {
+            echo "<script>alert('Incorrect Password');</script>";
+        }
 
     } else {
-        echo "<script>alert('Superadmin password incorrect');</script>";
-        exit;
+        echo "<script>alert('User not found or not approved');</script>";
     }
-}
-
-
-// Other User
-    if (password_verify($password, $row['password'])) {
-
-
-        $_SESSION['user_id'] = $row['user_id'];
-        $_SESSION['email']   = $row['email'];
-        $_SESSION['role_id'] = $row['role_id'];
-        $_SESSION['category_id'] = $row['category_id'];
-
- // ✅ Get school_id and store in session
-    $schoolQuery = mysqli_query($db, 
-        "SELECT school_id FROM schools WHERE user_id = {$row['user_id']}");
-
-    if(mysqli_num_rows($schoolQuery) > 0){
-        $schoolData = mysqli_fetch_assoc($schoolQuery);
-        $_SESSION['school_id'] = $schoolData['school_id'];
-    }
-
-    // ✅ Get hotel_id
-$hotelQuery = mysqli_query($db, 
-    "SELECT hotel_id FROM hotels WHERE user_id = {$row['user_id']}");
-
-if(mysqli_num_rows($hotelQuery) > 0){
-    $hotelData = mysqli_fetch_assoc($hotelQuery);
-    $_SESSION['hotel_id'] = $hotelData['hotel_id'];
-}
-
-
-// ✅ Get clinic_id
-$clinicQuery = mysqli_query($db, 
-    "SELECT clinics_id FROM clinics WHERE user_id = {$row['user_id']}");
-
-if(mysqli_num_rows($clinicQuery) > 0){
-    $clinicData = mysqli_fetch_assoc($clinicQuery);
-    $_SESSION['clinic_id'] = $clinicData['clinic_id'];
-}
-
-// ✅ Get Bus_line_id
-$busQuery = mysqli_query($db, 
-    "SELECT busline_id FROM bus_line WHERE user_id = {$row['user_id']}");
-
-if(mysqli_num_rows($busQuery) > 0){
-    $busData = mysqli_fetch_assoc($busQuery);
-    $_SESSION['busline_id'] = $busData['busline_id'];
-}
-
-
-
-
-
-
-
-if($row['role_id'] == 1 && $row['category_id']==5){
-    header("Location: productAdminDashboard.php");
-}
-
-        // ✅ Category Admin
-        if ($row['role_id'] == 1) {
-
-            // Already Registered
-            if ($row['is_registered'] == 1) {
-
-                switch ($row['category_id']) {
-
-                    case 1:
-                        header("Location: SchoolAdminDashboard.php");
-                        exit;
-
-                    case 2:
-                        header("Location: healthAdminDashboard.php");
-                        exit;
-
-                    case 3:
-                        header("Location: BusAdminDashboard.php");
-                        exit;
-
-                    case 4:
-                        header("Location: hotelAdminDashboard.php");
-                        exit;
-
-                    // case 5:
-                    //     header("Location: productAdminDashboard.php");
-                    //     exit;
-
-                    // case 6:
-                    //     header("Location: tourismAdminDashboard.php");
-                    //     exit;
-                }
-
-            }
-            // ❌ Not Registered Yet
-            else {
-
-                switch ($row['category_id']) {
-
-                    case 1:
-                        header("Location: register_school.php");
-                        exit;
-
-                    case 2:
-                        header("Location: register_health.php");
-                        exit;
-
-                    case 3:
-                        header("Location: register_bus.php");
-                        exit;
-
-                    case 4:
-                        header("Location: register_hotel.php");
-                        exit;
-                    // case 5:
-                    //     header("Location: register_university.php");
-                    //     exit;
-
-                    // case 6:
-                    //     header("Location: register_tourism.php");
-                    //     exit;
-                }
-            }
-         
-
-
-        }
-         
-    }
-      
-}
-
 }
 ?>
 <!DOCTYPE html>

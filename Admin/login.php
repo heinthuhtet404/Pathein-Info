@@ -152,106 +152,250 @@ if (isset($_POST['login'])) {
 }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="my">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>အက်ဒမင် ဝင်ရောက်ရန် | ပုသိမ်မြို့ ဝန်ဆောင်မှုပေါ်တယ်</title>
+    
     <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            height: 100vh;
-            background: linear-gradient(135deg, #6c5ce7, #00b894);
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0d6efd, #20c997);
             display: flex;
             align-items: center;
             justify-content: center;
+            margin: 0;
+            padding: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Animated Background Elements */
+        body::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            z-index: 0;
+        }
+        
+        body::after {
+            content: '';
+            position: absolute;
+            bottom: -80px;
+            left: -80px;
+            width: 400px;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 50%;
+            z-index: 0;
         }
 
         .login-card {
-            border-radius: 1rem;
-            padding: 2rem;
-            background: #ffffff;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-radius: 2rem;
+            padding: 2.5rem;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            max-width: 480px;
         }
 
         .login-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.3);
         }
 
         .login-header {
-            font-size: 1.8rem;
-            font-weight: 600;
-            color: #2d3436;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
             text-align: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .login-subheader {
+            color: #64748b;
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+        }
+
+        .form-label {
+            font-weight: 600;
+            color: #334155;
+            margin-bottom: 0.5rem;
+        }
+
+        .input-group-custom {
+            position: relative;
             margin-bottom: 1.5rem;
         }
 
+        .form-control {
+            border: 2px solid #e2e8f0;
+            border-radius: 1rem;
+            padding: 0.75rem 1rem 0.75rem 2.5rem;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
         .form-control:focus {
-            border-color: #6c5ce7;
-            box-shadow: 0 0 0 0.2rem rgba(108, 92, 231, 0.25);
+            border-color: #0d6efd;
+            box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.15);
+            outline: none;
         }
 
-        .btn-primary {
-            background: #6c5ce7;
+        .input-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #94a3b8;
+            z-index: 10;
+        }
+
+        .btn-login {
+            background: linear-gradient(90deg, #0d6efd, #20c997);
             border: none;
+            border-radius: 1rem;
+            padding: 0.875rem;
             font-weight: 600;
-            transition: background 0.3s ease;
+            font-size: 1.1rem;
+            color: white;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px -5px rgba(13, 110, 253, 0.4);
+            width: 100%;
+            margin-top: 1rem;
         }
 
-        .btn-primary:hover {
-            background: #5a4bcf;
+        .btn-login:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 25px -5px rgba(13, 110, 253, 0.5);
+            background: linear-gradient(90deg, #0b5ed7, #1baa84);
         }
 
-        .register-link {
-            color: #6c5ce7;
-            font-weight: 500;
+        .btn-login:active {
+            transform: translateY(0);
         }
 
-        .register-link:hover {
-            text-decoration: underline;
+        .brand-badge {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .brand-badge img {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+        }
+
+        .brand-badge span {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, #0d6efd, #20c997);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .footer-note {
+            text-align: center;
+            margin-top: 2rem;
+            color: #64748b;
+            font-size: 0.875rem;
+        }
+
+        .footer-note i {
+            color: #ef4444;
+        }
+
+        /* Alert customization */
+        .alert {
+            border-radius: 1rem;
+            border: none;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
         }
     </style>
 </head>
 
 <body>
 
-    <div class="login-card col-md-5 col-11">
-        <div class="login-header">
-            Welcome Back
+    <div class="login-card">
+        
+        <!-- Brand Badge -->
+        <div class="brand-badge">
+            <!-- <img src="Photo/u.png" alt="ပုသိမ်မြို့"> -->
+            <span>ပုသိမ်မြို့</span>
         </div>
+
+        <!-- Header -->
+        <div class="login-header">
+            အက်ဒမင် ဝင်ရောက်ရန်
+        </div>
+        <!-- <div class="login-subheader">
+            စီမံခန့်ခွဲသူများအတွက် လုံခြုံစိတ်ချရသော ဝင်ပေါက်
+        </div> -->
+
+        <!-- Login Form -->
         <form method="POST">
 
-            <div class="mb-3">
-                <label class="form-label">Email</label>
-                <input type="email" name="email" class="form-control" placeholder="Enter your email" required>
+            <!-- Email Field -->
+            <div class="input-group-custom">
+                <!-- <i class="bi bi-envelope-fill input-icon"></i> -->
+                 <label class="form-label" style="margin-left: 1.5rem;">အီးမေးလ်</label>
+                <input type="email" name="email" class="form-control" 
+                       placeholder="example@domain.com" required>
+                
             </div>
 
-            <div class="mb-4">
-                <label class="form-label">Password</label>
-                <input type="password" name="password" class="form-control" placeholder="Enter your password" required>
+            <!-- Password Field -->
+            <div class="input-group-custom">
+                <!-- <i class="bi bi-lock-fill input-icon"></i> -->
+                 <label class="form-label" style="margin-left: 1.5rem;">စကားဝှက်</label>
+                <input type="password" name="password" class="form-control" 
+                       placeholder="••••••••" required>
+                
             </div>
 
-            <div class="d-grid mb-3">
-                <button type="submit" name="login" class="btn btn-primary btn-lg">
-                    Login
-                </button>
-            </div>
+            <!-- Login Button -->
+            <button type="submit" name="login" class="btn-login">
+                <i class="bi bi-box-arrow-in-right me-2"></i>ဝင်ရောက်မည်
+            </button>
 
         </form>
 
-        <div class="text-center">
-            <p class="mb-0">
-                Don't have an account?
-                <a href="register.php" class="register-link">Register here</a>
-            </p>
+        <!-- Footer Note -->
+        <div class="footer-note">
+            <i class="bi bi-shield-check me-1"></i> 
+            စီမံခန့်ခွဲသူများအတွက်သာ ရည်ရွယ်ပါသည်။
         </div>
+
     </div>
 
 </body>

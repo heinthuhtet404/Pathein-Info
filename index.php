@@ -439,6 +439,144 @@ body {
     opacity: 1;
     transform: translateY(0);
 }
+
+.backdrop-blur {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+.bg-white\/10 {
+    background: rgba(255, 255, 255, 0.1);
+}
+.bg-white\/20 {
+    background: rgba(255, 255, 255, 0.2);
+}
+.text-white-50 {
+    color: rgba(255, 255, 255, 0.5);
+}
+.fw-mono {
+    font-family: 'SF Mono', 'Courier New', monospace;
+    font-weight: 500;
+}
+
+/* ========== SERVICE CARDS - MINOR UPGRADES ========== */
+.service-card-bg {
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 2px solid transparent;
+}
+
+/* Card border effect on hover */
+.service-card-bg:hover {
+    border-color: rgba(13, 110, 253, 0.5);
+    transform: translateY(-10px) scale(1.02);
+}
+
+/* Icon circle upgrade */
+.icon-circle {
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    backdrop-filter: blur(4px);
+    border: 2px solid rgba(13, 110, 253, 0.3);
+    transition: all 0.4s ease;
+}
+
+.service-card-bg:hover .icon-circle {
+    transform: scale(1.15) rotate(5deg);
+    background: #fff;
+    border-color: #0d6efd;
+    box-shadow: 0 8px 20px rgba(13, 110, 253, 0.4);
+}
+
+/* Hover text overlay upgrade */
+.service-card-bg .service-hover-text {
+    background: rgba(255, 255, 255, 0.15);
+backdrop-filter: blur(2px);
+border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.service-card-bg .service-hover-text h5 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    transform: translateY(10px);
+    transition: transform 0.5s ease 0.1s;
+}
+
+.service-card-bg .service-hover-text p {
+    font-size: 1rem;
+    transform: translateY(10px);
+    transition: transform 0.5s ease 0.2s;
+    color: white;
+}
+
+.service-card-bg:hover .service-hover-text h5,
+.service-card-bg:hover .service-hover-text p {
+    transform: translateY(0);
+}
+
+/* Category section title upgrade */
+.service-section h2 {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 15px;
+}
+
+.service-section h2:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #8B5CF6, #EC4899);
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+.service-section:hover h2:after {
+    width: 120px;
+}
+
+/* Card container spacing */
+.row.g-4 {
+    margin-top: 20px;
+}
+
+/* Card wrapper for better shadow effect */
+.col-md-4 {
+    transition: all 0.3s ease;
+}
+
+.col-md-4:hover {
+    transform: translateY(-5px);
+}
+
+/* Optional: Add subtle animation on page load */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.service-card-bg {
+    animation: fadeInUp 0.8s ease forwards;
+    opacity: 0; /* Start invisible */
+}
+
+/* Stagger animation for cards */
+.col-md-4:nth-child(1) .service-card-bg { animation-delay: 0.1s; }
+.col-md-4:nth-child(2) .service-card-bg { animation-delay: 0.2s; }
+.col-md-4:nth-child(3) .service-card-bg { animation-delay: 0.3s; }
+.col-md-4:nth-child(4) .service-card-bg { animation-delay: 0.4s; }
+.col-md-4:nth-child(5) .service-card-bg { animation-delay: 0.5s; }
+.col-md-4:nth-child(6) .service-card-bg { animation-delay: 0.6s; }
     </style>
 </head>
 
@@ -680,6 +818,82 @@ body {
         </div>
     </section>
 
+    <!-- ================= BUSINESS CONTACT SECTION (UPDATED - MATCHING COLORS) ================= -->
+<section class="business-contact-section d-flex align-items-center justify-content-center text-center"
+    style="min-height: 100vh; background: linear-gradient(135deg, #0d6efd, #20c997); color: #fff; position: relative; overflow: hidden;">
+
+    <!-- Animated Background Elements (optional) - lighter version -->
+    <div style="position: absolute; width: 100%; height: 100%; pointer-events: none;">
+        <div style="position: absolute; top: -50px; right: -50px; width: 300px; height: 300px; background: rgba(255,255,255,0.05); border-radius: 50%;"></div>
+        <div style="position: absolute; bottom: -80px; left: -80px; width: 400px; height: 400px; background: rgba(255,255,255,0.05); border-radius: 50%;"></div>
+    </div>
+
+    <div class="container position-relative" style="z-index: 2;">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-xl-7">
+
+                <!-- Small Badge - matching hero button style -->
+                <span class="badge px-3 py-2 mb-4 rounded-pill fw-semibold" 
+                    style="background: rgba(255,255,255,0.2); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.3); color: #fff; letter-spacing: 1px;">
+                    <i class="bi bi-megaphone me-2"></i>လုပ်ငန်းရှင်များအတွက် အထူးဖိတ်ခေါ်ခြင်း
+                </span>
+
+                <!-- Main Heading -->
+                <h2 class="display-4 fw-bold mb-4" style="text-shadow: 0 5px 15px rgba(0,0,0,0.2);">
+                    သင့်လုပ်ငန်းကို 
+                    <span style="background: linear-gradient(120deg, #fff, #f8f9fa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-shadow: 0 2px 10px rgba(255,255,255,0.3);">
+                        ပုသိမ်မြို့
+                    </span> 
+                    ရဲ့ ဝန်ဆောင်မှုစာရင်းမှာ ထည့်သွင်းလိုက်ပါ။
+                </h2>
+
+                <!-- Description -->
+                <p class="lead mb-5 mx-auto" style="max-width: 700px; color: rgba(255,255,255,0.9); font-size: 1.25rem;">
+                    ခရီးသွားများ၊ ပြည်သူများဆီသို့ သင့်လုပ်ငန်းကို ရောက်ရှိစေဖို့အတွက် 
+                    <strong style="color: #fff; text-decoration: underline; text-underline-offset: 5px;">ပုသိမ်မြို့ ဝန်ဆောင်မှုပေါ်တယ်</strong> မှာ နေရာယူလိုက်ပါ။
+                </p>
+
+                <!-- Contact Card (Glassmorphism Style) - updated to match theme -->
+                <div class="card border-0 backdrop-blur p-5 rounded-5 shadow-lg mx-auto" 
+                    style="background: rgba(255,255,255,0.15); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.3); max-width: 600px;">
+                    
+                    <div class="d-flex align-items-center justify-content-center gap-3 mb-4">
+                        <div class="rounded-circle p-3 d-flex align-items-center justify-content-center" 
+                            style="width: 60px; height: 60px; background: linear-gradient(135deg, #0d6efd, #20c997); box-shadow: 0 5px 15px rgba(0,0,0,0.2);">
+                            <i class="bi bi-envelope-paper fs-2 text-white"></i>
+                        </div>
+                        <h4 class="mb-0 fw-semibold text-white">ဆက်သွယ်ရန်</h4>
+                    </div>
+
+                    <!-- Email Display with Copy Button -->
+                    <div class="d-flex flex-wrap align-items-center justify-content-center gap-3 p-3 rounded-4" 
+                        style="background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.3);">
+                        <span class="fs-3 fw-mono text-white" id="adminEmail">patheininfo2026@gmail.com</span>
+                        <button class="btn rounded-pill px-4 py-2 fw-semibold d-flex align-items-center gap-2" 
+                            style="background: rgba(255,255,255,0.25); color: #fff; border: 1px solid rgba(255,255,255,0.4); backdrop-filter: blur(4px);" 
+                            onclick="copyEmail()"
+                            onmouseover="this.style.background='rgba(255,255,255,0.35)'"
+                            onmouseout="this.style.background='rgba(255,255,255,0.25)'">
+                            <i class="bi bi-clipboard"></i> ကူးယူရန်
+                        </button>
+                    </div>
+
+                    <p class="mt-4 mb-0 small" style="color: rgba(255,255,255,0.8);">
+                        <i class="bi bi-info-circle me-1"></i> 
+                        အထက်ပါ Email သို့ သင့်လုပ်ငန်းအချက်အလက်များ ပေးပို့ပြီး စာရင်းသွင်းနိုင်ပါသည်။
+                    </p>
+                </div>
+
+                <!-- Extra Note -->
+                <p class="mt-5" style="color: rgba(255,255,255,0.7); font-size: 0.95rem;">
+                    <i class="bi bi-star-fill" style="color: #ffc107; margin-right: 8px;"></i>
+                    လက်ရှိတွင် ပညာရေး၊ ကျန်းမာရေး၊ ဟိုတယ်၊ စားသောက်ဆိုင်၊ ခရီးသွားလုပ်ငန်းများ စာရင်းသွင်းနိုင်ပါသည်။
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
     <!-- ================= Location Section ================= -->
      <iframe height="500" width="100%" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d122233.53243081593!2d94.66536439288318!3d16.786728123085606!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30bfea063fe53f85%3A0xd07f864b399e7c13!2sPathein!5e0!3m2!1sen!2smm!4v1771767312787!5m2!1sen!2smm" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
@@ -707,6 +921,16 @@ body {
         }
 
         setInterval(startSlider, 3000);
+
+        function copyEmail() {
+    const email = document.getElementById('adminEmail').innerText;
+    navigator.clipboard.writeText(email).then(() => {
+        // Optional: Show a small toast/alert (you can style this better)
+        alert('Email ကူးယူပြီးပါပြီ။');
+    }).catch(err => {
+        console.error('Copy failed: ', err);
+    });
+}
     </script>
 </body>
 

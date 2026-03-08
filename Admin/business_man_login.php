@@ -49,7 +49,7 @@ header("Location: school_dashboard.php");
 break;
 
 case 2:
-header("Location: thantzinhtay.php");
+header("Location: register_health.php");
 break;
 
 case 3:

@@ -121,7 +121,7 @@ if (isset($_POST['save'])) {
 
                         <div class="row g-3">
                             <div class="col-md-6 mb-3">
-                                <label class="form-label">အီးမေးလ်</label>
+                                <label အီးမေးလ် class="form-label">အီးမေးလ်</label>
                                 <input type="email" name="clinics_email" class="form-control" placeholder="example@email.com">
                             </div>
                             <div class="col-md-6 mb-3">

@@ -608,7 +608,7 @@ border: 1px solid rgba(255, 255, 255, 0.2);
         <div class="container">
             <ul class="navbar-nav mx-auto fw-semibold">
                 <li class="nav-item px-3"><a class="nav-link text-primary" href="Academic.php">ပညာရေး</a></li>
-                <li class="nav-item px-3"><a class="nav-link text-primary" href="clinics_categories.php">ကျန်းမာရေး</a></li>
+                <li class="nav-item px-3"><a class="nav-link text-primary" href="healthhomepage.php">ကျန်းမာရေး</a></li>
                 <li class="nav-item px-3"><a class="nav-link text-primary" href="#">သယ်ယူပို့ဆောင်ရေး</a>
                 </li>
                 <li class="nav-item px-3"><a class="nav-link text-primary" href="#">ဟိုတယ်</a></li>
@@ -716,7 +716,7 @@ border: 1px solid rgba(255, 255, 255, 0.2);
                 <!-- Health -->
                 <!-- Health -->
 <div class="col-md-4">
-    <a href="#" class="text-decoration-none">
+    <a href="healthhomepage.php" class="text-decoration-none">
         <div class="service-card-bg h-100"
              style="background-image: url('Photo/healthforpatheininfo.JPG.webp');">
 

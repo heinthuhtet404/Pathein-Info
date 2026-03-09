@@ -1,0 +1,1317 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>HealthHub - TharLiZwa Healthcare</title>
+
+    <link rel="stylesheet" href="hospstyle.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+</head>
+
+<style>
+
+  /* Department Container Styling */
+
+.department-container {
+margin-top: -45px;
+    padding: 60px 20px;
+
+    background-color: #f9fbff;
+
+    text-align: center;
+
+}
+
+
+
+.section-title {
+
+    font-size: 2.5rem;
+
+    color: #2c3e50;
+
+    margin-bottom: 10px;
+
+}
+
+
+
+.section-subtitle {
+
+    color: #7f8c8d;
+
+    margin-bottom: 40px;
+
+}
+
+
+
+/* Grid Layout */
+
+.dept-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+    gap: 25px;
+
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+}
+
+
+
+/* Card Design */
+
+.dept-card {
+
+    background: #fff;
+
+    padding: 35px 25px;
+
+    border-radius: 20px;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+
+    transition: all 0.3s ease;
+
+    border: 1px solid #eee;
+
+    text-align: center;
+
+}
+
+
+
+/* Hover Effect */
+
+.dept-card:hover {
+
+    transform: translateY(-10px);
+
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.1);
+
+    border-color: #3498db;
+
+}
+
+
+
+/* Icon Styling */
+
+.dept-icon {
+
+    width: 70px;
+
+    height: 70px;
+
+    line-height: 70px;
+
+    background: #f0f4f8;
+
+    border-radius: 50%;
+
+    margin: 0 auto 20px;
+
+    font-size: 30px;
+
+}
+
+
+
+.icon-red { color: #e74c3c; background: #fdedec; }
+
+.icon-blue { color: #3498db; background: #ebf5fb; }
+
+.icon-green { color: #2ecc71; background: #eafaf1; }
+
+.icon-orange { color: #f39c12; background: #fef5e7; }
+
+
+
+.dept-card h3 {
+
+    font-size: 1.4rem;
+
+    color: #34495e;
+
+    margin-bottom: 15px;
+
+}
+
+
+
+.dept-card p {
+
+    color: #7f8c8d;
+
+    font-size: 0.95rem;
+
+    line-height: 1.6;
+
+}
+
+
+
+/* Special Highlight for Emergency */
+
+.highlight-card {
+
+    border: 2px solid #f39c12;
+
+}
+
+/* Container & Title */
+
+.department-container, .services-info {
+
+    padding: 60px 8%;
+
+    background-color: #fcfcfc;
+
+    text-align: center;
+
+}
+
+
+
+.section-title {
+
+    color: #2c3e50;
+
+    font-size: 2.5rem;
+
+    margin-bottom: 50px;
+
+}
+
+
+
+/* Grid Layout */
+
+.dept-grid, .service-box {
+
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+
+    gap: 30px;
+
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+}
+
+
+
+/* Base Card Style (လှပသော Shadow နှင့်) */
+
+.dept-card, .facilities-card {
+
+    background: #fff;
+
+    padding: 40px 25px;
+
+    border-radius: 20px;
+
+    box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    border: 1px solid #f0f0f0;
+
+    text-align: center;
+
+}
+
+
+
+/* Hover Effect -> ကြွတက်လာစေရန် */
+
+.dept-card:hover, .facilities-card:hover {
+
+    transform: translateY(-10px);
+
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+
+}
+
+
+
+/* Icon Design (အဝိုင်းလေးများ) */
+
+.icon-circle {
+
+    width: 65px;
+
+    height: 65px;
+
+    line-height: 65px;
+
+    background: #f0f4f8;
+
+    border-radius: 50%;
+
+    margin: 0 auto 20px;
+
+    font-size: 28px;
+
+    transition: 0.3s;
+
+}
+
+
+
+/* Text Styling */
+
+h3 {
+
+    font-size: 1.4rem;
+
+    color: #34495e;
+
+    margin-bottom: 12px;
+
+}
+
+
+
+p {
+
+    color: #7f8c8d;
+
+    font-size: 0.95rem;
+
+    line-height: 1.6;
+
+    margin: 0;
+
+}
+
+
+
+/* === Color Accents (from image_0.png) === */
+
+
+
+/* Heart - Red */
+
+.icon-red { color: #e74c3c; background: #fdedec; }
+
+.card-red:hover { border-bottom: 5px solid #e74c3c; }
+
+
+
+/* Ortho - Blue */
+
+.icon-blue { color: #3498db; background: #ebf5fb; }
+
+.card-blue:hover { border-bottom: 5px solid #3498db; }
+
+
+
+/* Pediatrics - Green */
+
+.icon-green { color: #2ecc71; background: #eafaf1; }
+
+.card-green:hover { border-bottom: 5px solid #2ecc71; }
+
+
+
+/* Emergency - Orange */
+
+.icon-orange { color: #f39c12; background: #fef5e7; }
+
+.card-orange:hover { border-bottom: 5px solid #f39c12; }
+
+.card-orange.highlight-card { border: 2.5px solid #f39c12; } /* Screenshot ပါ EmergencyHighlight */
+
+
+
+/* Brain - Purple */
+
+.icon-purple { color: #9b59b6; background: #f5eef8; }
+
+.card-purple:hover { border-bottom: 5px solid #9b59b6; }
+
+
+
+/* === Facilities Colors (from image_2.png) === */
+
+.icon-teal { color: #1abc9c; background: #e8f8f5; }
+
+.icon-pink { color: #e91e63; background: #fce4ec; }
+
+.icon-dark { color: #34495e; background: #ebedef; }
+
+/* Mobile & Tablet Responsive */
+
+@media (max-width: 768px) {
+
+    .section-title {
+
+        font-size: 2rem;
+
+    }
+
+   
+
+    .dept-grid, .service-box {
+
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+        gap: 20px;
+
+        padding: 0 10px;
+
+    }
+
+   
+
+    .hero {
+
+        flex-direction: column;
+
+        text-align: center;
+
+        padding: 40px 5%;
+
+    }
+
+   
+
+    .hero-content {
+
+        padding-right: 0;
+
+        margin-bottom: 30px;
+
+    }
+
+   
+
+    header {
+
+        flex-direction: column;
+
+        gap: 15px;
+
+    }
+
+}
+
+.container{
+
+    /*position: absolute;
+
+    margin-top:70px;
+
+    top: 50%;
+
+    left: 50%;*/
+
+/* position: absolute; */
+margin-top:300px;
+margin-left: 500px;
+margin-bottom: -250px; 
+    transform: translate(-50%,-50%);
+
+    width: 900px; /* changed from 100px */
+
+    height: 500px;
+
+    background: #f5f5f5;
+
+    box-shadow: 0 30px 50px #dbdbdb;
+
+    display:flex
+
+
+
+}
+
+
+
+.container .slide .item{
+
+    width: 200px;
+
+    height: 300px;
+
+    position: absolute;
+
+    top: 50%;
+
+    transform: translate(0,-50%);
+
+    background-position: 50% 50%;
+
+    background-size: cover;
+
+    display: inline-block;
+
+    transition: 0.5s;
+
+}
+
+
+
+.slide .item:nth-child(1),
+
+.slide .item:nth-child(2){
+
+    top: 0;
+
+    left: 0;
+
+    transform: translate(0,0);
+
+    border-radius: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    /* box-shadow: 0px 0px 3px 2px #000; */
+
+}
+
+
+
+.slide .item:nth-child(3){
+
+    left: 70%;
+
+    border-radius: 15px;
+
+}
+
+
+
+.slide .item:nth-child(4){
+
+    left: calc(70% + 220px);
+
+    border-radius: 15px;
+
+}
+
+
+
+.slide .item:nth-child(5){
+
+    left: calc(70% + 440px);
+
+    border-radius: 15px;
+
+}
+
+
+
+.slide .item:nth-child(n + 6){
+
+    left: calc(70% + 660px);
+
+    border-radius: 15px;
+
+    opacity: 0;
+
+}
+
+
+
+.item .content{
+
+    position: absolute;
+
+    top: 50%;
+
+    left: 100px;
+
+    width: 300px;
+
+    text-align: left;
+
+  color: black;
+
+    transform: translate(0, -50%);
+
+    font-family: system-ui;
+
+    display: none;
+
+}
+
+
+
+.slide .item:nth-child(2) .content{
+
+    display: block;
+
+}
+
+
+
+.slide .name{
+
+    font-size: 40px;
+
+    text-transform: uppercase;
+
+    font-weight: bold;
+
+    opacity: 0;
+
+    animation: animate 1s ease-in-out 1 forwards;
+
+}
+
+
+
+.content .des{
+
+    margin-top: 10px;
+
+    margin-bottom: 20px;
+
+    opacity: 0;
+
+    animation: animate 1s ease-in-out 0.3s 1 forwards;
+
+}
+
+
+
+.content button{
+
+    border-radius: 20px;
+
+    padding: 10px 20px ;
+
+    border: none;
+
+    cursor: pointer;
+
+    opacity: 0;
+
+    animation: animate 1s ease-in-out 0.6s 1 forwards;
+
+       color:#fff ;
+
+ background-color:#98FB98;
+
+}
+
+
+
+@keyframes animate{
+
+    from{
+
+        opacity: 0;
+
+        transform: translate(0,100px);
+
+        filter: blur(33px);
+
+    }
+
+    to{
+
+        opacity: 1;
+
+        transform: translate(0);
+
+        filter: blur(0);
+
+    }
+
+}
+
+
+
+.button {
+
+    width: 100%;
+
+    text-align: center;
+
+    position: absolute;
+
+    bottom: 20px;
+
+}
+
+
+
+.button button{
+
+    width: 40px;
+
+    height: 35px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    margin: 0 5px;
+
+    border: 1px solid #000;
+
+    transition: 0.3s;
+
+}
+
+
+
+.button button:hover{
+
+    background: #ababab;
+
+    color: #fff;
+
+}
+
+
+
+</style>
+
+<body>
+
+
+
+    <header>
+
+        <div class="logo">
+
+            <span class="logo-text">ပြည်သူ့ဆေးရုံကြီး (ပုသိမ်)</span>
+
+        </div>
+
+        <nav>
+
+            <ul>
+
+                <li><a href="healthhomepage.php">ပင်မစာမျက်နှာ</a></li>
+
+                <li><a href="#articles">ဌာနများ</a></li>
+
+                <li><a href="#departments">ဆောင်းပါးများ</a></li>
+
+                <li><a href="#doctors">ဆရာဝန်များ</a></li>
+
+                <li><a href="#doctors">ဝန်ဆောင်မှုများ</a></li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+
+
+    <div class="boder">
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <h2>We <span class="accent">C</span>are & <span class="accent">C</span>ure</h2>
+
+                <p>
+
+                    သင်နှင့် သင့်မိသားစု၏ ကျန်းမာရေးသည် ကျွန်ုပ်တို့၏ အလေးထားဆုံး တာဝန်ဖြစ်ပါသည်။ ပြည်သူ့ဆေးရုံကြီးတွင် ကျွမ်းကျင်ထက်မြက်သော ဆရာဝန်ကြီးများနှင့် ကြင်နာတတ်သော သူနာပြုအဖွဲ့သားများက သင့်အား ဘေးကင်းစိတ်ချရသော ပတ်ဝန်းကျင်တွင် အကောင်းဆုံး ပြုစုစောင့်ရှောက်ပေးသွားမည် ဖြစ်ပါသည်။ 'စေတနာဖြင့် ကုသခြင်း၊ မေတ္တာဖြင့် စောင့်ရှောက်ခြင်း' သည် ကျွန်ုပ်တို့၏ ဆောင်ပုဒ် ဖြစ်ပါသည်။
+
+                </p>
+
+   
+
+            </div>
+
+            <div class="hero-image">
+
+                <img src="3.jpg" alt="Female Doctor">
+
+            </div>
+
+        </section>
+
+
+
+        <hr class="line">
+
+
+
+
+
+        <section class="department-container" id="departments">
+
+    <h1 class="department-container" id="departments">ဌာနများ</h1>
+
+   
+
+   
+
+   
+
+    <div class="dept-grid">
+
+        <div class="dept-card card-red">
+
+            <div class="dept-icon icon-red"><i class="fas fa-heartbeat"></i></div>
+
+            <h3>နှလုံးဌာန</h3>
+
+            <p>နှလုံးနှင့် သွေးကြောဆိုင်ရာ ရောဂါများကို စမ်းသပ်ကုသပေးပါသည်။</p>
+
+        </div>
+
+
+
+        <div class="dept-card card-blue">
+
+            <div class="dept-icon icon-blue"><i class="fas fa-bone"></i></div>
+
+            <h3>အရိုးနှင့်အကြော</h3>
+
+            <p>အရိုးအဆစ်နှင့် ကြွက်သားဆိုင်ရာ ဝေဒနာရှင်များကို အထူးကုသပေးပါသည်။</p>
+
+        </div>
+
+
+
+        <div class="dept-card card-green">
+
+            <div class="dept-icon icon-green"><i class="fas fa-baby"></i></div>
+
+            <h3>ကလေးဌာန</h3>
+
+            <p>မွေးကင်းစမှ ကလေးငယ်များအတွက် ကျန်းမာရေးစောင့်ရှောက်မှု။</p>
+
+        </div>
+
+
+
+        <div class="dept-card card-orange">
+
+            <div class="dept-icon icon-orange"><i class="fas fa-ambulance"></i></div>
+
+            <h3>အရေးပေါ်ဌာန</h3>
+
+            <p>၂၄ နာရီပတ်လုံး အရေးပေါ်လူနာများကို လက်ခံကုသပေးပါသည်။</p>
+
+        </div>
+
+
+
+        <div class="dept-card card-purple">
+
+            <div class="dept-icon icon-purple"><i class="fas fa-brain"></i></div>
+
+            <h3>ဦးနှောက်နှင့်အာရုံကြော</h3>
+
+            <p>လေဖြတ်ခြင်းနှင့် အာရုံကြောဆိုင်ရာ ရောဂါများကို ကုသပေးပါသည်။</p>
+
+        </div>
+
+
+
+        <div class="dept-card card-pink">
+
+            <div class="dept-icon icon-pink"><i class="fas fa-female"></i></div>
+
+            <h3>သားဖွားနှင့်မီးယပ်</h3>
+
+            <p>ကိုယ်ဝန်ဆောင်မိခင်နှင့် အမျိုးသမီးရောဂါဆိုင်ရာ အထူးကုဌာန။</p>
+
+        </div>
+
+
+
+        <div class="dept-card card-teal">
+
+            <div class="dept-icon icon-teal"><i class="fas fa-eye"></i></div>
+
+            <h3>မျက်စိဌာန</h3>
+
+            <p>မျက်စိခွဲစိတ်ခြင်းနှင့် အမြင်အာရုံစစ်ဆေးမှု ဝန်ဆောင်မှုများ။</p>
+
+        </div>
+
+
+
+        <div class="dept-card card-dark">
+
+            <div class="dept-icon icon-dark"><i class="fas fa-deaf"></i></div>
+
+            <h3>နား၊ နှာခေါင်း၊ လည်ပင်း</h3>
+
+            <p>နား၊ နှာခေါင်းနှင့် လည်ပင်းဆိုင်ရာ ရောဂါများကို ကုသပေးပါသည်။</p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+        <hr class="line">
+
+
+
+<section class="service-container" id="articles">
+ <h1 class="department-container" id="departments">ဆောင်းပါးများ</h1>
+
+
+<div class="container">
+
+<div class="slide">
+
+    <div class="item" style="background-image: url(./fever/diabetes.png);">
+
+        <div class="content">
+
+            <div class="name">Diabetes</div>
+
+            <div class="des">Diabetes (ဆီးချိုရောဂါ) ဆိုတာ သွေးထဲမှာ သကြားဓာတ် (Glucose) မြင့်မားနေတဲ့ အခြေအနေပါ။ ခန္ဓာကိုယ်က အင်ဆူလင် (Insulin) ဟော်မုန်းကို လုံလောက်အောင် မထုတ်လုပ်နိုင်တာ ဒါမှမဟုတ် ထုတ်လုပ်တဲ့အင်ဆူလင်ကို ထိရောက်စွာ အသုံးမချနိုင်တာကြောင့် ဖြစ်ရတာပါ။ ရေငတ်ခြင်း၊ ဆီးခဏခဏသွားခြင်းနဲ့ ကိုယ်အလေးချိန်ကျခြင်းတို့ဟာ အဓိကလက္ခဏာတွေဖြစ်ပြီး ရေရှည်မှာ မျက်စိ၊ ကျောက်ကပ်နဲ့ အာရုံကြောတွေကို ထိခိုက်စေနိုင်ပါတယ်။</div>
+
+
+        </div>
+
+ 
+
+    </div>
+
+    <div class="item" style="background-image: url(./fever/gout.png);">
+
+        <div class="content">
+
+            <div class="name">Gout</div>
+
+            <div class="des">Gout (ဂေါက်ရောဂါ) ဆိုတာ သွေးထဲမှာ ယူရစ်အက်ဆစ် (Uric acid) ဓာတ်တွေ များလာပြီး အဆစ်အမြစ်တွေထဲမှာ အက်ဆစ်ပုံဆောင်ခဲလေးတွေ စုပုံလာရာကနေ ရောင်ရမ်းနာကျင်စေတဲ့ အဆစ်အမြစ်ရောင်ရောဂါတစ်မျိုးပါ။ များသောအားဖြင့် ခြေမအဆစ်မှာ စတင်ဖြစ်ပွားလေ့ရှိပြီး ရုတ်တရက် ပြင်းထန်စွာ နာကျင်ခြင်း၊ နီရဲရောင်ရမ်းခြင်းနဲ့ ပူရှိန်းရှိန်းဖြစ်ခြင်းတို့ကို ခံစားရတတ်ပါတယ်။ အသားနီ၊ ပင်လယ်စာနဲ့ အရက် (ဘီယာ) အသောက်များသူတွေမှာ ပိုပြီး အဖြစ်များပါတယ်။</div>
+
+        
+
+        </div>
+
+ 
+
+    </div>
+
+     <div class="item" style="background-image: url(./fever/hypertension.png);">
+
+        <div class="content">
+
+            <div class="name">Hypertension</div>
+
+            <div class="des">Hypertension (သွေးတိုးရောဂါ) ဆိုတာ သွေးလွှတ်ကြော နံရံတွေပေါ်မှာ သွေးရဲ့ ဖိအားက ပုံမှန်ထက် အမြဲတမ်း မြင့်မားနေတဲ့ အခြေအနေပါ။ ၎င်းကို "တိတ်ဆိတ်သော လူသတ်သမား" လို့လည်း ခေါ်ကြပါတယ်၊ ဘာကြောင့်လဲဆိုတော့ အဆင့်မြင့်လာတဲ့အထိ လက္ခဏာ သိပ်မပြတတ်လို့ပါ။ ရေရှည်မှာ ကုသမှုမခံယူရင် နှလုံးရောဂါ၊ လေဖြတ်ခြင်းနဲ့ ကျောက်ကပ် ပျက်စီးခြင်းတို့ကို ဖြစ်ပွားစေနိုင်ပါတယ်။</div>
+
+       
+
+        </div>
+
+ 
+
+    </div>
+
+     <div class="item" style="background-image: url(./fever/influenza.png);">
+
+        <div class="content">
+
+            <div class="name">influenza</div>
+
+            <div class="des">Influenza (တုပ်ကွေးရောဂါ) ဆိုတာ အသက်ရှူလမ်းကြောင်းကို တိုက်ခိုက်တဲ့ ဗိုင်းရပ်စ်ပိုးကြောင့် ဖြစ်ပွားတဲ့ ကူးစက်ရောဂါတစ်ခုပါ။ သာမန်အအေးမိတာထက် ပိုပြင်းထန်ပြီး ရုတ်တရက် ဖျားခြင်း၊ ချမ်းတုန်ခြင်း၊ ကြွက်သားများ ကိုက်ခဲခြင်း၊ ချောင်းဆိုးခြင်းနဲ့ အလွန်အမင်း နုံးချိခြင်းတို့ကို ခံစားရတတ်ပါတယ်။ နှစ်စဉ် တုပ်ကွေးကာကွယ်ဆေး (Flu Vaccine) ထိုးနှံခြင်းဖြင့် ပြင်းထန်တဲ့ နောက်ဆက်တွဲ ပြဿနာတွေကို ကာကွယ်နိုင်ပါတယ်။</div>
+
+        
+
+        </div>
+
+ 
+
+    </div>
+
+
+
+    <div class="item" style="background-image: url(./fever/kidnetstones.png);">
+
+        <div class="content">
+
+            <div class="name">Kidneystones</div>
+
+            <div class="des">Kidney stones (ကျောက်ကပ်ကျောက်တည်ခြင်း) ဆိုတာ ဆီးထဲမှာ ပါဝင်တဲ့ သတ္တုဓာတ်နဲ့ ဆားဓာတ်တွေ စုပုံလာရာကနေ ကျောက်ခဲလို မာကျောတဲ့ အစိုင်အခဲလေးတွေ ဖြစ်လာတာပါ။ ကျောက်ကပ်ကနေ ဆီးလမ်းကြောင်းအတိုင်း ဆင်းလာတဲ့အခါ ခါး ဒါမှမဟုတ် ဗိုက်အောက်ပိုင်းမှာ ပြင်းထန်စွာ နာကျင်ခြင်း၊ ဆီးထဲသွေးပါခြင်းနဲ့ ပျို့အန်ခြင်းတို့ကို ဖြစ်စေနိုင်ပါတယ်။ ရေများများသောက်ခြင်းနဲ့ အစားအသောက် ဆင်ခြင်ခြင်းတို့ဖြင့် အချို့ကျောက်များကို သဘာဝအတိုင်း ထွက်စေနိုင်ပေမဲ့ ကြီးမားတဲ့ ကျောက်တွေအတွက်တော့ ဆေးကုသမှု ခံယူဖို့ လိုအပ်ပါတယ်။</div>
+
+        
+
+        </div>
+
+ 
+
+    </div>
+<div class="item" style="background-image: url(./general/hiv.png);">
+        <div class="content">
+            <div class="name">HIV/AIDS</div>
+            <div class="des">HIV/AIDS ဆိုတာ HIV ဗိုင်းရပ်စ်ပိုးကြောင့် ခန္ဓာကိုယ်ရဲ့ ခုခံအားစနစ် (Immune System) ပျက်စီးသွားတဲ့ အခြေအနေပါ။ HIV ပိုးဟာ သွေး၊ လိင်ဆက်ဆံခြင်း သို့မဟုတ် မိခင်မှကလေးသို့ ကူးစက်နိုင်ပြီး သေချာကုသမှုမခံယူရင် ခုခံအားကျဆင်းမှု ကူးစက်ရောဂါစု (AIDS) အဆင့်ထိ ရောက်ရှိသွားနိုင်ပါတယ်။ လက်ရှိမှာတော့ ဆေးဝါးများ (ARV) နဲ့ စနစ်တကျ ထိန်းချုပ်ထားနိုင်ရင် ပုံမှန်အတိုင်း သက်တမ်းစေ့ နေထိုင်နိုင်ပါတယ်။</div>
+        
+        </div>
+  
+    </div>
+    <div class="item" style="background-image: url(./general/chlamydia.png);">
+        <div class="content">
+            <div class="name">Chlamydia</div>
+            <div class="des">Chlamydia (ခလမိုင်ဒီးယား) ဆိုတာ ဘက်တီးရီးယားပိုးကြောင့်ဖြစ်တဲ့ လိင်ကတဆင့်ကူးစက်တတ်တဲ့ရောဂါ (STD) တစ်မျိုးပါ။ အဖြစ်များပြီး ကုသရလွယ်ကူပေမဲ့ ရောဂါလက္ခဏာ မပြတတ်တာကြောင့် သတိမထားမိဘဲ ဖြစ်နေတတ်ပါတယ်။ မကုသဘဲထားရင် အမျိုးသမီးတွေမှာ ကလေးမရနိုင်တာ (မျိုးပွားအင်္ဂါပျက်စီးတာ) အထိ ဖြစ်စေနိုင်ပါတယ်။</div>
+        
+        </div>
+  
+    </div>
+     <div class="item" style="background-image: url(./general/Gonorrhea.png);">
+        <div class="content">
+            <div class="name">Gonorrhea</div>
+            <div class="des">Gonorrhea (ဂနိုရောဂါ) ဆိုတာ ဘက်တီးရီးယားပိုးကြောင့် ဖြစ်ပွားတဲ့ လိင်မှတစ်ဆင့် ကူးစက်တတ်သော ရောဂါ (STD) တစ်မျိုးပါ။ အဓိကအားဖြင့် ဆီးလမ်းကြောင်း၊ သားအိမ်ခေါင်းနဲ့ လည်ချောင်းတစ်ဝိုက်မှာ ကူးစက်တတ်ပါတယ်။ ဆီးသွားလျှင် ပူစပ်ပူလောင်ဖြစ်ခြင်းနဲ့ ပုံမှန်မဟုတ်တဲ့ အရည်များထွက်ခြင်းတို့ဟာ အဖြစ်များတဲ့ လက္ခဏာတွေဖြစ်ပြီး ပိုးသတ်ဆေးနဲ့ ထိရောက်စွာ ကုသနိုင်ပါတယ်။</div>
+        
+        </div>
+  
+    </div>
+     <div class="item" style="background-image: url(./general/hpv.png);">
+        <div class="content">
+            <div class="name">HPV</div>
+            <div class="des">HPV (Human Papillomavirus) ဆိုတာ အရေပြားချင်း ထိတွေ့မှု (အထူးသဖြင့် လိင်ဆက်ဆံခြင်း) ကတစ်ဆင့် အလွန်ကူးစက်လွယ်တဲ့ ဗိုင်းရပ်စ်ပိုး ဖြစ်ပါတယ်။ HPV အမျိုးအစား ပေါင်း ၁၀၀ ကျော်ရှိပြီး အချို့က ကြွက်နို့ (Warts) ဖြစ်စေကာ၊ အချို့ကတော့ အမျိုးသမီးတွေမှာ သားအိမ်ခေါင်းကင်ဆာ (Cervical Cancer) နဲ့ တခြားကင်ဆာရောဂါတွေကို ဖြစ်ပွားစေနိုင်ပါတယ်။ လက်ရှိမှာတော့ ကာကွယ်ဆေး (Vaccine) ထိုးနှံခြင်းဖြင့် အထိရောက်ဆုံး ကာကွယ်နိုင်ပါတယ်။</div>
+        
+        </div>
+  
+    </div>
+
+     <div class="item" style="background-image: url(./general/hsv.png);">
+        <div class="content">
+            <div class="name">HSV
+            </div>
+            <div class="des">HSV (Herpes Simplex Virus) ဆိုတာ အရေပြားချင်း ထိတွေ့မှုကတစ်ဆင့် ကူးစက်တတ်တဲ့ ဗိုင်းရပ်စ်ရောဂါ ဖြစ်ပါတယ်။ ၎င်းကို အမျိုးအစား (၂) မျိုး ခွဲခြားထားပါတယ် - HSV-1 က အဓိကအားဖြင့် ပါးစပ်တစ်ဝိုက်မှာ အနာဖုများ (Cold sores) ဖြစ်စေပြီး၊ HSV-2 ကတော့ လိင်အင်္ဂါတစ်ဝိုက်မှာ အနာများ ဖြစ်စေပါတယ်။ ခန္ဓာကိုယ်ထဲမှာ အမြဲရှိနေတတ်ပြီး ပင်ပန်းနွမ်းနယ်ချိန် သို့မဟုတ် ခုခံအားကျချိန်တွေမှာ ရောဂါလက္ခဏာ ပြန်ပေါ်လာတတ်ပါတယ်။</div>
+       
+        </div>
+  
+    </div>
+
+     <div class="item" style="background-image: url(./general/syphilis.png);">
+        <div class="content">
+            <div class="name">Syphilis</div>
+            <div class="des">Syphilis (ဆစ်ဖလစ်) ဆိုတာ Treponema pallidum လို့ခေါ်တဲ့ ဘက်တီးရီးယားကြောင့် ဖြစ်ပွားတဲ့ လိင်ကတစ်ဆင့် ကူးစက်တတ်သော ရောဂါ (STD) ဖြစ်ပါတယ်။ အဆင့် (၄) ဆင့်နဲ့ ဖြစ်ပွားတတ်ပြီး အစောပိုင်းမှာ နာကျင်မှုမရှိတဲ့ အနာ (Chancre) အဖြစ် စတင်တတ်ပါတယ်။ အချိန်မီ မကုသဘူးဆိုရင် နှစ်ပေါင်းများစွာအကြာမှာ နှလုံး၊ ဦးနှောက်နဲ့ တခြားအင်္ဂါအစိတ်အပိုင်းတွေကို ပြင်းထန်စွာ ထိခိုက်ပျက်စီးစေနိုင်ပါတယ်။ ဒါပေမဲ့ အစောပိုင်းအဆင့်မှာ ပိုးသတ်ဆေးနဲ့ ထိရောက်စွာ ကုသလို့ ရပါတယ်။</div>
+       
+        </div>
+  
+    </div>
+ 
+
+    </div>
+
+
+
+     <div class="item" style="background-image: url(./fever/pnemonia.png);">
+
+        <div class="content">
+
+            <div class="name">Pneumonia</div>
+
+            <div class="des">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, expedita?Pneumonia (အဆုတ်ရောင်ရောဂါ) ဆိုတာ ဘက်တီးရီးယား၊ ဗိုင်းရပ်စ် သို့မဟုတ် မှိုပိုးတစ်မျိုးမျိုးကြောင့် အဆုတ်ထဲက လေအိတ်ငယ်လေးတွေ ရောင်ရမ်းပြီး အရည် ဒါမှမဟုတ် ပြည်တွေ ပြည့်လာတဲ့ အခြေအနေပါ။ အဓိကအားဖြင့် ချောင်းဆိုးခြင်း၊ ဖျားခြင်း၊ ချမ်းတုန်ခြင်းနဲ့ အသက်ရှူရ ခက်ခဲခြင်းတို့ကို ဖြစ်စေပါတယ်။ ကလေးငယ်တွေ၊ သက်ကြီးရွယ်အိုတွေနဲ့ ခုခံအားနည်းသူတွေမှာ ပိုပြီး ပြင်းထန်တတ်တာမို့ အချိန်မီ ကုသမှုခံယူဖို့ အရေးကြီးပါတယ်။</div>
+
+        <button ><a href="hospitalpage.html" > Back </a></button>
+
+        </div>
+
+ 
+
+
+
+</div>
+
+<div class="button">
+
+    <button class="prev"><i class="fa-solid fa-arrow-left-long"></i></button>
+
+    <button class="next"><i class="fa-solid fa-arrow-right-long"></i></button>
+
+</div>
+
+    </div>
+
+   
+
+
+
+            <!-- <h1 class="department-container" id="departments">ဆောင်းပါးများ</h1>
+
+            <div class="service-box">
+
+                <div class="card">
+
+                    <img src="./cancer/lung.png" alt="Cancer">
+
+                    <h3>Cancer</h3>
+
+                    <p>ကင်ဆာရောဂါများအကြောင်း</p>
+
+                    <a href="lung.html" class="overview-btn">Overview</a>
+
+                </div>
+
+
+
+                <div class="card">
+
+                    <img src="./heart/arrhythmia.png" alt="Heart">
+
+                    <h3>Heart diseases</h3>
+
+                    <p>နှလုံးရောဂါများအကြောင်း</p>
+
+                    <a href="herat.html" class="overview-btn">Overview</a>
+
+                </div>
+
+
+
+                <div class="card">
+
+                    <img src="./fever/kidnetstones.png" alt="Fever">
+
+                    <h3>Fever</h3>
+
+                    <p>အဖြစ်များသောရောဂါများအကြောင်း</p>
+
+                    <a href="./fever.html" class="overview-btn">Overview</a>
+
+                </div>
+
+
+
+                <div class="card">
+
+                    <img src="./general/hiv.png" alt="HIV">
+
+                    <h3>HIV/AIDS</h3>
+
+                    <p>လိင်ရောဂါနှင့် နောက်ဆက်တွဲများ</p>
+
+                    <a href="./general.html" class="overview-btn">Overview</a>
+
+                </div>
+
+            </div> -->
+
+    </section>
+
+
+
+        <hr class="line">
+
+
+
+        <section class="doctor-section" id="doctors">
+
+            <h1 class="department-container" id="departments">ဆရာဝန်များ</h1>
+
+            <div class="doctors">
+
+                <div class="doctor">
+
+                    <img src="./Docimg/2.png">
+
+                    <p class="doc-name">Dr.Kyaw Thiha</p>
+
+                    <p class="doc-degree">M.B.B.S</p>
+
+                    <p class="doc-spec text-primary">အရိုးအထူးကု(ပါရဂူ)</p>
+
+                </div>
+
+                <div class="doctor">
+
+                    <img src="./Docimg/3.png">
+
+                    <p class="doc-name">Dr.Wai Yan Lin</p>
+
+                    <p class="doc-degree">M.B.B.S</p>
+
+                    <p class="doc-spec text-primary">အသည်းအထူးကု</p>
+
+                </div>
+
+                <div class="doctor">
+
+                    <img src="./Docimg/4.png">
+
+                    <p class="doc-name">Dr.Khant Zin Thaw</p>
+
+                    <p class="doc-degree">M.B.B.S</p>
+
+                    <p class="doc-spec text-primary">အဆုတ်အထူးကု</p>
+
+                </div>
+
+                <div class="doctor">
+
+                    <img src="./Docimg/5.png">
+
+                    <p class="doc-name">Dr.Aung Min Khant</p>
+
+                    <p class="doc-degree">M.B.B.S</p>
+
+                    <p class="doc-spec text-primary">ကင်ဆာအထူးကု</p>
+
+                </div>
+
+                <div class="doctor">
+
+                    <img src="./Docimg/6.png">
+
+                    <p class="doc-name">Dr.Tun Lin Aung</p>
+
+                    <p class="doc-degree">M.B.B.S</p>
+
+                    <p class="doc-spec text-primary">နှလုံးအထူးကု</p>
+
+                </div>
+
+                <div class="doctor">
+
+                    <img src="./Docimg/7.png">
+
+                    <p class="doc-name">Dr.Zaw Myo Oo</p>
+
+                    <p class="doc-degree">M.B.B.S</p>
+
+                    <p class="doc-spec">လက်ထောက်ဆရာဝန်</p>
+
+                </div>
+
+                <div class="doctor">
+
+                    <img src="./Docimg/8.png">
+
+                    <p class="doc-name">Dr.Lil Z</p>
+
+                    <p class="doc-degree">M.B.B.S</p>
+
+                    <p class="doc-spec">လက်ထောက်ဆရာဝန်</p>
+
+                </div>
+
+                <div class="doctor">
+
+                    <img src="./Docimg/1.png">
+
+                    <p class="doc-name">Dr.Moe May Lin</p>
+
+                    <p class="doc-degree">M.B.B.S</p>
+
+                    <p class="doc-spec">လက်ထောက်ဆရာဝန်</p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+     <section class="services-info">
+
+    <h1 class="department-container" id="departments">ဝန်ဆောင်မှုများ</h1>
+
+    <div class="service-box">
+
+        <div class="facilities-card">
+
+            <div class="icon-circle icon-teal"><i class="fas fa-microscope"></i></div>
+
+            <h3>Laboratory</h3>
+
+            <p>တိကျမြန်ဆန်သော ဓာတ်ခွဲစမ်းသပ်မှုများ</p>
+
+        </div>
+
+        <div class="facilities-card">
+
+            <div class="icon-circle icon-green"><i class="fas fa-pills"></i></div>
+
+            <h3>Pharmacy</h3>
+
+            <p>အရည်အသွေးစိတ်ချရသော ဆေးဝါးများ</p>
+
+        </div>
+
+        <div class="facilities-card">
+
+            <div class="icon-circle icon-blue"><i class="fas fa-bed"></i></div>
+
+            <h3>In-patient Ward</h3>
+
+            <p>သန့်ရှင်းသက်သောင့်သက်သာရှိသော လူနာဆောင်များ</p>
+
+        </div>
+
+        <div class="facilities-card highlight-card">
+
+            <div class="icon-circle icon-orange"><i class="fas fa-ambulance"></i></div>
+
+            <h3>Ambulance</h3>
+
+            <p>၂၄ နာရီ အရေးပေါ် လူနာတင်ယာဉ်</p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<script>let next= document.querySelector('.next')
+
+let prev= document.querySelector('.prev')
+
+next.addEventListener('click',function(){
+
+    let items=document.querySelectorAll('.item')
+
+    document.querySelector('.slide').appendChild(items[0])
+
+
+
+})
+
+prev.addEventListener('click',function(){
+
+    let items=document.querySelectorAll('.item')
+
+    document.querySelector('.slide').prepend(items[items.length - 1])
+
+   
+
+})
+
+</script>
+
+
+
+    <footer>
+
+        <p>&copy;ပြည်သူ့ဆေးရုံကြီး (ပုသိမ်)</p>
+
+    </footer>
+
+
+
+</body>
+
+</html>
+

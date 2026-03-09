@@ -252,7 +252,11 @@ if (isset($_GET['delete_id'])) {
             <?php endwhile; ?>
         </div>
     </div>
-
+<div style="position: fixed; bottom: 30px; left: 30px; z-index: 1000;">
+        <a href="javascript:history.back()" class="btn btn-dark rounded-circle shadow-lg d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+            <i class="fas fa-arrow-left"></i>
+        </a>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>

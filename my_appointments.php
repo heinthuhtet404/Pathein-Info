@@ -83,7 +83,7 @@ $result = mysqli_query($db, $sql);
         <a class="navbar-brand fw-bold text-primary" href="index.php">
             <i class="fas fa-hospital-user me-2"></i>Clinic Booking
         </a>
-        <a href="index.php" class="btn btn-primary rounded-pill px-4 btn-sm fw-bold shadow-sm">
+        <a href="booking.php" class="btn btn-primary rounded-pill px-4 btn-sm fw-bold shadow-sm">
             <i class="fas fa-plus me-1"></i> New Booking
         </a>
     </div>

@@ -469,7 +469,7 @@ if (isset($_POST['submit'])) {
                     </div>
 
                     <!-- Terms and Conditions -->
-                    <div class="mb-4">
+                    <!-- <div class="mb-4">
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" id="termsCheck" required>
                             <label class="form-check-label" for="termsCheck">
@@ -477,7 +477,7 @@ if (isset($_POST['submit'])) {
                                 <a href="#" class="text-primary">အသေးစိတ်ကြည့်ရန်</a>
                             </label>
                         </div>
-                    </div>
+                    </div> -->
 
                     <div class="d-grid">
                         <button type="submit" name="submit" class="btn-register">

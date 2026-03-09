@@ -607,7 +607,7 @@ echo "<script>alert('Email မရှိပါ');</script>";
                     </div>
 
                     <!-- Features -->
-                    <div class="features">
+                    <!-- <div class="features">
                         <div class="feature-item">
                             <i class="fas fa-shield-alt"></i>
                             <span>လုံခြုံစိတ်ချရ</span>
@@ -620,7 +620,7 @@ echo "<script>alert('Email မရှိပါ');</script>";
                             <i class="fas fa-headset"></i>
                             <span>အကူအညီ</span>
                         </div>
-                    </div>
+                    </div> -->
 
                 </form>
 
@@ -637,7 +637,7 @@ echo "<script>alert('Email မရှိပါ');</script>";
         </div>
         
         <!-- Business Categories -->
-        <div class="text-center mt-4">
+        <!-- <div class="text-center mt-4">
             <div class="d-flex justify-content-center gap-3 flex-wrap">
                 <span class="badge bg-white text-dark px-3 py-2 rounded-pill shadow-sm">
                     <i class="fas fa-school text-primary me-1"></i> ကျောင်း
@@ -655,7 +655,7 @@ echo "<script>alert('Email မရှိပါ');</script>";
                     <i class="fas fa-box text-primary me-1"></i> ထုတ်ကုန်
                 </span>
             </div>
-        </div>
+        </div> -->
     </div>
 
     <script>

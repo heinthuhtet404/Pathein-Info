@@ -172,7 +172,7 @@ if (isset($_POST['login'])) {
         body {
             font-family: 'Inter', sans-serif;
             min-height: 100vh;
-            background: linear-gradient(135deg, #0d6efd, #20c997);
+            background: linear-gradient(135deg, #4158D0 0%, #C850C0 100%);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -182,7 +182,7 @@ if (isset($_POST['login'])) {
             overflow: hidden;
         }
         
-        /* Animated Background Elements */
+        /* Animated Background Elements - Updated Colors */
         body::before {
             content: '';
             position: absolute;
@@ -213,7 +213,7 @@ if (isset($_POST['login'])) {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            box-shadow: 0 25px 50px -12px rgba(65, 88, 208, 0.25);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             border: 1px solid rgba(255, 255, 255, 0.5);
             position: relative;
@@ -224,7 +224,7 @@ if (isset($_POST['login'])) {
 
         .login-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 30px 60px -12px rgba(200, 80, 192, 0.3);
         }
 
         .login-header {
@@ -263,8 +263,8 @@ if (isset($_POST['login'])) {
         }
 
         .form-control:focus {
-            border-color: #0d6efd;
-            box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.15);
+            border-color: #C850C0;
+            box-shadow: 0 0 0 4px rgba(200, 80, 192, 0.15);
             outline: none;
         }
 
@@ -278,7 +278,7 @@ if (isset($_POST['login'])) {
         }
 
         .btn-login {
-            background: linear-gradient(90deg, #0d6efd, #20c997);
+            background: linear-gradient(90deg, #4158D0, #C850C0);
             border: none;
             border-radius: 1rem;
             padding: 0.875rem;
@@ -286,15 +286,15 @@ if (isset($_POST['login'])) {
             font-size: 1.1rem;
             color: white;
             transition: all 0.3s ease;
-            box-shadow: 0 10px 20px -5px rgba(13, 110, 253, 0.4);
+            box-shadow: 0 10px 20px -5px rgba(65, 88, 208, 0.4);
             width: 100%;
             margin-top: 1rem;
         }
 
         .btn-login:hover {
             transform: translateY(-2px);
-            box-shadow: 0 15px 25px -5px rgba(13, 110, 253, 0.5);
-            background: linear-gradient(90deg, #0b5ed7, #1baa84);
+            box-shadow: 0 15px 25px -5px rgba(200, 80, 192, 0.5);
+            background: linear-gradient(90deg, #3a4eb8, #b048a8);
         }
 
         .btn-login:active {
@@ -318,7 +318,7 @@ if (isset($_POST['login'])) {
         .brand-badge span {
             font-size: 1.5rem;
             font-weight: 700;
-            background: linear-gradient(90deg, #0d6efd, #20c997);
+            background: linear-gradient(90deg, #4158D0, #C850C0);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -331,7 +331,7 @@ if (isset($_POST['login'])) {
         }
 
         .footer-note i {
-            color: #ef4444;
+            color: #C850C0;
         }
 
         /* Alert customization */

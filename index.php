@@ -577,6 +577,369 @@ border: 1px solid rgba(255, 255, 255, 0.2);
 .col-md-4:nth-child(4) .service-card-bg { animation-delay: 0.4s; }
 .col-md-4:nth-child(5) .service-card-bg { animation-delay: 0.5s; }
 .col-md-4:nth-child(6) .service-card-bg { animation-delay: 0.6s; }
+
+/* ===== PARTNER SECTION STYLES (No Conflict with existing classes) ===== */
+        
+        /* Floating Shapes */
+        .partner-bg-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .partner-shape-1 {
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 50%;
+            animation: floatAnimation 20s infinite ease-in-out;
+        }
+
+        .partner-shape-2 {
+            position: absolute;
+            bottom: -80px;
+            left: -80px;
+            width: 400px;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            animation: floatAnimation 25s infinite reverse;
+        }
+
+        .partner-shape-3 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: pulseGlow 8s infinite;
+        }
+
+        @keyframes floatAnimation {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(30px, -30px) rotate(120deg); }
+            66% { transform: translate(-20px, 20px) rotate(240deg); }
+            100% { transform: translate(0, 0) rotate(360deg); }
+        }
+
+        @keyframes pulseGlow {
+            0% { opacity: 0.3; transform: translate(-50%, -50%) scale(1); }
+            50% { opacity: 0.6; transform: translate(-50%, -50%) scale(1.2); }
+            100% { opacity: 0.3; transform: translate(-50%, -50%) scale(1); }
+        }
+
+        /* Promo Badge */
+        .partner-promo-badge {
+            display: inline-block;
+            animation: slideDown 0.8s ease;
+        }
+
+        .badge-content {
+            display: inline-block;
+            padding: 12px 30px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 50px;
+            color: #fff;
+            font-weight: 600;
+            letter-spacing: 1px;
+            font-size: 1.1rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+        }
+
+        .badge-content:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .badge-content i {
+            color: #ffd700;
+        }
+
+        /* Main Headline */
+        .partner-main-headline {
+            text-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            line-height: 1.3;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        .headline-highlight {
+            background: linear-gradient(120deg, #ffffff, #f0f0f0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 15px rgba(255,255,255,0.3);
+            position: relative;
+            display: inline-block;
+        }
+
+        .headline-highlight::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #fff, transparent);
+            border-radius: 3px;
+        }
+
+        /* Description */
+        .partner-description {
+            max-width: 750px;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.25rem;
+            line-height: 1.7;
+            animation: fadeInUp 0.8s ease 0.3s both;
+        }
+
+        .partner-description strong {
+            color: #fff;
+            text-decoration: underline;
+            text-underline-offset: 8px;
+            text-decoration-thickness: 2px;
+            text-decoration-color: rgba(255,255,255,0.5);
+        }
+
+        /* Contact Card */
+        .partner-contact-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 40px;
+            padding: 3rem 2rem;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            max-width: 650px;
+            margin: 0 auto;
+            transition: all 0.5s ease;
+            animation: fadeInUp 0.8s ease 0.4s both;
+        }
+
+        .partner-contact-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 50px rgba(0,0,0,0.3);
+            border-color: rgba(255,255,255,0.3);
+        }
+
+        /* Card Header */
+        .card-header-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .icon-wrapper {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #4158D0, #C850C0);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            border: 2px solid rgba(255,255,255,0.3);
+            transition: all 0.4s ease;
+        }
+
+        .partner-contact-card:hover .icon-wrapper {
+            transform: scale(1.1) rotate(5deg);
+            border-color: #fff;
+        }
+
+        .icon-wrapper i {
+            font-size: 2rem;
+            color: #fff;
+        }
+
+        .card-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #fff;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        /* Email Display */
+        .email-display-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            padding: 20px 25px;
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 60px;
+            margin: 25px 0 15px;
+            transition: all 0.3s ease;
+        }
+
+        .email-display-wrapper:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255,255,255,0.4);
+        }
+
+        .email-address {
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: #fff;
+            font-family: 'Courier New', monospace;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .copy-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 40px;
+            padding: 12px 30px;
+            color: #fff;
+            font-weight: 600;
+            font-size: 1rem;
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .copy-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+            border-color: rgba(255,255,255,0.5);
+        }
+
+        .copy-btn:active {
+            transform: translateY(0);
+        }
+
+        /* Info Note */
+        .info-note {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.95rem;
+            padding: 10px;
+            border-radius: 30px;
+            background: rgba(0,0,0,0.1);
+            display: inline-block;
+            padding: 10px 25px;
+        }
+
+        .info-note i {
+            color: #ffd700;
+        }
+
+        /* Footer Note */
+        .partner-footer-note {
+            color: rgba(255, 255, 255, 0.75);
+            font-size: 1rem;
+            padding: 15px 30px;
+            background: rgba(0,0,0,0.15);
+            border-radius: 50px;
+            display: inline-block;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.1);
+            animation: fadeInUp 0.8s ease 0.5s both;
+        }
+
+        .partner-footer-note i {
+            color: #ffd700;
+        }
+
+        /* Animations */
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .partner-main-headline {
+                font-size: 2.2rem !important;
+            }
+            
+            .email-address {
+                font-size: 1.1rem !important;
+            }
+            
+            .partner-contact-card {
+                padding: 2rem 1.5rem;
+            }
+            
+            .card-title {
+                font-size: 1.5rem;
+            }
+            
+            .icon-wrapper {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .icon-wrapper i {
+                font-size: 1.5rem;
+            }
+            
+            .badge-content {
+                font-size: 0.9rem;
+                padding: 10px 20px;
+            }
+            
+            .partner-footer-note {
+                font-size: 0.85rem;
+                padding: 12px 20px;
+            }
+        }
+
+        /* Mobile Small */
+        @media (max-width: 480px) {
+            .email-display-wrapper {
+                flex-direction: column;
+            }
+            
+            .copy-btn {
+                width: 100%;
+            }
+            
+            .email-address {
+                font-size: 1rem !important;
+                word-break: break-all;
+            }
+        }
+
+        /* Loading Animation for elements */
+        .partner-promo-badge,
+        .partner-main-headline,
+        .partner-description,
+        .partner-contact-card,
+        .partner-footer-note {
+            animation-fill-mode: both;
+        }
     </style>
 </head>
 
@@ -613,6 +976,8 @@ border: 1px solid rgba(255, 255, 255, 0.2);
                 </li>
                 <li class="nav-item px-3"><a class="nav-link text-primary" href="#">ဟိုတယ်</a></li>
                 <li class="nav-item px-3"><a class="nav-link text-primary" href="#">လည်ပတ်စရာနေရာများ</a>
+                </li>
+                <li class="nav-item px-3"><a class="nav-link text-primary" href="business.php">စီးပွားရေးလုပ်ငန်း</a>
                 </li>
                  <li class="nav-item px-3"><a class="nav-link text-primary" href="#">ဒေသထွက်ကုန်များ</a>
             </ul>
@@ -819,79 +1184,82 @@ border: 1px solid rgba(255, 255, 255, 0.2);
     </section>
 
     <!-- ================= BUSINESS CONTACT SECTION (UPDATED - MATCHING COLORS) ================= -->
-<section class="business-contact-section d-flex align-items-center justify-content-center text-center"
-    style="min-height: 100vh; background: linear-gradient(135deg, #0d6efd, #20c997); color: #fff; position: relative; overflow: hidden;">
+<!-- ================= BUSINESS PARTNER SECTION (UPDATED) ================= -->
+<section class="partner-cta-section d-flex align-items-center justify-content-center text-center"
+    style="min-height: 100vh; background: linear-gradient(135deg, #4158D0 0%, #C850C0 100%); color: #fff; position: relative; overflow: hidden;" style="padding: 60px 0;">
 
-    <!-- Animated Background Elements (optional) - lighter version -->
-    <div style="position: absolute; width: 100%; height: 100%; pointer-events: none;">
-        <div style="position: absolute; top: -50px; right: -50px; width: 300px; height: 300px; background: rgba(255,255,255,0.05); border-radius: 50%;"></div>
-        <div style="position: absolute; bottom: -80px; left: -80px; width: 400px; height: 400px; background: rgba(255,255,255,0.05); border-radius: 50%;"></div>
+    <!-- Floating Background Elements -->
+    <div class="partner-bg-shapes">
+        <div class="partner-shape-1"></div>
+        <div class="partner-shape-2"></div>
+        <div class="partner-shape-3"></div>
     </div>
 
-    <div class="container position-relative" style="z-index: 2;">
+    <div class="container position-relative" style="z-index: 5;">
         <div class="row justify-content-center">
-            <div class="col-lg-8 col-xl-7">
+            <div class="col-lg-10 col-xl-8">
 
-                <!-- Small Badge - matching hero button style -->
-                <span class="badge px-3 py-2 mb-4 rounded-pill fw-semibold" 
-                    style="background: rgba(255,255,255,0.2); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.3); color: #fff; letter-spacing: 1px;">
-                    <i class="bi bi-megaphone me-2"></i>လုပ်ငန်းရှင်များအတွက် အထူးဖိတ်ခေါ်ခြင်း
-                </span>
+                <!-- Promo Badge -->
+                <div class="partner-promo-badge mb-5" style="margin-top: 20px;">
+                    <span class="badge-content">
+                        <i class="bi bi-megaphone-fill me-2"></i>
+                        လုပ်ငန်းရှင်များအတွက် အထူးဖိတ်ခေါ်ခြင်း
+                    </span>
+                </div>
 
-                <!-- Main Heading -->
-                <h2 class="display-4 fw-bold mb-4" style="text-shadow: 0 5px 15px rgba(0,0,0,0.2);">
+                <!-- Main Headline -->
+                <h2 class="partner-main-headline display-4 fw-bold mb-4">
                     သင့်လုပ်ငန်းကို 
-                    <span style="background: linear-gradient(120deg, #fff, #f8f9fa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-shadow: 0 2px 10px rgba(255,255,255,0.3);">
+                    <span class="headline-highlight">
                         ပုသိမ်မြို့
                     </span> 
                     ရဲ့ ဝန်ဆောင်မှုစာရင်းမှာ ထည့်သွင်းလိုက်ပါ။
                 </h2>
 
-                <!-- Description -->
-                <p class="lead mb-5 mx-auto" style="max-width: 700px; color: rgba(255,255,255,0.9); font-size: 1.25rem;">
+                <!-- Description Text -->
+                <p class="partner-description lead mb-5 mx-auto">
                     ခရီးသွားများ၊ ပြည်သူများဆီသို့ သင့်လုပ်ငန်းကို ရောက်ရှိစေဖို့အတွက် 
-                    <strong style="color: #fff; text-decoration: underline; text-underline-offset: 5px;">ပုသိမ်မြို့ ဝန်ဆောင်မှုပေါ်တယ်</strong> မှာ နေရာယူလိုက်ပါ။
+                    <strong class="fw-bold">ပုသိမ်မြို့ ဝန်ဆောင်မှုပေါ်တယ်</strong> မှာ နေရာယူလိုက်ပါ။
                 </p>
 
-                <!-- Contact Card (Glassmorphism Style) - updated to match theme -->
-                <div class="card border-0 backdrop-blur p-5 rounded-5 shadow-lg mx-auto" 
-                    style="background: rgba(255,255,255,0.15); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.3); max-width: 600px;">
+                <!-- Contact Card -->
+                <div class="partner-contact-card">
                     
-                    <div class="d-flex align-items-center justify-content-center gap-3 mb-4">
-                        <div class="rounded-circle p-3 d-flex align-items-center justify-content-center" 
-                            style="width: 60px; height: 60px; background: linear-gradient(135deg, #0d6efd, #20c997); box-shadow: 0 5px 15px rgba(0,0,0,0.2);">
-                            <i class="bi bi-envelope-paper fs-2 text-white"></i>
+                    <!-- Card Header -->
+                    <div class="card-header-wrapper mb-4">
+                        <div class="icon-wrapper">
+                            <i class="bi bi-envelope-paper-fill"></i>
                         </div>
-                        <h4 class="mb-0 fw-semibold text-white">ဆက်သွယ်ရန်</h4>
+                        <h4 class="card-title mb-0">ဆက်သွယ်ရန်</h4>
                     </div>
 
-                    <!-- Email Display with Copy Button -->
-                    <div class="d-flex flex-wrap align-items-center justify-content-center gap-3 p-3 rounded-4" 
-                        style="background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.3);">
-                        <span class="fs-3 fw-mono text-white" id="adminEmail">patheininfo2026@gmail.com</span>
-                        <button class="btn rounded-pill px-4 py-2 fw-semibold d-flex align-items-center gap-2" 
-                            style="background: rgba(255,255,255,0.25); color: #fff; border: 1px solid rgba(255,255,255,0.4); backdrop-filter: blur(4px);" 
-                            onclick="copyEmail()"
-                            onmouseover="this.style.background='rgba(255,255,255,0.35)'"
-                            onmouseout="this.style.background='rgba(255,255,255,0.25)'">
-                            <i class="bi bi-clipboard"></i> ကူးယူရန်
+                    <!-- Email Display Section -->
+                    <div class="email-display-wrapper">
+                        <span class="email-address" id="partnerEmail">patheininfo2026@gmail.com</span>
+                        <button class="copy-btn" onclick="copyPartnerEmail()">
+                            <i class="bi bi-clipboard-check me-2"></i>
+                            ကူးယူရန်
                         </button>
                     </div>
 
-                    <p class="mt-4 mb-0 small" style="color: rgba(255,255,255,0.8);">
-                        <i class="bi bi-info-circle me-1"></i> 
+                    <!-- Info Note -->
+                    <p class="info-note mt-4 mb-0">
+                        <i class="bi bi-info-circle-fill me-2"></i>
                         အထက်ပါ Email သို့ သင့်လုပ်ငန်းအချက်အလက်များ ပေးပို့ပြီး စာရင်းသွင်းနိုင်ပါသည်။
                     </p>
+
                 </div>
 
-                <!-- Extra Note -->
-                <p class="mt-5" style="color: rgba(255,255,255,0.7); font-size: 0.95rem;">
-                    <i class="bi bi-star-fill" style="color: #ffc107; margin-right: 8px;"></i>
+                <!-- Footer Note -->
+                <div class="partner-footer-note mt-5" style="margin-bottom: 20px;">
+                    <i class="bi bi-star-fill me-2"></i>
                     လက်ရှိတွင် ပညာရေး၊ ကျန်းမာရေး၊ ဟိုတယ်၊ စားသောက်ဆိုင်၊ ခရီးသွားလုပ်ငန်းများ စာရင်းသွင်းနိုင်ပါသည်။
-                </p>
+                </div>
+
             </div>
         </div>
     </div>
+
 </section>
 
     <!-- ================= Location Section ================= -->
@@ -931,6 +1299,26 @@ border: 1px solid rgba(255, 255, 255, 0.2);
         console.error('Copy failed: ', err);
     });
 }
+
+function copyPartnerEmail() {
+            const email = document.getElementById('partnerEmail').innerText;
+            navigator.clipboard.writeText(email).then(() => {
+                // Visual feedback
+                const btn = event.target.closest('.copy-btn');
+                const originalText = btn.innerHTML;
+                btn.innerHTML = '<i class="bi bi-check-circle-fill me-2"></i>ကူးယူပြီးပါပြီ';
+                btn.style.background = 'rgba(40, 167, 69, 0.3)';
+                
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.style.background = 'rgba(255, 255, 255, 0.2)';
+                }, 2000);
+            }).catch(err => {
+                // alert('❌ ကူးယူမရပါ။ ကိုယ်တိုင်ကူးယူပါ။');
+                // console.error('Copy failed: ', err);
+                    
+            });
+        }
     </script>
 </body>
 

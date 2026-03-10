@@ -94,7 +94,7 @@ $total_docs = mysqli_fetch_assoc(mysqli_query($db, "SELECT COUNT(*) as total FRO
                 <a href="add_doctor.php"><i class="fas fa-plus-circle me-2"></i> ဆရာဝန်အသစ်ထည့်ရန်</a>
                 <a href="edit_clinic.php"><i class="fas fa-edit me-2"></i> Edit Profile</a>
                 <hr class="mx-3 border-secondary">
-                <a href="logout.php" class="text-danger"><i class="fas fa-sign-out-alt me-2"></i> Logout</a>
+                <a href="business_man_login.php" class="text-danger"><i class="fas fa-sign-out-alt me-2"></i> Logout</a>
             </nav>
         </div>
 

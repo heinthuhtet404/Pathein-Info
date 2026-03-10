@@ -972,7 +972,7 @@ border: 1px solid rgba(255, 255, 255, 0.2);
             <ul class="navbar-nav mx-auto fw-semibold">
                 <li class="nav-item px-3"><a class="nav-link text-primary" href="Academic.php">ပညာရေး</a></li>
                 <li class="nav-item px-3"><a class="nav-link text-primary" href="healthhomepage.php">ကျန်းမာရေး</a></li>
-                <li class="nav-item px-3"><a class="nav-link text-primary" href="#">သယ်ယူပို့ဆောင်ရေး</a>
+                <li class="nav-item px-3"><a class="nav-link text-primary" href="bus1.php">သယ်ယူပို့ဆောင်ရေး</a>
                 </li>
                 <li class="nav-item px-3"><a class="nav-link text-primary" href="#">ဟိုတယ်</a></li>
                 <li class="nav-item px-3"><a class="nav-link text-primary" href="LinnKhantNaing/business.php">လုပ်ငန်းများ</a></li>

@@ -85,16 +85,16 @@ body{
 
 <!-- Card 1 -->
 <div class="card">
-<img src="အထည်ချုပ်.jpg">
+<img src="clothing.jpg">
 <div class="card-content">
 <h3>အထည်ချုပ်လုပ်ငန်း</h3>
-<a href="အထည်ချုပ်.php" class="btn">ပိုမိုသိရှိရန်</a>
+<a href="clothing.php" class="btn">ပိုမိုသိရှိရန်</a>
 </div>
 </div>
 
 <!-- Card 2 -->
 <div class="card">
-<img src="အထပ်သား.jpg">
+<img src="aHtatThar.jpg">
 <div class="card-content">
 <h3>အထပ်သားလုပ်ငန်း</h3>
 <a href="real.html" class="btn">ပိုမိုသိရှိရန်</a>
@@ -103,7 +103,7 @@ body{
 
 <!-- Card 3 -->
 <div class="card">
-<img src="မှန်.jpg">
+<img src="mirror.jpg">
 <div class="card-content">
 <h3>မှန်စက်ရုံလုပ်ငန်း</h3>
 <a href="mirror.php" class="btn">ပိုမိုသိရှိရန်</a>
@@ -112,7 +112,7 @@ body{
 
 <!-- Card 4 -->
 <div class="card">
-<img src="ဆန်စက်.jpg">
+<img src="sanset.jpg">
 <div class="card-content">
 <h3>ဆီစက်လုပ်ငန်း</h3>
 <a href="wm2.html" class="btn">ပိုမိုသိရှိရန်</a>

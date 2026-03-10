@@ -228,9 +228,9 @@ $inactive_clinics = 0;
                                 <button class="btn btn-outline-primary rounded-pill" onclick="exportTable()">
                                     <i class="fa-solid fa-download me-2"></i>Export
                                 </button>
-                                <button class="btn btn-primary rounded-pill" data-bs-toggle="modal" data-bs-target="#addClinicModal">
+                                <!-- <button class="btn btn-primary rounded-pill" data-bs-toggle="modal" data-bs-target="#addClinicModal">
                                     <i class="fa-solid fa-plus me-2"></i>Add Clinic
-                                </button>
+                                </button> -->
                             </div>
                         </div>
                     </div>

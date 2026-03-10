@@ -347,7 +347,7 @@ if (isset($_POST['verify_otp'])) {
                                                 <i class="fa-solid fa-envelope text-muted"></i>
                                             </span>
                                             <input type="email" name="email" class="form-control border-start-0" 
-                                                   value="<?= htmlspecialchars($user['email']); ?>" required>
+                                                   value="<?= htmlspecialchars($user['email']); ?>" required readonly>
                                         </div>
                                     </div>
                                     

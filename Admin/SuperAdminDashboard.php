@@ -369,7 +369,7 @@ if ($recent_users_query) {
                             <h6 class="fw-bold mb-1">Platform Activity</h6>
                             <small class="text-muted">User registrations and content updates</small>
                         </div>
-                        <div class="dropdown">
+                        <!-- <div class="dropdown">
                             <button class="btn btn-light btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown">
                                 This Week
                             </button>
@@ -379,7 +379,7 @@ if ($recent_users_query) {
                                 <li><a class="dropdown-item" href="#">This Month</a></li>
                                 <li><a class="dropdown-item" href="#">This Year</a></li>
                             </ul>
-                        </div>
+                        </div> -->
                     </div>
                     <canvas id="activityChart" style="width:100%; max-height:300px;"></canvas>
                 </div>

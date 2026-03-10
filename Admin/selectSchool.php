@@ -237,9 +237,9 @@ $inactive_schools = $total_schools - $active_schools;
                                 <button class="btn btn-outline-primary rounded-pill" onclick="exportTable()">
                                     <i class="fa-solid fa-download me-2"></i>Export
                                 </button>
-                                <button class="btn btn-primary rounded-pill" data-bs-toggle="modal" data-bs-target="#addSchoolModal">
+                                <!-- <button class="btn btn-primary rounded-pill" data-bs-toggle="modal" data-bs-target="#addSchoolModal">
                                     <i class="fa-solid fa-plus me-2"></i>Add School
-                                </button>
+                                </button> -->
                             </div>
                         </div>
                     </div>

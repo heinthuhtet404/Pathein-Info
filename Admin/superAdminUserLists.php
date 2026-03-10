@@ -197,14 +197,14 @@ $total_pages = ceil($total_row['total'] / $limit);
                                     <span class="filter-badge px-4 py-2 rounded-pill" >Rejected</span> -->
                                 </div>
                             </div>
-                            <div class="search-wrapper">
+                            <!-- <div class="search-wrapper">
                                 <div class="input-group">
                                     <span class="input-group-text bg-white border-end-0">
                                         <i class="bi bi-search text-muted"></i>
                                     </span>
                                     <input type="text" class="form-control border-start-0 ps-0" placeholder="Search users..." style="width: 250px;">
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
 

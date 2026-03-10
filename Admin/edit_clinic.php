@@ -2,12 +2,12 @@
 session_start();
 include 'db.php';
 
-if (!isset($_SESSION['user_id'])) {
-    header("Location: login.php");
+if (!isset($_SESSION['business_id'])) {
+    header("Location: business_man_login.php");
     exit;
 }
 
-$user_id = $_SESSION['user_id'];
+$user_id = $_SESSION['business_id'];
 
 // ၁။ လက်ရှိဆေးခန်း အချက်အလက်ကို အရင်ဆွဲထုတ်မယ်
 $query = "SELECT * FROM clinics WHERE user_id = '$user_id' LIMIT 1";

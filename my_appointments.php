@@ -108,7 +108,7 @@ $result = mysqli_query($db, $sql);
                                     <?php echo $row['token_no'] ?: '--'; ?>
                                 </div>
                                 <div>
-                                    <h6 class="fw-bold mb-0">Dr. <?php echo htmlspecialchars($row['doctor_name']); ?></h6>
+                                    <h6 class="fw-bold mb-0"> <?php echo htmlspecialchars($row['doctor_name']); ?></h6>
                                     <small class="text-primary fw-semibold"><?php echo htmlspecialchars($row['specialization']); ?></small>
                                 </div>
                             </div>

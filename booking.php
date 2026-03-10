@@ -94,7 +94,7 @@ if (!$doc) {
         <div class="doctor-info-banner d-md-flex align-items-center justify-content-between">
             <div>
                 <h4 class="fw-bold mb-1">Appointment Form</h4>
-                <p class="mb-0 opacity-75">Dr. <?php echo $doc['doctor_name']; ?> နှင့် ရက်ချိန်းယူခြင်း</p>
+                <p class="mb-0 opacity-75"> <?php echo $doc['doctor_name']; ?> နှင့် ရက်ချိန်းယူခြင်း</p>
             </div>
             <div class="text-md-end mt-3 mt-md-0">
                 <span class="badge bg-white text-primary rounded-pill px-3"><?php echo $doc['specialization']; ?></span>

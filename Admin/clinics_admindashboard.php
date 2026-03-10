@@ -2,13 +2,24 @@
 session_start();
 include 'db.php';
 
+
+
 // ၁။ Login Check
 if (!isset($_SESSION['business_id'])) {
     header("Location: business_man_login.php");
     exit;
 }
 
-$user_id = $_SESSION['business_id'];
+$user_id = $_SESSION['business_id']; // ✔ အရင် assign
+
+// debug
+// echo "Session business id = " . $_SESSION['business_id'] . "<br>";
+// echo "Session id = ".$user_id."<br>";
+
+// $query = "SELECT * FROM clinics WHERE user_id = '$user_id'";
+// $result = mysqli_query($db,$query);
+
+// echo "Rows = ".mysqli_num_rows($result)."<br>";
 
 // ၂။ ဆေးခန်းဒေတာ ဆွဲထုတ်ခြင်း
 $query = "SELECT * FROM clinics WHERE user_id = '$user_id' LIMIT 1";

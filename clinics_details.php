@@ -208,7 +208,7 @@ function displayDoctorTable($db, $clinic_id, $filter) {
                                 <div class="bg-primary-subtle rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 60px; height: 60px;"><i class="fas fa-user-md text-primary fa-lg"></i></div>
                             <?php endif; ?>
                             <div>
-                                <div class="fw-bold text-dark mb-0">Dr. <?php echo $doc['doctor_name']; ?></div>
+                                <div class="fw-bold text-dark mb-0"> <?php echo $doc['doctor_name']; ?></div>
                                 <span class="text-primary small fw-semibold"><?php echo $doc['specialization']; ?></span>
                             </div>
                         </div>

@@ -214,7 +214,7 @@ nav ul li a {
  .hero-image {
 
     flex: 1;
-
+border-radius: 20px;
     height: 500px;
 
 }

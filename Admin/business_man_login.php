@@ -40,17 +40,30 @@ $_SESSION['category_id']   = $user['category_id'];
 
 $category = $user['category_id'];
 
-/* Redirect based on business category */
 
+// clinic record ရှိ/မရှိ စစ်ခြင်း (အတွက် category 2 အတွက်)
+    if($category == 2){
+        $clinic_check = mysqli_query($db, "SELECT * FROM clinics WHERE user_id = '{$user['user_id']}' LIMIT 1");
+        if(mysqli_num_rows($clinic_check) == 0){
+            // Register လုပ်ပြီး clinic မထည့်သေးရင်
+            header("Location: register_health.php");
+            exit();
+        } else {
+            // Clinic ရှိပြီးသားဆိုရင်
+            header("Location: clinics_admindashboard.php");
+            exit();
+        }
+    }
+/* Redirect based on business category */
 switch($category){
 
 case 1:
 header("Location: school_dashboard.php");
 break;
 
-case 2:
-header("Location: register_health.php");
-break;
+// case 2:
+// header("Location: register_health.php");
+// break;
 
 case 3:
 header("Location: busline_dashboard.php");

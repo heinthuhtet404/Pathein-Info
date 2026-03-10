@@ -68,10 +68,10 @@ if (session_status() === PHP_SESSION_NONE) {
         </li>
 
         <li class="nav-item mb-2">
-            <a href="#" 
-               class="nav-link text-white rounded-3 d-flex align-items-center">
+            <a href="selectClinics.php" 
+               class="nav-link <?= basename($_SERVER['PHP_SELF']) == 'selectClinics.php' ? 'active' : 'text-white' ?> rounded-3 d-flex align-items-center">
                 <i class="fa-solid fa-hospital me-3"></i>
-                <span>Hospital Lists</span>
+                <span>Clinics Lists</span>
             </a>
         </li>
 

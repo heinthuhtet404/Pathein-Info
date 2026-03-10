@@ -244,14 +244,14 @@ if (isset($_POST['submit_bus'])) {
         </div>
 
         <!-- ✅ ပုံတင်ရန် -->
-        <div class="mb-4">
+        <!-- <div class="mb-4">
             <label class="form-label">ကားပုံ တင်ရန်</label>
             <label class="file-upload-label">
                 <i class="fas fa-cloud-upload-alt me-2"></i>ပုံရွေးချယ်ပါ
                 <input type="file" name="image" class="file-upload-input" accept="image/*" required>
             </label>
             <small class="text-muted opacity-75 d-block mt-1">* jpg, png, webp ဖိုင်များသာ တင်နိုင်ပါသည်။</small>
-        </div>
+        </div> -->
 
         <!-- 🔒 Hidden Route ID (Database အတွက်သာ - One Bus One Route) -->
         <input type="hidden" name="routes" value="1">

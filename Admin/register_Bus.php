@@ -110,7 +110,7 @@ if (isset($_POST['save'])) {
                 
                 <div class="mb-4">
                     <label class="form-label fw-bold"><i class="fas fa-user me-2 text-primary"></i>(ပိုင်ရှင်အမည်)</label>
-                    <input type="text" class="form-control readonly-field" value="<?php echo $login_name; ?>" readonly>
+                    <input type="text" class="form-control " value="">
                 </div>
 
                 <div class="mb-4">
@@ -121,7 +121,7 @@ if (isset($_POST['save'])) {
                 <div class="row g-3 mb-4">
                     <div class="col-md-6">
                         <label class="form-label fw-bold"><i class="fas fa-envelope me-2 text-primary"></i>Email Address</label>
-                        <input type="email" name="email" class="form-control" value="<?php echo $login_email; ?>" required>
+                        <input type="email" name="email" class="form-control" value="" required>
                     </div>
                     <div class="col-md-6">
                         <label class="form-label fw-bold"><i class="fas fa-phone me-2 text-primary"></i>Phone Number</label>

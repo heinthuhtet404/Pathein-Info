@@ -132,12 +132,12 @@ $modes = [
 
         .category-name {
             font-weight: 700;
-            color: #141313;
+            color: white;
             margin-bottom: 10px;
         }
 
         .text-white-80 {
-            color: rgba(13, 12, 12, 0.8);
+            color: white;
         }
 
         .btn-custom {
@@ -168,7 +168,7 @@ $modes = [
 </head>
 <body>
 
-    <?php include('navbar.php'); ?>
+    
 
     <div class="container py-5 mt-5">
         <div class="text-center">

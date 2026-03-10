@@ -60,8 +60,8 @@ if (session_status() === PHP_SESSION_NONE) {
         </li>
 
         <li class="nav-item mb-2">
-            <a href="select_curriculum.php" 
-               class="nav-link <?= basename($_SERVER['PHP_SELF']) == 'select_curriculum.php' ? 'active' : 'text-white' ?> rounded-3 d-flex align-items-center">
+            <a href="#" 
+               class="nav-link <?= basename($_SERVER['PHP_SELF']) == '#' ? 'active' : 'text-white' ?> rounded-3 d-flex align-items-center">
                 <i class="fa-solid fa-hotel me-3"></i>
                 <span>Hotel Lists</span>
             </a>
@@ -76,10 +76,10 @@ if (session_status() === PHP_SESSION_NONE) {
         </li>
 
         <li class="nav-item mb-2">
-            <a href="edit_school.php" 
-               class="nav-link <?= basename($_SERVER['PHP_SELF']) == 'edit_school.php' ? 'active' : 'text-white' ?> rounded-3 d-flex align-items-center">
-                <i class="fa-solid fa-truck me-3"></i>
-                <span>Transport Lists</span>
+            <a href="selectBus.php" 
+               class="nav-link <?= basename($_SERVER['PHP_SELF']) == 'selectBus.php' ? 'active' : 'text-white' ?> rounded-3 d-flex align-items-center">
+                <i class="fa-solid fa-bus me-3"></i>
+                <span>Bus Lists</span>
             </a>
         </li>
 

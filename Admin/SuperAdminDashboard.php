@@ -398,7 +398,7 @@ if ($recent_users_query) {
                             </div>
                             <div>
                                 <p class="mb-1 fw-semibold"><?= htmlspecialchars($recent['name']) ?> registered</p>
-                                <small class="text-muted"><?= time_elapsed_string($recent['created_at']) ?></small>
+                                <!-- <small class="text-muted"><?= time_elapsed_string($recent['created_at']) ?></small> -->
                             </div>
                         </div>
                         <?php endforeach; ?>

@@ -148,7 +148,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </button>
                 
                 <div class="text-center">
-                    <a href="login.php" class="text-decoration-none">အကောင့်ရှိပြီးသားလား? ဝင်ရန်</a>
+                    <a href="buslogin.php" class="text-decoration-none">အကောင့်ရှိပြီးသားလား? ဝင်ရန်</a>
                 </div>
             </form>
         </div>

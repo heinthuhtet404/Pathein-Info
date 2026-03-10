@@ -54,6 +54,27 @@ $category = $user['category_id'];
             exit();
         }
     }
+
+    if($category == 3){
+    $current_user_id = $user['user_id'];
+
+    // bus_users table မှာ စစ်ဆေး
+    $busUserQuery = mysqli_query($db, "SELECT * FROM bus_users WHERE user_id = $current_user_id LIMIT 1");
+
+    if(mysqli_num_rows($busUserQuery) > 0){
+        // Bus user ရှိပြီးသား → session တင်ပြီး dashboard သို့
+        $busUserData = mysqli_fetch_assoc($busUserQuery);
+        $_SESSION['cargate_name'] = $busUserData['cargate_name'];
+        $_SESSION['busline_id']   = $busUserData['busline_id'] ?? null;
+
+        header("Location: BusAdminDashboard.php");
+        exit();
+    } else {
+        // ပထမဆုံး login → register page သို့
+        header("Location: register_Bus.php");
+        exit();
+    }
+}
 /* Redirect based on business category */
 switch($category){
 
@@ -65,9 +86,9 @@ break;
 // header("Location: register_health.php");
 // break;
 
-case 3:
-header("Location: busline_dashboard.php");
-break;
+// case 3:
+// header("Location: busline_dashboard.php");
+// break;
 
 case 4:
 header("Location: hotel_dashboard.php");

@@ -163,7 +163,7 @@ if (isset($_GET['redirect'])) {
                 
                 <div class="text-center">
                     <span class="text-muted">အကောင့်မရှိသေးဘူးလား?</span> 
-                    <a href="register.php<?= isset($_GET['redirect']) ? '?redirect='.urlencode($_GET['redirect']) : '' ?>" class="text-decoration-none fw-bold">အကောင့်အသစ်ဖွင့်ရန်</a>
+                    <a href="busregister.php<?= isset($_GET['redirect']) ? '?redirect='.urlencode($_GET['redirect']) : '' ?>" class="text-decoration-none fw-bold">အကောင့်အသစ်ဖွင့်ရန်</a>
                 </div>
             </form>
         </div>

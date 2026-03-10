@@ -134,7 +134,7 @@ $bus_query = "SELECT busline_id, busline_name, phone, email, address, descriptio
               FROM bus_line WHERE user_id=$user_id ORDER BY busline_id DESC";
 $bus_res = mysqli_query($db, $bus_query);
 
-// Routes - FIXED: Get all route data including image path
+// Routes
 $route_query = "SELECT br.*, bl.busline_name 
                 FROM bus_route br
                 LEFT JOIN bus_line bl ON br.busline_id = bl.busline_id AND bl.user_id = br.user_id
@@ -142,7 +142,7 @@ $route_query = "SELECT br.*, bl.busline_name
                 ORDER BY br.id DESC";
 $route_res = mysqli_query($db, $route_query);
 
-// Bookings
+// Bookings - FIXED: Get all booking data with correct paths
 $booking_query = "SELECT bk.*, 
                          bl.busline_name, bl.image as bus_image,
                          br.start_point, br.end_point, br.route_name
@@ -364,6 +364,36 @@ function formatColor($color) {
             border-radius: 10px;
             border: 2px solid #00d2ff;
         }
+        
+        /* Payment slip thumbnail */
+        .slip-thumb {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 2px solid rgba(255,255,255,0.3);
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .slip-thumb:hover {
+            transform: scale(1.1);
+            border-color: #00d2ff;
+        }
+        
+        .btn-view-slip {
+            background: rgba(0, 210, 255, 0.2);
+            border: 1px solid #00d2ff;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .btn-view-slip:hover {
+            background: #00d2ff;
+            color: white;
+        }
     </style>
 </head>
 <body>
@@ -395,7 +425,7 @@ function formatColor($color) {
             <button class="nav-link border-0 text-start" data-bs-toggle="pill" data-bs-target="#tab-book">
                 <i class="fa-solid fa-ticket me-3"></i> Bookings
             </button>
-            <a href="logout.php" class="nav-link text-danger mt-5">
+            <a href="business_man_login.php" class="nav-link text-danger mt-5">
                 <i class="fa-solid fa-right-from-bracket me-3"></i> Logout
             </a>
         </div>
@@ -463,7 +493,6 @@ function formatColor($color) {
                         <table class="table table-hover align-middle">
                             <thead>
                                 <tr>
-                                    <!--<th>ပုံ</th>-->
                                     <th>ကားနံပါတ်/ဂိတ်</th>
                                     <th>ခုံအရေအတွက်</th>
                                     <th>အရောင်</th>
@@ -486,14 +515,6 @@ function formatColor($color) {
                                     $linked_route = mysqli_fetch_assoc($route_check);
                                 ?>
                                 <tr>
-                                   <!-- <td>
-                                        <?php 
-                                       if(!empty($b['image']) && file_exists($b['image'])): ?>
-                                            <img src="<?= htmlspecialchars($b['image']) ?>" class="bus-thumb" alt="Bus Image">
-                                        <?php else: ?>
-                                            <img src="https://placehold.co/80x50/1e3c5c/ffffff?text=No+Image" class="bus-thumb" alt="No Image">
-                                        <?php endif; ?>
-                                    </td>-->
                                     <td class="fw-bold"><?= htmlspecialchars($b['busline_name']) ?></td>
                                     <td><span class="badge bg-dark border border-secondary"><?= htmlspecialchars($b['total_seat']) ?></span></td>
                                     
@@ -556,7 +577,7 @@ function formatColor($color) {
                 </div>
             </div>
 
-            <!-- Routes Tab - FIXED: Image display -->
+            <!-- Routes Tab -->
             <div class="tab-pane fade" id="tab-route">
                 <div class="glass-card p-4">
                     <div class="d-flex justify-content-between align-items-center mb-4">
@@ -588,7 +609,7 @@ function formatColor($color) {
                                 <tr>
                                     <td>
                                         <?php 
-                                        // FIXED: Check if image exists and display correctly
+                                        // Check if image exists and display correctly
                                         if(!empty($r['image'])): 
                                             if(file_exists($r['image'])): ?>
                                                 <img src="<?= htmlspecialchars($r['image']) ?>" class="bus-thumb" alt="Route Image">
@@ -646,7 +667,7 @@ function formatColor($color) {
                 </div>
             </div>
 
-            <!-- Bookings Tab -->
+            <!-- Bookings Tab - FIXED: Payment slip display -->
             <div class="tab-pane fade" id="tab-book">
                 <div class="glass-card p-4">
                     <div class="d-flex justify-content-between align-items-center mb-4">
@@ -694,13 +715,45 @@ function formatColor($color) {
                                         </div>
                                     </td>
                                     <td>
-                                        <?php if(!empty($row['payment_slip']) && file_exists($row['payment_slip'])): ?>
-                                            <button class="btn btn-sm btn-outline-info rounded-pill py-0 px-2" onclick="viewSlip('<?= htmlspecialchars($row['payment_slip']) ?>')">
-                                                <i class="fa fa-image"></i> View
-                                            </button>
-                                        <?php else: ?>
-                                            <small class="opacity-50">No Slip</small>
-                                        <?php endif; ?>
+                                        <?php 
+                                        // FIXED: Check payment slip in multiple possible locations
+                                        $slip_displayed = false;
+                                        
+                                        if(!empty($row['payment_slip'])) {
+                                            // Check if it's a full path
+                                            if(file_exists($row['payment_slip'])) {
+                                                echo '<img src="'.htmlspecialchars($row['payment_slip']).'" class="slip-thumb" onclick="viewSlip(\''.htmlspecialchars($row['payment_slip']).'\')" title="Click to view full image">';
+                                                $slip_displayed = true;
+                                            }
+                                            // Check in uploads folder
+                                            elseif(file_exists("uploads/" . $row['payment_slip'])) {
+                                                echo '<img src="uploads/'.htmlspecialchars($row['payment_slip']).'" class="slip-thumb" onclick="viewSlip(\'uploads/'.htmlspecialchars($row['payment_slip']).'\')" title="Click to view full image">';
+                                                $slip_displayed = true;
+                                            }
+                                            // Check in uploads/bus_images folder
+                                            elseif(file_exists("uploads/bus_images/" . $row['payment_slip'])) {
+                                                echo '<img src="uploads/bus_images/'.htmlspecialchars($row['payment_slip']).'" class="slip-thumb" onclick="viewSlip(\'uploads/bus_images/'.htmlspecialchars($row['payment_slip']).'\')" title="Click to view full image">';
+                                                $slip_displayed = true;
+                                            }
+                                            // Check in uploads/payments folder (create this folder if needed)
+                                            elseif(file_exists("uploads/payments/" . $row['payment_slip'])) {
+                                                echo '<img src="uploads/payments/'.htmlspecialchars($row['payment_slip']).'" class="slip-thumb" onclick="viewSlip(\'uploads/payments/'.htmlspecialchars($row['payment_slip']).'\')" title="Click to view full image">';
+                                                $slip_displayed = true;
+                                            }
+                                        }
+                                        
+                                        if(!$slip_displayed) {
+                                            if(!empty($row['payment_slip'])) {
+                                                // Show filename but no image
+                                                echo '<div>';
+                                                echo '<span class="small text-warning">📄 '.htmlspecialchars(basename($row['payment_slip'])).'</span><br>';
+                                                echo '<button class="btn-view-slip mt-1" onclick="alert(\'ပုံဖိုင် မတွေ့ပါ: '.htmlspecialchars($row['payment_slip']).'\')">File not found</button>';
+                                                echo '</div>';
+                                            } else {
+                                                echo '<small class="opacity-50">No Slip</small>';
+                                            }
+                                        }
+                                        ?>
                                     </td>
                                     <td>
                                         <span class="badge status-badge <?= $row['status'] == 'pending' ? 'badge-pending' : ($row['status'] == 'confirmed' ? 'badge-confirmed' : 'badge-cancelled') ?>">
@@ -792,12 +845,21 @@ function formatColor($color) {
     </div>
 </div>
 
-<!-- Slip View Modal -->
+<!-- Slip View Modal - FIXED: Better image display -->
 <div class="modal fade" id="slipModal" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content glass-card p-2 text-center">
-            <img src="" id="slipImage" class="img-fluid rounded" style="max-height: 80vh;">
-            <button class="btn btn-sm btn-light mt-2" data-bs-dismiss="modal">Close</button>
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content glass-card p-3">
+            <div class="text-center">
+                <img src="" id="slipImage" class="img-fluid rounded" style="max-height: 70vh; max-width: 100%;" alt="Payment Slip">
+                <div class="mt-3">
+                    <button class="btn btn-sm btn-primary" onclick="downloadSlip()">
+                        <i class="fas fa-download me-1"></i> Download
+                    </button>
+                    <button class="btn btn-sm btn-secondary" data-bs-dismiss="modal">
+                        <i class="fas fa-times me-1"></i> Close
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -842,10 +904,33 @@ function formatColor($color) {
         }
     }
     
-    // View Payment Slip
+    // View Payment Slip - FIXED
     function viewSlip(imgUrl) {
-        document.getElementById('slipImage').src = imgUrl;
+        const slipImage = document.getElementById('slipImage');
+        slipImage.src = imgUrl;
+        
+        // Add error handling
+        slipImage.onerror = function() {
+            alert('ပုံဖိုင်ကိုဖွင့်မရပါ။ ဖိုင်ပျက်နေနိုင်သည် သို့မဟုတ် ဖျက်လိုက်မိနိုင်ပါသည်။');
+            slipImage.src = 'https://placehold.co/600x400/2c3e50/ffffff?text=Image+Not+Found';
+        };
+        
         new bootstrap.Modal(document.getElementById('slipModal')).show();
+    }
+    
+    // Download slip function
+    function downloadSlip() {
+        const imgUrl = document.getElementById('slipImage').src;
+        if(imgUrl && imgUrl !== 'https://placehold.co/600x400/2c3e50/ffffff?text=Image+Not+Found') {
+            const link = document.createElement('a');
+            link.href = imgUrl;
+            link.download = 'payment_slip_' + Date.now() + '.jpg';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        } else {
+            alert('ဒေါင်းလုတ်လုပ်ရန် ပုံမရှိပါ။');
+        }
     }
     
     // Preview Profile Image

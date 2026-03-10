@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Pizza Order Form</title>
+
+<style>
+body {
+    font-family: Arial;
+    background: #f4f4f4;
+}
+
+.container {
+    width: 400px;
+    margin: 50px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px gray;
+}
+
+h2 {
+    text-align: center;
+}
+
+input[type=text], textarea {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0 10px 0;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background: green;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background: darkgreen;
+}
+</style>
+
+<script>
+function validateForm() {
+    let inputs = document.querySelectorAll("input[type=text]");
+    for (let i = 0; i < inputs.length; i++) {
+        if (inputs[i].value == "") {
+            alert("Required field");
+            return false;
+        }
+    }
+    return true;
+}
+</script>
+
+</head>
+<body>
+
+<div class="container">
+<h2>Pizza Order Form</h2>
+
+<form method="POST" onsubmit="return validateForm()">
+
+<label>First Name</label>
+<input type="text" name="first_name">
+
+<label>Last Name</label>
+<input type="text" name="last_name">
+
+<label>Address</label>
+<textarea name="address"></textarea>
+
+<label>Phone</label>
+<input type="text" name="phone">
+
+<label>Size</label><br>
+<input type="radio" name="size" value="Small"> Small
+<input type="radio" name="size" value="Medium"> Medium
+<input type="radio" name="size" value="Large"> Large
+
+<br><br>
+<label>Toppings</label><br>
+<input type="checkbox" name="toppings[]" value="Cheese"> Cheese
+<input type="checkbox" name="toppings[]" value="Pepperoni"> Pepperoni
+<input type="checkbox" name="toppings[]" value="Olives"> Olives
+<input type="checkbox" name="toppings[]" value="Bacon"> Bacon
+
+<br><br>
+<button type="submit" name="submit">Place Order</button>
+
+</form>
+</div>
+
+</body>
+</html>

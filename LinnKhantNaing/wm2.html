@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>စားသောက်ဆိုင်လုပ်ငန်းတွက်ချက်မှု</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Myanmar:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #8B4513;
+      --primary-light: #A0522D;
+      --primary-dark: #654321;
+      --accent: #CD853F;
+      --light: #F5F5DC;
+      --dark: #4B3621;
+      --stroke: #ddd;
+      --card: #ffffff;
+      --radius: 12px;
+      --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      transition: var(--transition);
+    }
+    body {
+      font-family: 'Noto Sans Myanmar', sans-serif;
+      background-color: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    h1,
+    h2 {
+      text-align: center;
+      color: var(--primary);
+      margin: 1rem 0;
+    }
+    h1 {
+      font-size: clamp(22px, 2.5vw, 36px);
+    }
+    h2 {
+      font-size: clamp(18px, 2vw, 28px);
+    }
+    a {
+      color: var(--primary-dark);
+      text-decoration: none;
+    }
+    a:hover {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+    /* Navbar */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: linear-gradient(180deg, rgba(139, 69, 19, 0.95), rgba(245, 245, 220, 0.95));
+      border-bottom: 1px solid var(--stroke);
+      backdrop-filter: blur(6px);
+      z-index: 1000;
+    }
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-weight: 800;
+      font-size: 20px;
+      color: var(--dark);
+    }
+    .logo .sub {
+      color: var(--primary);
+    }
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 18px;
+    }
+    .nav-links a {
+      display: inline-block;
+      padding: 8px 12px;
+      border-radius: 8px;
+      color: var(--dark);
+    }
+    .nav-links a:hover {
+      background-color: var(--primary-light);
+      color: #fff;
+      text-decoration: none;
+    }
+    .hamburger {
+      display: none;
+      cursor: pointer;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background: var(--dark);
+      border-radius: 3px;
+    }
+    /* Hero */
+    .hero {
+      margin-top: 60px;
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      background: url("oil mil.jpeg") center/cover no-repeat;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 40, 80, 0.45);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+    .hero-content {
+      color: #fff;
+      max-width: 800px;
+      text-align: center;
+      z-index: 2;
+    }
+    .hero-content h1 {
+      font-size: clamp(28px, 4vw, 46px);
+      margin-bottom: 16px;
+      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+    }
+    .hero-content p {
+      font-size: clamp(16px, 1.3vw, 20px);
+      margin-bottom: 26px;
+      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+    }
+    .hero-btn {
+      background: var(--primary);
+      color: #fff;
+      padding: 12px 28px;
+      border-radius: 12px;
+      font-size: 16px;
+      text-decoration: none;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+    }
+    .hero-btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+      text-decoration: none;
+    }
+    /* Sections */
+    section {
+      padding: 60px 20px;
+    }
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .box {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 16px;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      text-align: justify;
+    }
+    .boxee {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 20px;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    }
+    .box img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 12px;
+    }
+    /* Tables */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      background: var(--card);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    th,
+    td {
+      padding: 12px 14px;
+      text-align: left;
+    }
+    th {
+      background: var(--primary);
+      color: #fff;
+    }
+    tr:nth-child(even) td {
+      background: #f9f9f9;
+    }
+
+    .footer-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+    .footer-container h3 {
+      margin-bottom: 12px;
+    }
+    .footer-container ul {
+      list-style: none;
+      padding: 0;
+    }
+    .footer-container ul li {
+      margin-bottom: 8px;
+    }
+    .footer-container a {
+      color: black;
+      text-decoration: none;
+    }
+    .footer-container a:hover {
+      text-decoration: underline;
+    }
+
+    @media(max-width:768px) {
+      .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+    }
+    /* Table tttt */
+    #tttt {
+      width: 98%;
+      /* table width ကို ကျဉ်း */
+      margin: 20px auto;
+      /* center alignment */
+      border-collapse: collapse;
+      background: var(--card);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    #tttt th,
+    #tttt td {
+      padding: 12px 14px;
+      text-align: left;
+    }
+    #tttt th {
+      background: var(--primary);
+      color: #fff;
+    }
+    #tttt tr:nth-child(even) td {
+      background: #f9f9f9;
+    }
+    /* Footer 3-column with center content */
+    #ftor {
+      padding: 40px 20px;
+      color: #292929;
+    }
+    #ftor .footer-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      /* 3-column layout */
+      gap: 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+    #ftor .footer-container>div {
+      text-align: center;
+      /* Column content center alignment */
+    }
+    #ftor .footer-container h3 {
+      margin-bottom: 12px;
+    }
+    #ftor .footer-container ul {
+      list-style: none;
+      padding: 0;
+    }
+    #ftor .footer-container ul li {
+      margin-bottom: 8px;
+    }
+    #ftor .footer-container a {
+      color: #100e0e;
+      text-decoration: none;
+    }
+    #ftor .footer-container a:hover {
+      text-decoration: underline;
+    }
+    #ftor .footer-bottom {
+      margin-top: 20px;
+      font-size: 0.9rem;
+      text-align: center;
+      /* bottom text center */
+    }
+    /* Responsive: single column for mobile */
+    @media(max-width:768px) {
+      #ftor .footer-container {
+        grid-template-columns: 1fr;
+      }
+    }
+    /* Calculator */
+    .calculator-area {
+      background: linear-gradient(135deg, #f9f9f9, #ffe8d6);
+      border-radius: 16px;
+      padding: 30px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      transition: transform 0.3s ease;
+      margin-top: 30px;
+    }
+    .calculator-area:hover {
+      transform: translateY(-5px);
+    }
+    .calculator-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .calculator-grid>div {
+      flex: 1;
+      min-width: 220px;
+    }
+    .form-group {
+      margin-bottom: 1rem;
+    }
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+   input,
+select {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid var(--primary-light);
+  border-radius: 12px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 8px rgba(139, 69, 19, 0.3);
+}
+
+/* Select box hover effect */
+select:hover {
+  border-color: var(--primary);
+  box-shadow: 0 0 5px rgba(139, 69, 19, 0.2);
+}
+    button.btn-calculate {
+      background: linear-gradient(135deg, #8b4513, #d2b48c);
+      color: #080808;
+      font-size: 1.1rem;
+      padding-left: 0%;
+      border-radius: 14px;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    button.btn-calculate:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    }
+    /* Results */
+    .results {
+      display: none;
+      margin-top: 20px;
+    }
+    .result-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    .result-card {
+      background: #fff8f0;
+      border-left: 6px solid var(--primary);
+      padding: 16px;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+    .result-card:hover {
+      transform: translateY(-3px);
+    }
+    .result-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 12px;
+      border-bottom: 1px solid var(--stroke);
+    }
+    .result-item span:first-child {
+      font-weight: bold;
+      color: var(--primary-dark);
+    }
+    .result-item span:last-child {
+      font-weight: bold;
+      color: var(--accent);
+    }
+    /* Responsive */
+    @media(max-width:768px) {
+      .calculator-grid {
+        flex-direction: column;
+      }
+      .calculator-grid>div {
+        min-width: 100%;
+      }
+    }
+    /* အောက် ၂ စက် container */
+    .bottom-machines {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-top: 24px;
+    }
+    /* RO System */
+    .ro-machine {
+      flex: 1 1 45%;
+      max-width: 500px;
+      background: #fdf5e6;
+      border-left: 6px solid #8B4513;
+      border-radius: 12px;
+      padding: 16px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    }
+    /* UV System */
+    .uv-machine {
+      flex: 1 1 45%;
+      max-width: 500px;
+      background: #f0f8ff;
+      border-left: 6px solid #1E90FF;
+      border-radius: 12px;
+      padding: 16px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    }
+    .btn-custom {
+      /* background: linear-gradient(90deg, #ff512f, #dd2476);
+      color: white; */
+      font-weight: bold;
+      /* border: none;
+      border-radius: 30px; */
+      padding: 8px 18px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .btn-custom:hover {
+      /* background: linear-gradient(90deg, hsl(330, 34%, 52%)); */
+      color: #882222;
+    }
+    .saung {
+      font-size: 14px;
+      display: inline-block;
+      text-align: center;
+      font-weight: bold;
+      padding: 3px 3px;
+      border: 3px solid #97450a;
+      border-radius: 7px;
+      position: relative;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.1);
+      color: #0b0a0abb;
+      text-decoration: none;
+      transition: 0.3s ease all;
+      z-index: 1;
+      background: linear-gradient(90deg, #b56728, #c6771d);
+
+    }
+    body{
+    font-family: Arial;
+    background:#f5f5f5;
+    margin:0;
+}
+
+.title{
+    text-align:center;
+    margin:40px;
+}
+
+.card-container{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:30px;
+}
+
+.card{
+    width:250px;
+    background:white;
+    border-radius:10px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.2);
+    overflow:hidden;
+    text-align:center;
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:scale(1.05);
+}
+
+.card img{
+    width:100%;
+    height:160px;
+    object-fit:cover;
+}
+
+.card h3{
+    margin:10px;
+}
+
+.card p{
+    padding:10px;
+    font-size:14px;
+}
+.process-title{
+text-align:center;
+margin:50px 0 30px;
+color:#8B4513;
+}
+
+/* Timeline line */
+.timeline{
+max-width:900px;
+margin:0 auto;
+position:relative;
+padding-left:60px;
+}
+
+.timeline::before{
+content:"";
+position:absolute;
+left:15px;
+top:0;
+width:4px;
+height:100%;
+background:#8B4513;
+}
+
+/* Item */
+.timeline-item{
+position:relative;
+margin-bottom:30px;
+padding-left:50px;
+}
+
+/* Number circle */
+.timeline-number{
+width:35px;
+height:35px;
+background:#8B4513;
+color:white;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-weight:bold;
+position:absolute;
+left:4px;
+}
+
+/* Content box */
+.timeline-content{
+background:white;
+padding:15px;
+border-radius:10px;
+box-shadow:0 4px 10px rgba(0,0,0,0.2);
+}
+
+.timeline-content h3{
+margin-bottom:5px;
+color:#654321;
+}
+
+.timeline-content p{
+font-size:14px;
+color:#444;
+}
+body{
+    font-family: Myanmar Text, sans-serif;
+    margin:0;
+    background:#f5f5f5;
+}
+
+.importance{
+    padding:50px;
+    text-align:center;
+}
+
+.importance h2{
+    color:#b3541e;
+    margin-bottom:40px;
+}
+
+.importance-container{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    gap:20px;
+}
+
+.importance-box{
+    background:white;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+    transition:0.3s;
+}
+
+.importance-box:hover{
+    transform:translateY(-5px);
+}
+
+.importance-box h3{
+    color:#d2691e;
+    margin-bottom:10px;
+}
+
+.importance-box p{
+    color:#444;
+    font-size:15px;
+}
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-container">
+      <div class="logo">ဆီစက်လုပ်ငန်းအကြောင်း</div>
+      <!-- <ul class="nav-links" id="navLinksDesktop">
+        <li><a href="index.html">ပင်မစာမျက်နာ</a></li>
+        <li><a href="#mabo">စားသောက်ဆိုင်အမျိုးအစား</a></li>
+        <li><a href="#calculator">လုပ်ငန်းတွက်ချက်မှု</a></li>
+        <li><a href="#ftor">ဆက်သွယ်ရန်</a></li>
+      </ul> -->
+      <div class="hamburger" id="hamburger">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ✅ Hero Section -->
+  <section class="hero">
+    <div class="hero-overlay">
+      <div class="hero-content">
+        <h1 style="color:white;">ဆီစက်လုပ်ငန်းအကြောင်း</h1>
+        <!-- <p>ကျန်းမာရေးအတွက် အရေးကြီးပြီး  
+      စီးပွားရေးအတွက် ရေရှည်အကျိုးရှိတဲ့  
+      သောက်ရေသန့်လုပ်ငန်း</p> -->
+        <a href="#start" class="hero-btn">စတင်လေ့လာမယ်</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="start">
+    <div class="page-wrap">
+      <div class="container">
+        <h1>ဘာကြောင့်လုပ်ကိုင်သင့်သလဲ</h1>
+        <p><b>၁။ ကုန်ကြမ်းပေါများခြင်း</b> ဧရာဝတီတိုင်းဟာ မြေပဲ၊ နှမ်း၊ နေကြာစတဲ့ ဆီထွက်သီးနှံတွေ အဓိကစိုက်ပျိုးရာဒေသဖြစ်လို့ ကုန်ကြမ်းရရှိမှု လွယ်ကူခြင်း</p>
+        <p><b>၂။ စျေးကွက်အလားအလာကောင်းခြင်း</b>ပြည်တွင်းစားသုံးမှုမြင့်မားပြီး ရန်ကုန်၊ ဧရာဝတီတဝှမ်း စျေးကွက်လိုအပ်ချက် ကြီးမားခြင်း</p>
+        <p><b>၃။ ရင်းနှီးမြှုပ်နှံမှုအဆင့်အမျိုးမျိုးရှိခြင်း</b>အသေးစားအိမ်တွင်းလုပ်ငန်းမှသည် အကြီးစားစက်ရုံအထိ ငွေအင်အားနှင့်အညီ စတင်နိုင်ခြင်း</p>
+        <p><b>၄။ ဘေးထွက်ပစ္စည်းများ အကျိုးရှိစွာအသုံးပြုနိုင်ခြင်း</b>ဆီကြိတ်ပြီးကျန်တဲ့ ပဲဖတ်/ဖွဲနုကို တိရစ္ဆာန်အစာအဖြစ် ရောင်းချနိုင်၍ ဝင်ငွေထပ်မံရရှိခြင်း</p>
+        <p><b>၅။ မြန်မာ့ရိုးရာထုတ်ကုန်ဖြစ်ခြင်း</b> ဓာတုကင်းစင်ပြီး စစ်စစ်ဖြစ်တဲ့ ရိုးရာဆီများကိ စားသုံးသူတွေ ပိုမိုနှစ်သက်လာကြသဖြင့် ဝယ်လိုအားကောင်းခြင်း</p>
+        <!-- <hr/> -->
+       <h1>ခွင့်ပြုချက်လိုအပ်ချက်များ</h1>
+        <ul>
+          <li>လုပ်ငန်းလိုင်စင်နှင့် FDA အသိအမှတ်ပြုလက်မှတ် <br> <a href="https://www.dica.gov.mm/my/home-mm/"
+              target="_blank">DICA</a> | <a href="https://fda.gov.mm" target="_blank">FDA Myanmar</a> </li>
+          <li>ကျန်းမာရေးနှင့်သန့်ရှင်းရေးလိုင်စင်</li>
+          <li>စက်မှုလုပ်ငန်းလိုင်စင် (Factory License) (စက်မှုဝန်ကြီးဌာနမှထုတ်ပေး)</li>
+          <!-- <li>Bottle Filling, Labeling စက်များ</li> -->
+        </ul>
+  </section>
+  <section id="mabo">
+    <!-- <h2>စက်ပစ္စည်းများနှင့်ဈေးနှုန်း (မျှော်မှန်း)</h2>
+      <table>
+        <tr><th>စက်ပစ္စည်း</th><th>ခန့်မှန်းစျေး (ကျပ်)</th></tr>
+        <tr><td>Sand Filter</td><td>၃၀၀,၀၀၀ - ၁,၀၀၀,၀၀၀</td></tr>
+        <tr><td>Carbon Filter</td><td>၄၀၀,၀၀၀ - ၁၅,၀၀၀,၀၀၀</td></tr>
+        <tr><td>Micron Filter</td><td>၅၀,၀၀၀ - ၅,၀၀၀,၀၀၀</td></tr>
+        <tr><td>Reverse Osmosis System</td><td>၁,၅၀၀,၀၀၀ - ၅၀,၀၀၀,၀၀၀</td></tr>
+        <tr><td>UV System</td><td>၅ု၀,၀၀၀ - ၂၀,၀၀၀,၀၀၀</td></tr>
+        <tr><td>Ozone System</td><td>၈၀၀,၀၀၀ - ၅٠,၀၀၀,၀၀၀</td></tr>
+        <tr><td>SS Water Tank</td><td>၄၀၀,၀၀၀ - ၅၀,၀၀၀,၀၀၀</td></tr>
+        <tr><td>Bottle Washing/Filling Machine</td><td>၁၀၀,၀၀၀,၀၀၀ - ၅၀၀,၀၀၀,၀၀၀</td></tr>
+        <tr><td>TDS And Lab Test Kits</td><td>၉,၀၀၀,၀၀၀</td></tr>
+      </table> -->
+    <hr>
+    <h1>ဆီအမျိုးအစားများ</h1>
+    <!-- grid below keeps original .container/.box HTML unchanged -->
+    <div class="container">
+      <!-- အပေါ် ၃ ခု -->
+      <div class="box">
+        <img src="Peanut Oil.jpg" alt="Sand Filter">
+        <h3>မြေပဲဆီ(Peanut Oil)</h3>
+        
+        <p>မြေပဲဆီသည် မြေပဲသီးနှံမှ ထုတ်လုပ်သော ဆီဖြစ်ပြီး အရသာမွှေးပြီး ဟင်းချက်ရာတွင် အလွန်အသုံးများသည်။ မြေပဲဆီတွင် Protein နှင့် Vitamin E ပါဝင်သောကြောင့် ခန္ဓာကိုယ်အတွက် အကျိုးရှိသည်။ ထိုအပြင် အပူခံနိုင်ရည်ကောင်းသောကြောင့် ကြော်ခြင်း၊ ဟင်းချက်ခြင်းများတွင် သင့်တော်သည်။</p>
+        
+      </div>
+      <div class="box">
+        <img src="Sesame Oil.jpg" alt="Carbon Filter">
+        <h3>နှမ်းဆီ (Sesame Oil) </h3>
+        <!-- <div class="type">အမျိုးအစား: Chemical/Adsorption Filtration</div>
+      <div class="function">လုပ်ဆောင်ချက်: ရေ၏ အနံ့၊ အရသာဆိုးများ ဖယ်ရှားပေးခြင်း</div> -->
+        <p>နှမ်းဆီသည် နှမ်းစေ့မှ ထုတ်လုပ်သော ဆီဖြစ်ပြီး အနံ့မွှေးပြီး အရသာကောင်းမွန်သည်။ နှမ်းဆီတွင် Antioxidant များပါဝင်သောကြောင့် ကျန်းမာရေးအတွက် ကောင်းမွန်ပြီး နှလုံးရောဂါဖြစ်နိုင်ခြေကို လျော့ချပေးနိုင်သည်။ အထူးသဖြင့် Traditional food များနှင့် အသုပ်များတွင် အသုံးများသည်။
+           </p>
+       
+      </div>
+      <div class="box">
+        <img src="Sunflower Oil.jpg" alt="Micron Filter">
+        <h3>နေကြာဆီ (Sunflower Oil)</h3>
+        <!-- <div class="type">အမျိုးအစား: Fine Filtration</div>
+      <div class="function">လုပ်ဆောင်ချက်: သေးငယ်သော အမှုန်များ ဖယ်ရှားပေးခြင်း</div> -->
+        <p>
+နေကြာဆီသည် နေကြာစေ့မှ ထုတ်လုပ်သော ဆီဖြစ်ပြီး အရောင်အလင်းရှိပြီး အနံ့နည်းသည်။ Cholesterol နည်းပြီး Vitamin E များပါဝင်သောကြောင့် ကျန်းမာရေးအတွက် အကျိုးရှိသည်။ နေကြာဆီကို ဟင်းချက်ခြင်း၊ ကြော်ခြင်းနှင့် အစားအစာလုပ်ငန်းများတွင် အသုံးများသည်။
+          </p>
+        <br>
+        
+      </div>
+      <div class="box">
+        <img src="Soybean Oil.webp" alt="Micron Filter">
+        <h3>ပဲပုပ်ဆီ (Soybean Oil)</h3>
+       
+        <p>
+ပဲပုပ်ဆီသည် Soybean မှ ထုတ်လုပ်သော ဆီဖြစ်ပြီး ကမ္ဘာပေါ်တွင် အများဆုံးအသုံးပြုသော ဆီများထဲမှ တစ်ခုဖြစ်သည်။ Omega-3 နှင့် Omega-6 fatty acids ပါဝင်သောကြောင့် ကျန်းမာရေးအတွက် ကောင်းမွန်သည်။ ဟင်းချက်ရာ၊ ကြော်ရာနှင့် အစားအစာလုပ်ငန်းများတွင် အသုံးပြုကြသည်။
+        <br>
+         </p>
+        
+      </div>
+      <div class="box">
+        <img src="Corn Oil2.jpg" alt="Micron Filter">
+          <h3>ပြောင်းဖူးဆီ(Corn Oil)</h3>
+      
+        <p>
+
+မကောင်းတဲ့ ကိုလက်စထရောကို ကျဆင်းစေတဲ့ မပြည့်ဝဆီနဲ့ ဆဲလ်အိုမင်းရင့်ရော်မှုကို ကာကွယ်ပေးတဲ့ ဗီတာမင် E ဓာတ် ကြွယ်ဝစွာပါဝင်ပါတယ်။Omega-6 ပါဝင်မှု မြင့်မားပြီး Omega-3 ပါဝင်မှု နည်းပါးတာကြောင့် တစ်မျိုးတည်းကိုသာ အလွန်အကျွံ သုံးစွဲခြင်းမျိုး မပြုဘဲ အခြားဆီများနဲ့ အလှည့်ကျ သုံးစွဲသင့်ပါတယ်။        <br>
+         </p>
+        
+      </div>
+       <div class="box">
+        <img src="Plam Oil.jpg" alt="Micron Filter">
+        <h3>စားအုံးဆီ(plam Oil)</h3>
+      
+        <p>
+
+ဆီအုန်းသီးမှ ထုတ်လုပ်ပြီး အခြားဆီထွက်သီးနှံများထက် ဧကအလိုက် ဆီအထွက်နှုန်း အများဆုံးဖြစ်ကာ စျေးနှုန်းလည်း သက်သာသည်။ ချက်ပြုတ်ရန် စားသုံးဆီအဖြစ်သာမက မုန့်မျိုးစုံ၊ ခေါင်းလျှော်ရည်၊ ဆပ်ပြာ၊ နှုတ်ခမ်းနီနှင့် ဇီဝလောင်စာအထိ တွင်ကျယ်စွာ အသုံးပြုသည်။       <br>
+         </p>
+        
+      </div>
+      
+      <!-- <div class="box">
+        <img src="slowcasual.jpg" alt="Ozone System">
+        <h3>Slow Casual Restaurant</h3>
+       
+        <p>Casual Dining အမျိုးအစားထဲမှ သက်တောင့်သက်သာဖြစ်သော၊ အဆင့်မြင့်သော စားသောက်ဆိုင်အမျိုးအစားဖြစ်ပါသည်။
+          ဝန်ဆောင်မှုကောင်းပြီး အစားအသောက်အရေ‌အသွေးများလည်းမြင့်မားအောင် စားသုံးသူများကိုလဲ အချိန်ကုန်သက်သာစေရန် အထူးဝန်ဆောင်မှုများကို ပေးစွမ်းထားပါသည်။
+          Menu – gourmet, freshly prepared, wide variety of dishes
+          Service style – full table service, attentive staff
+          Pricing – moderate to slightly high (Casual Dining standard)
+          Ambiance – cozy, relaxed, family-friendly, comfortable seating။</p>
+      </div>
+      
+      <div class="box">
+        <img src="ss.jpg" alt="SS Water Tank">
+        <h3>Fine Dining Restaurant</h3>
+       
+        <p>အဆင့်မြင့်အစားအသောက်ဆိုင်အမျိုးအစားတစ်ခုဖြစ်ပါသည်။အရည်အသွေးအထူးမြင့်မားသော အစားအသောက်များနှင့် အထူးကျွမ်းကျင်သော chef များဖြင့် ၀န်ဆောင်မှုပေးသောအမျိုးအစားဖြစ်ပါသည်။စားသုံးသူများကို luxury experience ပေးနိုင်သော အမျိုးအစားဖြစ်ပါသည်။
+          Menu – gourmet meals, multi-course options (appetizer, main course, dessert, wine pairings)
+          Service style – professional table service, sometimes with dress code
+          Pricing – very high (premium)
+          </p>
+      </div>
+      <div class="box">
+        <img src="z.webp" alt="Bottle Filling & Washing Machine">
+        <h3>Casual Dining Restaurant</h3>
+      
+        <p>Slow Casualနဲ့ Fine Dining ကြားရှိ အလယ်အလတ်တန်းအဆင့် စားသောက်ဆိုင်အမျိုးအစားဖြစ်ပါသည်။မိသားစု၊ မိတ်ဆွေများ၊လုပ်ဖော်ကိုင်ဖက် အပေါင်းအဖော်များများနှင့် partyကျင်းပ နိုင်သည့် service များပါသည့် စားသောက်ဆိုင်အမျိုးအစားဖြစ်ပါသည်။
+          Menu – ငြိမ်းချမ်းစွာထိုင်စားနိုင်မယ့် diverse menu (burgers, pasta, grills, salads, etc.)
+          Service style – full table service (waiter/waitress တို့စောင့်ရှောက်မှု)
+          Pricing – middle range (Fast Food ထက်မြင့်၊ Fine Dining ထက်နည်း)
+         </p>
+      </div> -->
+    </div>
+  </section>
+ 
+
+<h1 class="title">ဆီထုတ်လုပ်ရာတွင် အသုံးပြုသောစက်များ</h1>
+
+<div class="card-container">
+
+    <div class="card">
+        <img src="Seed Cleaning Machine.webp" alt="">
+        <h3>Seed Cleaning Machine</h3>
+        <p>သီးနှံများမှ ဖုန်နှင့်အညစ်အကြေးများကို ဖယ်ရှားပေးသောစက်ဖြစ်သည်။</p>
+    </div>
+
+    <div class="card">
+        <img src="Roasting Machine.webp" alt="">
+        <h3>Roasting Machine</h3>
+        <p>သီးနှံများကို အပူပေး၍ ဆီထွက်နှုန်းကောင်းစေရန် အသုံးပြုသည်။</p>
+    </div>
+
+    <div class="card">
+        <img src="Oil Press Machine.jpg" alt="">
+        <h3>Oil Press Machine</h3>
+        <p>မြေပဲ၊ နှမ်းစသော သီးနှံများမှ ဆီကို ဖိနှိပ်ထုတ်ယူပေးသောစက်ဖြစ်သည်။</p>
+    </div>
+
+    <div class="card">
+        <img src="Oil Filter Machine.jpg" alt="">
+        <h3>Oil Filter Machine</h3>
+        <p>ထုတ်လုပ်ပြီးသော ဆီကို သန့်စင်စေရန် filter လုပ်ပေးသည်။</p>
+    </div>
+
+</div>
+
+
+
+<h2 class="process-title">ဆီထုတ်လုပ်ပုံ အဆင့်ဆင့်</h2>
+
+<div class="timeline">
+
+<div class="timeline-item">
+<div class="timeline-number">1</div>
+<div class="timeline-content">
+<h3>Cleaning</h3>
+<p>သီးနှံများမှ ဖုန်နှင့် အညစ်အကြေးများကို ဖယ်ရှားပြီး သန့်စင်စေသော အဆင့်ဖြစ်သည်။</p>
+</div>
+</div>
+
+<div class="timeline-item">
+<div class="timeline-number">2</div>
+<div class="timeline-content">
+<h3>Roasting</h3>
+<p>သီးနှံများကို အပူပေး၍ ဆီထွက်နှုန်းပိုကောင်းစေရန် ပြုလုပ်သော အဆင့်ဖြစ်သည်။</p>
+</div>
+</div>
+
+<div class="timeline-item">
+<div class="timeline-number">3</div>
+<div class="timeline-content">
+<h3>Pressing</h3>
+<p>စက်ဖြင့် သီးနှံများကို ဖိနှိပ်ပြီး ဆီကို ထုတ်ယူသော အဆင့်ဖြစ်သည်။</p>
+</div>
+</div>
+
+<div class="timeline-item">
+<div class="timeline-number">4</div>
+<div class="timeline-content">
+<h3>Filtering</h3>
+<p>ထုတ်ယူထားသော ဆီကို သန့်စင်စေရန် filter လုပ်သော အဆင့်ဖြစ်သည်။</p>
+</div>
+</div>
+
+<div class="timeline-item">
+<div class="timeline-number">5</div>
+<div class="timeline-content">
+<h3>Packaging</h3>
+<p>ဆီကို ပုလင်းများတွင် ထည့်ပြီး ရောင်းချရန် ပြင်ဆင်သော အဆင့်ဖြစ်သည်။</p>
+</div>
+</div>
+
+</div>
+
+
+
+<section class="importance">
+    <h2>ဆီစက်လုပ်ငန်း၏ အရေးပါမှု</h2>
+
+    <div class="importance-container">
+
+        <div class="importance-box">
+            <h3>စားသုံးဆီထုတ်လုပ်မှု</h3>
+            <p>
+            ဆီစက်လုပ်ငန်းသည် လူတို၏ နေ့စဉ်စားသုံးရန်လိုအပ်သော 
+            စားသုံးဆီများကို ထုတ်လုပ်ပေးသော အရေးပါသော လုပ်ငန်းတစ်ခုဖြစ်သည်။
+            </p>
+        </div>
+
+        <div class="importance-box">
+            <h3>အလုပ်အကိုင် ဖန်တီးပေးခြင်း</h3>
+            <p>
+            ဆီစက်လုပ်ငန်းကြောင့် လူများအတွက် အလုပ်အကိုင်အခွင့်အလမ်းများ 
+            ဖန်တီးပေးနိုင်ပြီး စီးပွားရေးတိုးတက်စေသည်။
+            </p>
+        </div>
+
+        <div class="importance-box">
+            <h3>စိုက်ပျိုးရေးကို အထောက်အကူပြုခြင်း</h3>
+            <p>
+            မြေပဲ၊ နှမ်း၊ နေကြာ စသည့် ဆီထွက်သီးနှံများကို 
+            ဝယ်ယူအသုံးပြုသောကြောင့် စိုက်ပျိုးရေးကဏ္ဍကို 
+            အထောက်အကူဖြစ်စေသည်။
+            </p>
+        </div>
+
+        <div class="importance-box">
+            <h3>နိုင်ငံစီးပွားရေး တိုးတက်စေခြင်း</h3>
+            <p>
+            ဆီထုတ်လုပ်မှုနှင့် ရောင်းဝယ်မှုများကြောင့် 
+            နိုင်ငံ၏ စီးပွားရေးကိုလည်း တိုးတက်စေသည်။
+            </p>
+        </div>
+
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  ့
+  <hr>
+
+  <h2>အခက်အခဲများနဲ့ ဖြေရှင်းနည်း</h2>
+  <table id="tttt">
+    <tr>
+      <th>အခက်အခဲ</th>
+      <th>ဖြေရှင်းနည်း</th>
+    </tr>
+    <tr>
+      <td>စက်ပစ္စည်းဆိုင်ရာ အခက်အခဲ</td>
+      <td>စက်များကို သတ်မှတ်ထားသောအချိန်အလိုက် ပြုပြင်ထိန်းသိမ်းမှု (Maintenance Schedule) လုပ်ခြင်း၊
+အစိတ်အပိုင်းများကို ကြိုတင် အရံသိုလှောင်ထားခြင်း၊ စက်ကိရိယာအသစ်များ သွင်းသုံးရာတွင် အရည်အသွေးကောင်းသော ကုန်ပစ္စည်းကို ရွေးချယ်ခြင်း</td>
+    </tr>
+    <tr>
+      <td>လုပ်သားဆိုင်ရာ အခက်အခဲ</td>
+      <td>လုပ်သားများကို စက်သုံးနည်း၊ လုံခြုံရေး သင်တန်းပေးခြင်းလုပ်ငန်းစဉ်များကို စနစ်တကျ စာရင်းပြုစုခြင်း၊
+လုံခြုံရေးစည်းမျဉ်းများကို သတ်မှတ်ပြီး လိုက်နာစေခြင်း</td>
+    </tr>
+    
+    <tr>
+      <td>စျေးကွက်နှင့် ရောင်းအား အခက်အခဲ</td>
+      <td>စျေးကွက်လေ့လာပြီး လိုအပ်ချက်အတိုင်း ထုတ်လုပ်မှု ပြင်ဆင်ခြင်း၊
+
+အရည်အသွေးမြင့် ဆီထုတ်လုပ်၍ အမှတ်တံဆိပ်တည်ဆောက်ခြင်း၊
+
+များပြားသော စျေးကွက်တွင် ဖြန့်ဝေမှု (Distribution) စနစ် တိုးမြှင့်ခြင်း</td>
+    </tr>
+    <tr>
+      <td>ပတ်ဝန်းကျင်နှင့် စီမံခန့်ခွဲမှု အခက်အခဲ</td>
+      <td>အညစ်အကြေးစနစ်တကျ စီမံခြင်း၊
+
+သန့်ရှင်းရေး စနစ်များကို စက်နှင့်အတူ တပ်ဆင်ခြင်း၊
+
+ပတ်ဝန်းကျင်စည်းမျဉ်းများကို လိုက်နာခြင်း</td>
+    </tr>
+  </table>
+  <!-- <section id="calculator">
+    <h2 style="text-align:center;margin-bottom:20px;">စားသောက်ဆိုင်လုပ်ငန်းတွက်ချက်မှု</h2>
+    <div class="calculator-area">
+      <div class="calculator-grid">
+       
+        <div>
+          <h3>ရင်းနှီးစရိတ်များ (တစ်လ)</h3>
+          <div class="form-group">
+            <label for="land-rent">မြေငှားရမ်းခ</label>
+            <select id="land-rent">
+              <option value="0">မြေရှိ (0)</option>
+              <option value="100000">မြေငှားခ နည်း (100000)</option>
+              <option value="200000" selected>မြေငှားခ လတ် (200000)</option>
+              <option value="300000">မြေငှားခ များ (300000)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="shop-rent">ဆိုင်ခန်း ငှားရမ်းခ</label>
+            <select id="shop-rent">
+              <option value="0">ငှားရန်မလို (0 )</option>
+              <option value="50000" selected>ငှားခ နည်း (50000)</option>
+              <option value="100000">ငှားခ လတ် (100000)</option>
+              <option value="150000">ငှားခ များ (150000)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="construction-cost">ဆိုင်ခန်းဆောက်ခ</label>
+            <select id="construction-cost">
+              <option value="0">ဆောက်ရန်မလို (0 )</option>
+              <option value="500000">ဆောက်ခ နည်း (500000 )</option>
+              <option value="1000000">ဆောက်ခ လတ် (1000000 )</option>
+              <option value="2000000">ဆောက်ခ များ (2000000 )</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="furniture-cost">ပရိဘောဂ ကုန်ကျစရိတ်</label>
+            <select id="furniture-cost">
+              <option value="0">ရှိပြီး (0 )</option>
+              <option value="300000" selected>ပရိဘောဂ နည်း (300000 )</option>
+              <option value="500000">ပရိဘောဂ လတ် (500000 )</option>
+              <option value="1000000">ပရိဘောဂ များ (1000000 )</option>
+            </select>
+          </div>
+        </div>
+       
+        <div>
+          <h3>အရောင်းနှင့်အရေအတွက်</h3>
+          <div class="form-group">
+            <label for="menu-price">Menu Price (တစ်ပွဲရောင်းစျေး)</label>
+            <input type="number" id="menu-price" min="0" value="3000">
+          </div>
+          <div class="form-group">
+            <label for="quantity">ရောင်းမည့်အရေအတွက် (တစ်လ)</label>
+            <input type="number" id="quantity" min="1" value="1000">
+          </div>
+        </div>
+      
+        <div>
+          <h3>အပြောင်းအလဲကုန်ကျစရိတ် (တစ်ပွဲခန့်မှန်း)</h3>
+          <div class="form-group">
+            <label for="food-cost">အစားအစာ ကုန်ကျစရိတ်</label>
+            <input type="number" id="food-cost" min="0" value="1500">
+          </div>
+          <div class="form-group">
+            <label for="labor-cost">ဝန်ထမ်းလုပ်အားခ</label>
+            <input type="number" id="labor-cost" min="0" value="500">
+          </div>
+          <div class="form-group">
+            <label for="utility-cost">မီးဖိုဂက် + လျှပ်စစ် </label>
+            <input type="number" id="utility-cost" min="0" value="300">
+          </div>
+          <div class="form-group">
+            <label for="other-cost">ထပ်ဆောင်းကုန်ကျစရိတ်</label>
+            <input type="number" id="other-cost" min="0" value="200">
+          </div>
+          <button id="calculate-btn" class="btn-calculate"
+            style="width:360px;height:50px;margin-top:10px;">တွက်ချက်မည်</button>
+        </div>
+      </div>
+     
+      <div class="results" id="results">
+        <div class="result-grid">
+          <div class="result-card">
+            <h3>စုစုပေါင်း</h3>
+            <div class="result-item"><span>စုစုပေါင်းရင်းနှီးစရိတ်</span><span id="total-fixed"></span></div>
+            <div class="result-item"><span>စုစုပေါင်းအပြောင်းအလဲကုန်ကျစရိတ်</span><span id="total-variable"></span>
+            </div>
+            <div class="result-item"><span>စုစုပေါင်းကုန်ကျစရိတ်</span><span id="total-cost"></span></div>
+            <div class="result-item"><span>စုစုပေါင်းဝင်ငွေ</span><span id="total-revenue"></span></div>
+            <div class="result-item"><span>စုစုပေါင်းအမြတ်</span><span id="profit"></span></div>
+          </div>
+          <div class="result-card" id="unit-summary">
+            <h3>တစ်ပွဲအလိုက် အကျဉ်းချုပ်</h3>
+            <div class="result-item"><span>တစ်ပွဲကုန်ကျစရိတ်</span><span id="cost-per-unit-display"></span></div>
+            <div class="result-item"><span>တစ်ပွဲအမြတ်</span><span id="profit-per-unit-display"></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> -->
+  <section style="background-color: #d2b48c;">
+    <footer id="ftor">
+      <div class="footer-container">
+        <!-- Column 1: အကြောင်း/About -->
+        <div>
+          <h3>အကြောင်း</h3>
+          <p>ဆီစက်လုပ်ငန်းအကြောင်း</p>
+        </div>
+        <!-- Column 2: ဆက်သွယ်ရန်/Contact -->
+        
+      <div class="footer-bottom">ဆီစက်လုပ်ငန်းလမ်းညွှန် . All rights reserved.</div>
+    </footer>
+  </section>
+  <script>
+    // Calculator
+    document.getElementById('calculate-btn').addEventListener('click', function () {
+      // Fixed costs (monthly)
+      const landRent = parseFloat(document.getElementById('land-rent').value);
+      const shopRent = parseFloat(document.getElementById('shop-rent').value);
+      const constructionCost = parseFloat(document.getElementById('construction-cost').value);
+      const furnitureCost = parseFloat(document.getElementById('furniture-cost').value);
+      const totalFixed = landRent + shopRent + constructionCost + furnitureCost;
+      
+      // Revenue & Quantity
+      const menuPrice = parseFloat(document.getElementById('menu-price').value);
+      const quantity = parseFloat(document.getElementById('quantity').value);
+      
+      // Variable costs (per unit)
+      const foodCost = parseFloat(document.getElementById('food-cost').value);
+      const laborCost = parseFloat(document.getElementById('labor-cost').value);
+      const utilityCost = parseFloat(document.getElementById('utility-cost').value);
+      const otherCost = parseFloat(document.getElementById('other-cost').value);
+      const variablePerUnit = foodCost + laborCost + utilityCost + otherCost;
+      const totalVariable = variablePerUnit * quantity;
+      
+      // Totals
+      const totalCost = totalFixed + totalVariable;
+      const totalRevenue = menuPrice * quantity;
+      const profit = totalRevenue - totalCost;
+      const costPerUnit = (totalCost / quantity);
+      const profitPerUnit = menuPrice - costPerUnit;
+      
+      // Show Results
+      document.getElementById('total-fixed').textContent = totalFixed.toLocaleString() + ' ကျပ်';
+      document.getElementById('total-variable').textContent = totalVariable.toLocaleString() + ' ကျပ်';
+      document.getElementById('total-cost').textContent = totalCost.toLocaleString() + ' ကျပ်';
+      document.getElementById('total-revenue').textContent = totalRevenue.toLocaleString() + ' ကျပ်';
+      document.getElementById('profit').textContent = profit.toLocaleString() + ' ကျပ်';
+      document.getElementById('cost-per-unit-display').textContent = costPerUnit.toLocaleString() + ' ကျပ်';
+      document.getElementById('profit-per-unit-display').textContent = profitPerUnit.toLocaleString() + ' ကျပ်';
+      document.getElementById('results').style.display = 'block';
+      document.getElementById('results').scrollIntoView({ behavior: 'smooth' });
+    });
+  </script>
+
+</body>
+</html>

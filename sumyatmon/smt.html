@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>ရွှေမြင်တင်ဘုရား - အသေးစိတ်</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Segoe UI',sans-serif;
+}
+
+body{
+  background:linear-gradient(135deg,#def8fc,#e2ffff,#ddf7fa);
+  min-height:100vh;
+  padding-bottom:100px; /* back button နဲ့ content မထိအောင် */
+  transition:.4s;
+}
+
+/* Header */
+.header{
+  text-align:center;
+  padding:40px 20px 20px;
+}
+
+.header h1{
+  font-size:38px;
+  color:#252422;
+  text-align:center;
+}
+
+/* Back Button - Bottom Right */
+.back-btn{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:linear-gradient(45deg,#95dbf4b3,#006d8b);
+  color:white;
+  border:none;
+  padding:12px 20px;
+  border-radius:50px;
+  cursor:pointer;
+  font-weight:bold;
+  box-shadow:0 5px 15px rgba(0,0,0,0.3);
+  transition:.3s;
+  z-index:2000; /* content ထက်အမြင့် */
+}
+
+.back-btn:hover{
+  transform:translateY(-3px) scale(1.05);
+}
+
+/* Description Center Box */
+.description{
+  max-width:900px;
+  margin:20px auto 40px;
+  padding:30px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  line-height:1.8;
+  font-size:17px;
+  background:white;
+  border-radius:20px;
+  box-shadow:0 8px 25px rgba(0,0,0,0.08);
+}
+
+/* Gallery */
+.gallery{
+  width:90%;
+  max-width:1200px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+  padding-bottom:50px;
+}
+
+.gallery img{
+  width:100%;
+  height:250px;
+  object-fit:cover;
+  border-radius:15px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.2);
+  transition:.4s;
+}
+
+.gallery img:hover{
+  transform:scale(1.05);
+}
+
+/* Responsive */
+@media(max-width:600px){
+  .gallery img{
+    height:200px;
+  }
+
+  .header h1{
+    font-size:28px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Back Button -->
+<button class="back-btn" onclick="goBack()">⬅ နောက်သို့</button>
+
+<div class="header">
+  <h1>ရွှေမြင်တင်ဘုရား - အသေးစိတ်</h1>
+</div>
+
+<div class="description">
+ ပုသိမ်မြို့၏ ကျက်သရေဆောင် ရွှေမြင်တင်စေတီတော် သည် မြို့၏မြောက်ဘက်၊ ငဝန်မြစ်နှင့် ဧကမြစ်တို့ဆုံရာ အနီးရှိ တောင်ထိပ်ပေါ်တွင် တည်ရှိသည့် သမိုင်းဝင် စေတီတစ်ဆူ ဖြစ်သည်။ မြတ်စွာဘုရားလောင်း ကြက်မင်းဘဝဖြင့် ပျော်စံခဲ့ဖူးသော နေရာဖြစ်သည်ဟု အစဉ်အလာအရ ယုံကြည်ကြပြီး စေတီတော်၏ မူလဘွဲ့တော်မှာ သီရိဝဏ္ဏ ဖြစ်သည်။ ဤစေတီတော်ကို မြတ်စွာဘုရားရှင်၏ ဓာတ်တော်၊ မွေတော်များ ဌာပနာ၍ တည်ထားခြင်းဖြစ်ကာ ပုသိမ်မြို့ရှိ "အပြင်မုဌောလေးဆူ" (မြို့ပြင်ရှိ မုဌောစေတီလေးဆူ) အနက် တစ်ဆူအပါအဝင်လည်း ဖြစ်သည်။ စေတီတော်၏ တည်နေရာသည် မြစ်နှစ်သွယ်ဆုံရာ ရှုခင်းသာယာသော တောင်ကုန်းပေါ်တွင် ရှိသဖြင့် ဘုရားဖူးပြည်သူများ စိတ်အေးချမ်းသာစွာ ဖူးမြော်နိုင်သော နေရာတစ်ခုဖြစ်ပြီး နှစ်စဉ် ဘုရားပွဲတော်နှင့် ဆွမ်းဆန်စိမ်း လောင်းလှူပွဲများကို စည်ကားသိုက်မြိုက်စွာ ကျင်းပလေ့ရှိသည်။
+</div>
+
+<!-- Image Gallery -->
+<div class="gallery">
+  <img src="smt2.jpg" alt="">
+  <img src="smt3.jpg" alt="">
+  <img src="smt4.jpg" alt="">
+</div>
+
+<script>
+function toggleDark(){
+  document.body.classList.toggle("dark");
+}
+
+function goBack(){
+  window.history.back();
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>ရွှေမုဌောဘုရား</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Segoe UI',sans-serif;
+}
+
+body{
+  background:linear-gradient(135deg,#def8fc,#e2ffff,#ddf7fa);
+  min-height:100vh;
+  transition:.4s;
+  padding-bottom:80px; /* Back button safe spacing */
+}
+
+/* Dark Mode */
+body.dark{
+  background:linear-gradient(135deg,#1f1a00,#3d3200,#665300);
+  color:white;
+}
+
+/* Header */
+.header{
+  text-align:center;
+  padding:40px 20px 20px;
+}
+
+.header h1{
+  font-size:38px;
+  color:black;
+}
+
+body.dark .header h1{
+  color:black;
+}
+
+/* Back Button - bottom-right fixed */
+.back-btn{
+  position:fixed;
+  bottom:30px;
+  right:30px;
+  background:linear-gradient(45deg,#95dbf4b3,#006d8b);
+  color:white;
+  border:none;
+  padding:10px 18px;
+  border-radius:25px;
+  cursor:pointer;
+  font-weight:bold;
+  box-shadow:0 5px 15px rgba(0,0,0,0.2);
+  transition:.3s;
+  z-index:1000;
+}
+
+.back-btn:hover{
+  transform:translateY(-3px);
+}
+
+/* Title */
+.title{
+  text-align:center;
+  font-size:42px;
+  margin:80px 0 30px;
+  color:black;
+}
+
+body.dark .title{
+  color:black;
+}
+
+/* Container */
+.container{
+  width:90%;
+  max-width:1100px;
+  margin:auto;
+}
+
+/* Card */
+.card{
+  display:flex;
+  align-items:center;
+  margin:40px 0;
+  border-radius:20px;
+  background:rgba(255,255,255,0.5);
+  backdrop-filter:blur(15px);
+  box-shadow:0 15px 35px rgba(0,0,0,0.15);
+  overflow:hidden;
+  transition:.4s;
+}
+
+body.dark .card{
+  background:rgba(255,255,255,0.08);
+}
+
+.card:hover{
+  transform:translateY(-5px);
+}
+
+/* Image */
+.card img{
+  width:45%;
+  height:400px;
+  object-fit:cover;
+}
+
+/* Content */
+.content{
+  padding:35px;
+}
+
+.content h2{
+  color:black;
+  margin-bottom:15px;
+}
+
+body.dark .content h2{
+  color:black;
+}
+
+.content p{
+  line-height:1.8;
+  margin-bottom:20px;
+  color:black;
+}
+
+/* Detail Button */
+.detail-btn{
+  display:inline-block;
+  padding:10px 20px;
+  background:linear-gradient(45deg,#95dbf4b3,#006d8b);
+  color:white;
+  text-decoration:none;
+  border-radius:25px;
+  font-weight:bold;
+  transition:.3s;
+  box-shadow:0 5px 15px rgba(0,0,0,0.2);
+  margin-right:10px;
+}
+
+.detail-btn:hover{
+  transform:translateY(-3px);
+}
+
+/* Responsive */
+@media(max-width:768px){
+  .card{
+    flex-direction:column;
+  }
+
+  .card img{
+    width:100%;
+    height:250px;
+  }
+
+  .content{
+    text-align:center;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<h1 class="title">ရွှေစည်းခုံဘုရား</h1>
+
+<div class="container">
+  <div class="card">
+    <img src="ss1.jpg" alt="Shwe Pagoda">
+    <div class="content">
+      <h2>ရွှေစည်းခုံဘုရား</h2>
+      <p>
+        ပုသိမ်မြို့၊ ရွှေစည်းခုံရပ်ကွက်၊ မဟာဗန္ဓုလလမ်းနှင့် ရွှေစည်းခုံလမ်းဆုံရာတွင် ကိန်းဝပ်စံပယ်တော်မူသော ရွှေစည်းခုံစေတီတော်မြတ်ကြီးကို သက္ကရာဇ် ၃၁၅ ခုနှစ်တွင် ပုဂံပြည့်ရှင် အနော်ရထာမင်းစောက စတင်တည်ထားကိုးကွယ်ခဲ့ခြင်း ဖြစ်ပါသည်။ အနော်ရထာမင်းကြီးသည် တိုင်းခန်းလှည့်လည်ရင်း ကုသိမ်မြို့ (ယခု ပုသိမ်မြို့) သို့ ရောက်ရှိစဉ် သာသနာတော် ထွန်းလင်းတောက်ပစေရန် ရည်ရွယ်၍ ပုဂံမြို့ရှိ ရွှေစည်းခုံစေတီတော်ကြီး၏ ပုံစံတူအဖြစ် ဤစေတီတော်ကို တည်ထားခဲ့ခြင်း ဖြစ်သည်။ စေတီတော်၏ တည်နေရာမှာ ပုသိမ်မြို့၏ အချက်အချာကျသော နေရာတွင်ရှိပြီး ပုသိမ်တက္ကသိုလ်သို့ သွားရာလမ်းအနီးနှင့် မြို့မိမြို့ဖများ အထူးကြည်ညိုကြသည့် သမိုင်းဝင် အထင်ကရ နေရာတစ်ခုလည်း ဖြစ်ပါသည်။ ခေတ်အဆက်ဆက်တွင် မင်းအပေါင်းတို့က ထပ်မံပြုပြင်မွမ်းမံခဲ့ကြသဖြင့် ပုသိမ်မြို့၏ ကျက်သရေဆောင် ရှေးဟောင်းတန်ခိုးကြီး စေတီတစ်ဆူအဖြစ် ယနေ့တိုင် တည်ရှိနေခြင်း ဖြစ်ပါသည်။
+      </p>
+
+      <!-- Detail Button -->
+      <a href="ssigondetail.html" class="detail-btn">အသေးစိတ်ကြည့်ရှုရန်</a>
+
+      <!-- Google Map Button -->
+      <a href="https://www.google.com/maps/search/?api=1&query=Shwezigon+Pagoda+Pathein+Myanmar"
+         class="detail-btn"
+         target="_blank">
+         Google Map တွင်ကြည့်မည်
+      </a>
+
+    </div>
+  </div>
+</div>
+
+<!-- Back Button -->
+<button class="back-btn" onclick="goBack()">⬅ နောက်သို့</button>
+
+<script>
+function toggleDark(){
+  document.body.classList.toggle("dark");
+}
+
+function goBack(){
+  window.history.back();
+}
+</script>
+
+</body>
+</html>

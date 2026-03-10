@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shwe Main Tin အထပ်သားစက်ရုံ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Padauk:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #b57e4c; /* Menu & highlight color */
+            --primary-light: #d2a679;
+            --primary-dark: #8b5e3c;
+            --secondary: #f2e1c1;
+            --accent: #a05a2c;
+            --light: #fffaf0;
+            --dark: #3a2e1b;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * { margin:0; padding:0; box-sizing:border-box; font-family:'Padauk', sans-serif; }
+        body { background: var(--light); color: var(--dark); line-height:1.7; overflow-x:hidden; }
+
+        /* Navigation */
+        nav { background: var(--primary); position: sticky; top:0; z-index:100; }
+        .nav-container { max-width:1200px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; padding:1rem 2rem; }
+        .logo { font-size:1.5rem; font-weight:bold; color:white; }
+        .nav-links { display:flex; list-style:none; }
+        .nav-links li { margin-left:2rem; }
+        .nav-links a { text-decoration:none; color:white; font-weight:bold; padding:0.5rem 0; position:relative; }
+        .nav-links a::after { content:''; position:absolute; width:0; height:2px; background:white; bottom:0; left:0; transition: var(--transition); }
+        .nav-links a:hover::after { width:100%; }
+
+        /* Hero Section */
+        .hero { position:relative; height:80vh; background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('factory-hero.jpg'); background-size:cover; background-position:center; display:flex; align-items:center; justify-content:center; text-align:center; color:white; padding:0 20px; }
+        .hero-content { max-width:800px; z-index:2; }
+        .hero h1 { font-size:3.5rem; margin-bottom:1rem; text-shadow:2px 2px 4px rgba(0,0,0,0.5); }
+        .hero p { font-size:1.2rem; margin-bottom:2rem; }
+        .btn { display:inline-block; background: white; color: var(--primary); padding:12px 30px; border-radius:50px; text-decoration:none; font-weight:bold; border:2px solid white; transition: var(--transition); }
+        .btn:hover { background: var(--primary); color:white; }
+
+        /* Main Content */
+        .container { max-width:1200px; margin:0 auto; padding:0 2rem; }
+        section { padding:5rem 0; }
+        .section-title { text-align:center; margin-bottom:3rem; position:relative; }
+        .section-title h2 { font-size:2.5rem; color: var(--primary); display:inline-block; padding-bottom:1rem; }
+        .section-title h2::after { content:''; position:absolute; width:80px; height:4px; background:var(--accent); bottom:0; left:50%; transform:translateX(-50%); }
+
+        /* Intro Section */
+.intro-content {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.intro-image {
+  flex: 1;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.intro-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.intro-image:hover img {
+  transform: scale(1.05);
+}
+
+.intro-text {
+  flex: 1;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #555;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .intro-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .intro-image img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+        /* Section Styling */
+.materials-products {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  font-family: 'Arial', sans-serif;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.section-header h2 {
+  font-size: 2rem;
+  color: #2E3A59;
+  margin-bottom: 10px;
+}
+
+.section-header p {
+  color: #555;
+  font-size: 1rem;
+}
+
+/* List Styling */
+.materials-list, .products-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.item {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.item:hover img {
+  transform: scale(1.1);
+}
+
+/* Overlay Styling */
+.overlay {
+  position: absolute;
+  bottom: 0;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  width: 100%;
+  padding: 15px;
+  text-align: left;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.item:hover .overlay {
+  transform: translateY(0);
+}
+
+.overlay h3 {
+  margin: 0 0 5px 0;
+  font-size: 1.2rem;
+}
+
+.overlay p {
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+        /* Materials & Types */
+        .grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); gap:2rem; }
+        .card { background:white; border-radius:10px; overflow:hidden; box-shadow: var(--shadow); transition: var(--transition); }
+        .card:hover { transform: translateY(-10px); box-shadow:0 10px 20px rgba(0,0,0,0.1); }
+        .card img { width:100%; height:250px; object-fit:cover; transition: var(--transition); }
+        .card:hover img { transform: scale(1.1); }
+        .card-content { padding:1.5rem; }
+        .card-content h3 { color: var(--primary); margin-bottom:1rem; }/* Process Steps */
+        .process-steps { position: relative; max-width:800px; margin:0 auto; }
+        .process-steps::before { content:''; position:absolute; width:4px; height:100%; background:var(--secondary); left:50%; transform:translateX(-50%); }
+        .step { position:relative; width:50%; padding:1.5rem; background:white; border-radius:10px; box-shadow: var(--shadow); margin-bottom:2rem; }
+        .step:nth-child(odd) { margin-left:auto; }
+        .step::before { content:''; position:absolute; width:30px; height:30px; background: var(--primary); border-radius:50%; top:50%; transform:translateY(-50%); }
+        .step:nth-child(odd)::before { left:-45px; }
+        .step:nth-child(even)::before { right:-45px; }
+        .step h3 { color: var(--primary); margin-bottom:0.5rem; }
+
+
+
+        /* Process Section CSS */
+
+#products {
+  background: #fdf6e3;
+  padding: 80px 20px;
+}
+
+#products .section-header h2 {
+  font-size: 3rem;
+  color: #b57e4c;
+  text-align: center;
+  margin-bottom: 12px;
+  position: relative;
+}
+#products .section-header h2::after {
+  content:'';
+  width: 80px;
+  height: 4px;
+  background: #a05a2c;
+  display:block;
+  margin: 10px auto 0;
+  border-radius:2px;
+}
+#products .section-header p {
+  text-align: center;
+  color:#555;
+  font-size: 1.1rem;
+  margin-bottom:60px;
+}
+
+/* Products Layout */
+.products-list {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+
+.product {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+
+.product.reverse {
+  flex-direction: row-reverse;
+}
+
+.product-image img {
+  width: 350px;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.product-image img:hover {
+  transform: scale(1.05);
+}
+
+.product-info h3 {
+  color: #b57e4c;
+  font-size: 1.8rem;
+  margin-bottom: 14px;
+}
+
+.product-info p {
+  color: #555;
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+/* Responsive */
+@media (max-width: 768px){
+  .product, .product.reverse {
+    flex-direction: column;
+    text-align: center;
+  }
+  .product-image img {
+    width: 100%;
+    height: auto;
+  }
+}
+        /* Challenges Section */
+        .challenge { border:1px solid #888; border-radius:8px; padding:15px; margin:15px 0; box-shadow:2px 2px 5px #ccc; }
+        .challenge h3 { color: var(--primary); margin-bottom:0.5rem; }
+        .challenge p { padding-left:20px; margin-bottom:0.5rem; }
+
+        /* Gallery */
+        .gallery-grid { display:grid; grid-template-columns: repeat(auto-fill, minmax(250px,1fr)); gap:1.5rem; }
+        .gallery-item { position:relative; overflow:hidden; border-radius:10px; height:250px; box-shadow: var(--shadow); }
+        .gallery-item img { width:100%; height:100%; object-fit:cover; transition: var(--transition); }
+        .gallery-item:hover img { transform: scale(1.1); }.products-list {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+.product {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  padding: 10px;
+}
+.product.reverse {
+  flex-direction: row-reverse;
+}
+.product-image {
+  flex: 0 0 auto;
+  width: 180px; /* smaller image width */
+  height: 120px;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+}
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+.product-image img:hover {
+  transform: scale(1.05);
+}
+.product-info {
+  flex: 1;
+}
+.product-info h3 {
+  color:#b57e4c;
+  font-size:1.4rem;
+  margin-bottom:8px;
+}
+.product-info p {
+  color:#555;
+  font-size:0.95rem;
+  line-height:1.5;
+}
+
+/* Responsive for mobile */
+@media(max-width:768px){
+  .product {
+    flex-direction: column !important;
+    text-align: center;
+  }
+  .product-image {
+    width: 150px;
+    height: 100px;
+    margin-bottom: 10px;
+  }
+}
+
+
+
+#process {
+  background: #fff8f0;
+  padding: 60px 20px;
+}
+#process .section-header h2 {
+  font-size: 2.5rem;
+  color: #b57e4c;
+  text-align: center;
+  display: inline-block;
+  margin-bottom: 10px;
+  position: relative;
+}
+#process .section-header h2::after {
+  content: '';
+  width: 60px;
+  height: 3px;
+  background: #a05a2c;
+  display:block;
+  margin: 8px auto 0;
+  border-radius: 2px;
+}
+#process .section-header p {
+  text-align: center;
+  color: #555;
+  margin-bottom: 50px;
+}
+
+/* Timeline Layout */
+.process-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.process-step {
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.process-step:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+.step-number {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background: #b57e4c;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+.process-step h3 {
+  font-size: 1.3rem;
+  color: #b57e4c;
+  margin-bottom: 10px;
+  text-align: center;
+}
+.process-step p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555;
+  text-align: center;
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+  .process-timeline {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+  }
+  .process-step {
+    flex: 0 0 280px;
+  }
+}
+
+        /* Footer */
+        footer { background: var(--primary-dark); color:white; padding:3rem 0; text-align:center; }
+        .footer-content { max-width:1200px; margin:0 auto; display:grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap:2rem; padding:0 2rem; }
+        .footer-column h3 { color: var(--secondary); margin-bottom:1.5rem; position:relative; display:inline-block; }
+        .footer-column h3::after { content:''; position:absolute; width:50%; height:2px; background:var(--accent); bottom:-5px; left:0; }
+        .footer-column ul { list-style:none; }
+        .footer-column ul li { margin-bottom:0.8rem; }
+        .footer-column ul li a { color: var(--secondary); text-decoration:none; transition: var(--transition); }
+        .footer-column ul li a:hover { color:white; padding-left:5px; }
+
+        /* Responsive */
+        @media(max-width:768px){
+            .nav-container { flex-direction:column; padding:1rem; }
+            .nav-links { margin-top:1rem; flex-wrap:wrap; justify-content:center; }
+            .nav-links li { margin:0.5rem; }
+            .intro-content { flex-direction:column; }
+            .process-steps::before { left:30px; }
+            .step { width: calc(100% - 60px); margin-left:60px !important; }
+            .step::before { left:-45px !important; right:auto !important; }
+        }
+
+        @media(max-width:480px){
+            .hero h1 { font-size:2rem; }
+            .section-title h2 { font-size:2rem; }
+            .nav-links { flex-direction:column; align-items:center; }
+            .nav-links li { margin:0.5rem 0; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Plywood Factory</div>
+            <ul class="nav-links">
+                <li><a href="#introduction">မိတ်ဆက်</a></li>
+                <li><a href="#materials">ပစ္စည်းများ</a></li>
+                <li><a href="#types">အမျိုးအစား</a></li>
+                <li><a href="#process">လုပ်ငန်းစဉ်</a></li>
+                <li><a href="#challenges">အခက်အခဲ</a></li>
+                <li><a href="#gallery">ပြခန်း</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Shwe Myin Tin </h1>
+            
+            <a href="#introduction" class="btn">စတင်လေ့လာရန်</a>
+        </div>
+    </header><main class="container">
+        <!-- Introduction -->
+        <section id="introduction">
+    <div class="intro-content">
+        <!-- ပုံဘယ် -->
+        <div class="intro-image">
+            <img src="pw1.jpg" alt="Shwe Main Tin Factory">
+        </div>
+
+        <!-- စာညာ -->
+        <div class="intro-text">
+            <p>ရွှေမြင်တင် အထပ်သားစက်ရုံသည် ပုသိမ်မြို့တွင် တည်ရှိသော သစ်အခြေခံထုတ်ကုန်များကို ထုတ်လုပ်သည့် စက်မှုလုပ်ငန်းတစ်ခုဖြစ်သည်။</p>
+            <p>ဤစက်ရုံသည် အရည်အသွေးမြင့် အထပ်သားများကို ထုတ်လုပ်ရန် ရည်ရွယ်ပြီး ဆောက်လုပ်ရေးလုပ်ငန်းများ၊ ပရိဘောဂလုပ်ငန်းများနှင့် အခြားသစ်အသုံးပြုစက်မှုလုပ်ငန်းများအတွက် လိုအပ်သော ပစ္စည်းများကို ထောက်ပံ့ပေးလျက်ရှိသည်။</p>
+            <p>စက်ရုံ၏လုပ်ငန်းစဉ်များကို စနစ်တကျ စီမံခန့်ခွဲထားပြီး ထုတ်ကုန်အရည်အသွေးကို အဓိကထားလုပ်ဆောင်လျက်ရှိသည်။</p>
+        </div>
+    </div>
+</section>
+
+        <!-- Types -->
+        <section id="types">
+            <div class="section-title"><h2>အထပ်သားအမျိူးအစားများ</h2></div>
+            <div class="grid">
+                <div class="card"><img src="pw2.jpg" alt="Thick Board"><div class="card-content"><h3>သစ်ပျော့အထပ်သား</h3><p>သစ်ပျော့အထပ်သားများဖြစ်သော Pine၊ Fir စသည့် သစ်ပင်များမှ ပြုလုပ်ထားသော အထပ်သားအမျိုးအစားဖြစ်သည်။ ဤအထပ်သားကို အများအားဖြင့် ဆောက်လုပ်ရေးလုပ်ငန်းများတွင် အသုံးပြုကြပြီး အလေးချိန်ပေါ့ပါးသော်လည်း ခိုင်ခံ့မှုကောင်းမွန်သည်။ ထိုကြောင့် အဆောက်အဦးအတွင်းပိုင်းဆောက်လုပ်ရေးလုပ်ငန်းများတွင် အသုံးများသည်။</p></div></div>
+                <div class="card"><img src="pw3.jpg" alt="Medium Board"><div class="card-content"><h3>သစ်မာအထပ်သား</h3><p>သစ်မာအထပ်သားများဖြစ်သောTeak၊ Oak စသည့် သစ်သားများမှ ပြုလုပ်ထားသော အထပ်သားဖြစ်သည်။ ဤအထပ်သားများသည် အလွန်ခိုင်ခံ့ပြီး ကြာရှည်အသုံးပြုနိုင်သောကြောင့် ပရိဘောဂထုတ်လုပ်ရေးလုပ်ငန်းများတွင် အများဆုံးအသုံးပြုကြသည်။ မျက်နှာပြင်လည်း ချောမွေ့လှပသောကြောင့် အလှဆင်လုပ်ငန်းများတွင်လည်း သင့်တော်သည်။</p></div></div>
+                <div class="card"><img src="pw4.jpg" alt="Thin Board"><div class="card-content"><h3>အလှဆင်အထပ်သား</h3><p></p>Decorative Plywood သည် အိမ်အတွင်းပိုင်းဒီဇိုင်းနှင့် အလှဆင်ရေးလုပ်ငန်းများအတွက် အသုံးပြုသော အထပ်သားအမျိုးအစားဖြစ်သည်။ ဤအထပ်သားများတွင် မျက်နှာပြင်ကို အလှဆင်ထားသော veneer သိုမဟုတ် အရောင်အလှဆင်များ ပါရှိတတ်ပြီး အိမ်အတွင်းပိုင်းနံရံများ၊ ပရိဘောဂများနှင့် အခြားအလှဆင်လုပ်ငန်းများတွင် အသုံးပြုကြသည်။</p></div></div>
+            </div>
+        </section>
+
+        <!-- Raw Materials & Products Section -->
+
+  
+
+    <!-- Product 2: Image Right, Text Left -->
+    <section id="products">
+  <div class="section-header">
+    <h2>ထုတ်ကုန်အမျိုးအစားများ</h2>
+    
+  </div>
+
+  <div class="products-list">
+    <!-- Product 1 -->
+    <div class="product">
+      <div class="product-image">
+        <img src="plywood3.jpg" alt="အထပ်သားပြား">
+      </div>
+      <div class="product-info">
+        <h3>အထပ်သားပြား</h3>
+        <p>အထပ်သားပြားသည် ရွှေမြင်တင်စက်ရုံ၏ အဓိကထုတ်ကုန်ဖြစ်သည်။ သစ်သားအလွှာများကို အထပ်လိုက်ပေါင်းစပ်၍ အထူးဖိနှိပ်စက်များဖြင့် ပြုလုပ်ထားသောကြောင့် ခိုင်ခံ့မှုကောင်းပြီး ကြာရှည်အသုံးပြုနိုင်သည်။ ဤအထပ်သားပြားများကို အရွယ်အစားနှင့် အထူအပါးအမျိုးမျိုးဖြင့် ထုတ်လုပ်ထားပြီး ဆောက်လုပ်ရေးလုပ်ငန်းများ၊ ပရိဘောဂလုပ်ငန်းများနှင့် အိမ်ဆောက်လုပ်ရေးလုပ်ငန်းများတွင် အသုံးပြုကြသည်။</p>
+      </div>
+    </div>
+
+    <!-- Product 2 -->
+    <div class="product reverse">
+      <div class="product-image">
+        <img src="pw4.jpg" alt="ပရိဘောဂပစ္စည်းများ">
+      </div>
+      <div class="product-info">
+        <h3>ပရိဘောဂပစ္စည်းများ</h3>
+        <p>အထပ်သားများကို အသုံးပြု၍ ပရိဘောဂလုပ်ငန်းများတွင် အသုံးပြုနိုင်သော ပစ္စည်းများကိုလည်း ပြုလုပ်နိုင်သည်။ ဥပမာအားဖြင့် စားပွဲခုံများ၊ ထိုင်ခုံများ၊ စာအုပ်တင်ခုံများနှင့် အဝတ်အစားသိုလှောင်ဘူးများ ပြုလုပ်ရာတွင် အသုံးပြုကြသည်။ ဤပစ္စည်းများသည် ခိုင်ခံ့ပြီး အသုံးပြုရလွယ်ကူသည့်အပြင် အိမ်အတွင်းပိုင်းတွင် လှပမှုကိုလည်း ပေးစွမ်းနိုင်သည်။</p>
+      </div>
+    </div>
+
+    <!-- Product 3 -->
+    <div class="product">
+      <div class="product-image">
+        <img src="pw5.jpg" alt="ဆောက်လုပ်ရေးပစ္စည်းများ">
+      </div>
+      <div class="product-info">
+        <h3>ဆောက်လုပ်ရေးပစ္စည်းများ</h3>
+        <p>အထပ်သားများကို ဆောက်လုပ်ရေးလုပ်ငန်းများတွင် အသုံးပြုနိုင်သော ပစ္စည်းများအဖြစ်လည်း ထုတ်လုပ်ပါသည်။ ဤပစ္စည်းများကို နံရံတည်ဆောက်ခြင်း၊ ကြမ်းခင်းပြုလုပ်ခြင်းနှင့် အဆောက်အဦးတည်ဆောက်ရေးလုပ်ငန်းများတွင် အသုံးပြုကြသည်။ ထိုအထပ်သားများသည် ခိုင်ခံ့ပြီး အလေးချိန်ခံနိုင်ရည်ကောင်းသောကြောင့် ဆောက်လုပ်ရေးလုပ်ငန်းများတွင် အရေးပါသော ပစ္စည်းများဖြစ်သည်။</p>
+      </div>
+    </div>
+  </div>
+</section>
+        
+
+
+        <!-- Process Section -->
+<section id="process">
+  <div class="section-header">
+    <h2>လုပ်ငန်းစဉ်</h2>
+    
+  </div>
+
+  <div class="process-timeline">
+    <!-- Step 1 -->
+    <div class="process-step">
+      <div class="step-number">1</div>
+      <h3>သစ်သားရွေးချယ်ခြင်း</h3>
+      <p>အရည်အသွေးမြင့် သစ်သားများကို စနစ်တကျ ရွေးချယ်၍ အစီအစဉ်တကျ စုဆောင်းထားသည်။</p>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="process-step">
+      <div class="step-number">2</div>
+      <h3>အလွှာခွဲခြင်း</h3>
+      <p>သစ်သားကို အလွှာအသေးများအဖြစ် ခွဲပြီး ထပ်တူအလွှာများအတွက် ပြင်ဆင်သည်။</p>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="process-step">
+      <div class="step-number">3</div>
+      <h3>ဖိနှိပ်ခြင်း</h3>
+      <p>အလွှာများကို အပူနှင့်ဖိအားဖြင့်ပေါင်းစပ်ကာ အထပ်သားပြားအဖြစ် ဖိနှိပ်သည်။</p>
+    </div>
+
+    <!-- Step 4 -->
+    <div class="process-step">
+      <div class="step-number">4</div>
+      <h3>စမ်းသပ်ခြင်း & အရည်အသွေးစစ်ဆေးခြင်း</h3>
+      <p>ထုတ်လုပ်ပြီးသော အထပ်သားများကို ခိုင်ခံ့မှု၊ ရောင်စုံအရည်အသွေး စစ်ဆေးသည်။</p>
+    </div>
+
+    <!-- Step 5 -->
+    <div class="process-step">
+      <div class="step-number">5</div>
+      <h3>ထုပ်ပိုးခြင်း</h3>
+      <p>အရည်အသွေးစစ်ပြီးသော အထပ်သားများကို သင့်တော်သောထုပ်ပိုးစနစ်ဖြင့်ထုတ်ပေးသည်။</p>
+    </div>
+  </div>
+</section>
+
+        <!-- Gallery -->
+        <section id="gallery"><div class="section-title"><h2>ပြခန်း</h2></div>
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="gallery1.jpg" alt="Gallery Image 1"></div>
+                <div class="gallery-item"><img src="gallery2.jpg" alt="Gallery Image 2"></div>
+                <div class="gallery-item"><img src="gallery3.jpg" alt="Gallery Image 3"></div>
+                <div class="gallery-item"><img src="gallery4.jpg" alt="Gallery Image 4"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Shwe Myin Tin</h3>
+                
+            </div>
+            <div class="footer-column">
+                <h3>ဆက်သွယ်ရန်</h3>
+                <ul>
+                    <li>လိပ်စာ: ပုသိမ်မြို့၊ မြန်မာ</li>
+                    <li>ဖုန်း: +95 9 123 456 789</li>
+                    <li>Email: info@shwemaintin.com</li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>လင့်များ</h3>
+                <ul>
+                    <li><a href="#introduction">မိတ်ဆက်</a></li>
+                    <li><a href="#materials">ပစ္စည်းများ</a></li>
+                    <li><a href="#types">အမျိုးအစား</a></li>
+                    <li><a href="#process">လုပ်ငန်းစဉ်</a></li>
+                    <li><a href="#gallery">ပြခန်း</a></li>
+                </ul>
+            </div>
+        </div>
+        <p style="margin-top:2rem;">&copy; 2026 Shwe Main Tin.All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

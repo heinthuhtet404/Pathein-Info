@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>ရွှေစည်းခုံဘုရား - အသေးစိတ်</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#def8fc,#e2ffff,#ddf7fa);
+min-height:100vh;
+transition:.4s;
+padding-bottom:80px; /* back button safe spacing */
+}
+
+/* Header */
+.header{
+text-align:center;
+padding:40px 20px 20px;
+}
+
+.header h1{
+font-size:38px;
+color:#252422;
+}
+
+/* Back Button - bottom-right fixed */
+.back-btn{
+position:fixed;
+bottom:30px;
+right:30px;
+background:linear-gradient(45deg,#95dbf4b3,#006d8b);
+color:white;
+border:none;
+padding:10px 18px;
+border-radius:25px;
+cursor:pointer;
+font-weight:bold;
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
+transition:.3s;
+z-index:1000;
+}
+
+.back-btn:hover{
+transform:translateY(-3px);
+}
+
+/* Description Center Box */
+.description{
+max-width:900px;
+margin:20px auto 40px;
+padding:30px;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+line-height:1.8;
+font-size:17px;
+background:white;
+border-radius:20px;
+box-shadow:0 8px 25px rgba(0,0,0,0.08);
+}
+
+/* Gallery */
+.gallery{
+width:90%;
+max-width:1200px;
+margin:auto;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+padding-bottom:50px;
+}
+
+.gallery img{
+width:100%;
+height:250px;
+object-fit:cover;
+border-radius:15px;
+box-shadow:0 10px 25px rgba(0,0,0,0.2);
+transition:.4s;
+}
+
+.gallery img:hover{
+transform:scale(1.05);
+}
+
+/* Responsive */
+@media(max-width:600px){
+.gallery img{
+height:200px;
+}
+
+.header h1{
+font-size:28px;
+}
+}
+</style>
+</head>
+
+<body>
+
+<!-- Back Button -->
+<button class="back-btn" onclick="goBack()">⬅ နောက်သို့</button>
+
+<div class="header">
+  <h1>ရွှေစည်းခုံဘုရား - အသေးစိတ်</h1>
+</div>
+
+<div class="description">
+ရွှေစည်းခုံစေတီတော်မြတ်ကြီး၏ ရင်ပြင်တော်ပတ်လည်တွင် ပင်မစေတီတော်ကြီးကို ရံပတ်ထားသော အရံစေတီငယ်များ နှင့် ထောင့်စေတီများ တည်ရှိကြပြီး ၎င်းတို့ကို ခေတ်အဆက်ဆက် သဒ္ဓါကြည်ညိုသူ အလှူရှင်များက ထပ်မံပူဇော်ခဲ့ကြခြင်းဖြစ်သည်။ ထူးခြားချက်အနေဖြင့် စေတီတော်၏ အရပ်လေးမျက်နှာတွင် သပ္ပာယ်ကြည်ညိုဖွယ်ကောင်းသော အာရုံခံတန်ဆောင်းကြီးလေးခု ရှိပြီး ထိုတန်ဆောင်းများအတွင်း၌ ဂေါတမဗုဒ္ဓမြတ်စွာဘုရား၏ ရုပ်ပွားတော်မြတ်များကို ကိန်းဝပ်စံပယ်တော်မူစေကာ ပြည်သူများ အေးချမ်းစွာ ဝတ်ပြုဆုတောင်းနိုင်ရန် စီစဉ်ထားပါသည်။ ထို့အပြင် ရင်ပြင်တော်ပေါ်၌ ရှေးဟောင်းလက်ရာ ပန်းပုထုလုပ်မှုများဖြင့် တန်ဆာဆင်ထားသော တန်ဆောင်းငယ်များနှင့် ဗုဒ္ဓဝင်ဇာတ်ကွက်များကို ဖော်ပြထားသည့် ရုပ်လုံးရုပ်ကြွများရှိသော ဂူဘုရားငယ်များလည်း တည်ရှိသဖြင့် ပုသိမ်ရွှေစည်းခုံစေတီတော်သည် အနုပညာလက်ရာစုံလင်သော ဘုရားစုတစ်ခုကဲ့သို့ မြင်တွေ့ရမည် ဖြစ်ပါသည်။
+</div>
+
+<!-- Image Gallery -->
+<div class="gallery">
+  <img src="shwesigon1.jpg" alt="">
+  <img src="ss2.jpg" alt="">
+  <img src="ss3.jpg" alt="">
+</div>
+
+<script>
+function goBack(){
+  window.history.back();
+}
+</script>
+
+</body>
+</html>

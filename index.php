@@ -975,9 +975,10 @@ border: 1px solid rgba(255, 255, 255, 0.2);
                 <li class="nav-item px-3"><a class="nav-link text-primary" href="#">သယ်ယူပို့ဆောင်ရေး</a>
                 </li>
                 <li class="nav-item px-3"><a class="nav-link text-primary" href="#">ဟိုတယ်</a></li>
-                <li class="nav-item px-3"><a class="nav-link text-primary" href="#">လည်ပတ်စရာနေရာများ</a>
+                <li class="nav-item px-3"><a class="nav-link text-primary" href="LinnKhantNaing/business.php">လုပ်ငန်းများ</a></li>
+                <li class="nav-item px-3"><a class="nav-link text-primary" href="sumyatmon/main.php">လည်ပတ်စရာနေရာများ</a>
                 </li>
-                <li class="nav-item px-3"><a class="nav-link text-primary" href="business.php">စီးပွားရေးလုပ်ငန်း</a>
+                <li class="nav-item px-3"><a class="nav-link text-primary" href="">စီးပွားရေးလုပ်ငန်း</a>
                 </li>
                  <li class="nav-item px-3"><a class="nav-link text-primary" href="#">ဒေသထွက်ကုန်များ</a>
             </ul>

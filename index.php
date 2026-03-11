@@ -1142,7 +1142,7 @@ border: 1px solid rgba(255, 255, 255, 0.2);
 
 <!-- Travel -->
 <div class="col-md-4">
-    <a href="#" class="text-decoration-none">
+    <a href="sumyatmon/main.php" class="text-decoration-none">
         <div class="service-card-bg h-100"
              style="background-image: url('Photo/travelforpatheininfo.jpg');">
 
